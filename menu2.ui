@@ -76,6 +76,50 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
+        <widget class="QPushButton" name="Btn_Mudar_usuario">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>Click aqui para efetuar a troca de Usuário</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(238, 238, 236);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>IMAGENS/trocar usuario.png</normaloff>IMAGENS/trocar usuario.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>95</width>
+           <height>95</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Mudar Usuário</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -126,50 +170,6 @@
          </property>
          <property name="text">
           <string>Cadastros</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="Btn_Mudar_usuario">
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="toolTip">
-          <string>Click aqui para efetuar a troca de Usuário</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 236);</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>IMAGENS/trocar usuario.png</normaloff>IMAGENS/trocar usuario.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>95</width>
-           <height>95</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">color: rgb(255, 255, 255);</string>
-         </property>
-         <property name="text">
-          <string>Mudar Usuário</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
