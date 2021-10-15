@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>887</width>
-    <height>600</height>
+    <height>785</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -95,8 +95,8 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>95</width>
-           <height>95</height>
+           <width>100</width>
+           <height>100</height>
           </size>
          </property>
         </widget>
@@ -177,6 +177,94 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="Btn_faturamento">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>Vendas, faturamento e emissão de Nfs</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(238, 238, 236);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>IMAGENS/icone_faturamento.png</normaloff>IMAGENS/icone_faturamento.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Faturamento/vendas</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Btn_estatisticas">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>Estatísticas do negócio e ranking</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(238, 238, 236);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>IMAGENS/icone_estatisticas.png</normaloff>IMAGENS/icone_estatisticas.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Estatísticas</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -209,8 +297,8 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>95</width>
-           <height>95</height>
+           <width>100</width>
+           <height>100</height>
           </size>
          </property>
         </widget>
