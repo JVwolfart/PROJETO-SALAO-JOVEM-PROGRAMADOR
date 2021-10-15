@@ -46,6 +46,9 @@
    <property name="toolTip">
     <string>Cadastro e Manutenção de Usuários ( acesso exclusivo ao ROOT )</string>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(238, 238, 236);</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -87,6 +90,9 @@
    </property>
    <property name="toolTip">
     <string>Cadastro a Manutenção de Serviços</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(238, 238, 236);</string>
    </property>
    <property name="text">
     <string/>
@@ -143,6 +149,9 @@
    <property name="toolTip">
     <string>Cadastro a Manutenção de Clientes</string>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(238, 238, 236);</string>
+   </property>
    <property name="icon">
     <iconset>
      <normaloff>IMAGENS/icon-cadastroPessoas.png</normaloff>IMAGENS/icon-cadastroPessoas.png</iconset>
@@ -181,6 +190,9 @@
    </property>
    <property name="toolTip">
     <string>Cadastro a Manutenção de Funcionários e Profissionais</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(238, 238, 236);</string>
    </property>
    <property name="icon">
     <iconset>

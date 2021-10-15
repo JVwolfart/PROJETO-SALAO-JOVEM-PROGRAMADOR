@@ -90,8 +90,14 @@
        </item>
        <item>
         <widget class="QPushButton" name="Btn_cadastro">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="toolTip">
           <string>Abre o Menu de Cadastros</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(238, 238, 236);</string>
          </property>
          <property name="text">
           <string/>
@@ -128,8 +134,14 @@
        </item>
        <item>
         <widget class="QPushButton" name="Btn_Mudar_usuario">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="toolTip">
           <string>Click aqui para efetuar a troca de Usuário</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(238, 238, 236);</string>
          </property>
          <property name="text">
           <string/>
@@ -179,8 +191,14 @@
        </item>
        <item>
         <widget class="QPushButton" name="Btn_Sair">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
          <property name="toolTip">
           <string>Click aqui para efetuar o Logout</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(238, 238, 236);</string>
          </property>
          <property name="text">
           <string/>
