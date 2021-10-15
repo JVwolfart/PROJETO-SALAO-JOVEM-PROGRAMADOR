@@ -2,13 +2,14 @@
 <ui version="4.0">
  <class>menu_cadastro</class>
  <widget class="QWidget" name="menu_cadastro">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>969</width>
-    <height>336</height>
-   </rect>
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Menu de Cadastros</string>
