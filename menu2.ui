@@ -90,6 +90,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="Btn_cadastro">
+         <property name="toolTip">
+          <string>Abre o Menu de Cadastros</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -125,6 +128,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="Btn_Mudar_usuario">
+         <property name="toolTip">
+          <string>Click aqui para efetuar a troca de Usuário</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -173,6 +179,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="Btn_Sair">
+         <property name="toolTip">
+          <string>Click aqui para efetuar o Logout</string>
+         </property>
          <property name="text">
           <string/>
          </property>

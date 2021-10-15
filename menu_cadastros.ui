@@ -5,6 +5,14 @@
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>931</width>
+    <height>227</height>
+   </rect>
+  </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
@@ -34,6 +42,9 @@
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>Cadastro e Manutenção de Usuários ( acesso exclusivo ao ROOT )</string>
    </property>
    <property name="text">
     <string/>
@@ -73,6 +84,9 @@
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>Cadastro a Manutenção de Serviços</string>
    </property>
    <property name="text">
     <string/>
@@ -126,6 +140,9 @@
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="toolTip">
+    <string>Cadastro a Manutenção de Clientes</string>
+   </property>
    <property name="icon">
     <iconset>
      <normaloff>IMAGENS/icon-cadastroPessoas.png</normaloff>IMAGENS/icon-cadastroPessoas.png</iconset>
@@ -161,6 +178,9 @@
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>Cadastro a Manutenção de Funcionários e Profissionais</string>
    </property>
    <property name="icon">
     <iconset>
