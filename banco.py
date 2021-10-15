@@ -284,7 +284,7 @@ def desfidelizar_cliente(id, fidelizado=False):
 def criar_tb_servicos():
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'CREATE TABLE IF NOT EXISTS servicos (Codigo	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Nome TEXT, Valor REAL, Tempo_medio INTERGER Status_servico TEXT)'
+    sql = 'CREATE TABLE IF NOT EXISTS servicos (Codigo	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Nome TEXT, Valor REAL, Tempo_medio INTERGER, Status_servico TEXT)'
     cur.execute(sql)
     banco.commit()
     banco.close()
