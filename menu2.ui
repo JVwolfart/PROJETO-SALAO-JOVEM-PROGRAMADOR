@@ -84,7 +84,14 @@
           <string>Click aqui para efetuar a troca de Usuário</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 236);</string>
+          <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
          </property>
          <property name="text">
           <string/>
@@ -141,7 +148,14 @@
           <string>Abre o Menu de Cadastros</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 236);</string>
+          <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
          </property>
          <property name="text">
           <string/>
@@ -185,7 +199,14 @@
           <string>Vendas, faturamento e emissão de Nfs</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 236);</string>
+          <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
          </property>
          <property name="text">
           <string/>
@@ -229,7 +250,14 @@
           <string>Estatísticas do negócio e ranking</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 236);</string>
+          <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
          </property>
          <property name="text">
           <string/>
@@ -286,7 +314,14 @@
           <string>Click aqui para efetuar o Logout</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(238, 238, 236);</string>
+          <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
          </property>
          <property name="text">
           <string/>

@@ -47,7 +47,14 @@
     <string>Cadastro e Manutenção de Usuários ( acesso exclusivo ao ROOT )</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(238, 238, 236);</string>
+    <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
    </property>
    <property name="text">
     <string/>
@@ -92,7 +99,14 @@
     <string>Cadastro a Manutenção de Serviços</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(238, 238, 236);</string>
+    <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
    </property>
    <property name="text">
     <string/>
@@ -150,7 +164,14 @@
     <string>Cadastro a Manutenção de Clientes</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(238, 238, 236);</string>
+    <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
    </property>
    <property name="icon">
     <iconset>
@@ -192,7 +213,14 @@
     <string>Cadastro a Manutenção de Funcionários e Profissionais</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(238, 238, 236);</string>
+    <string notr="true">QPushButton:hover {   
+    border: 3px solid yellow;
+    border-radius: 5px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
    </property>
    <property name="icon">
     <iconset>
