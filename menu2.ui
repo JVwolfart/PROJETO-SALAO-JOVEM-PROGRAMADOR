@@ -98,7 +98,7 @@ QPushButton{
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>IMAGENS/trocar usuario.png</normaloff>IMAGENS/trocar usuario.png</iconset>
+           <normaloff>IMAGENS/trocar usuario_adobespark.png</normaloff>IMAGENS/trocar usuario_adobespark.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -328,7 +328,7 @@ QPushButton{
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>IMAGENS/Sair do sistema.jpeg</normaloff>IMAGENS/Sair do sistema.jpeg</iconset>
+           <normaloff>IMAGENS/Sair do sistema_adobespark.png</normaloff>IMAGENS/Sair do sistema_adobespark.png</iconset>
          </property>
          <property name="iconSize">
           <size>

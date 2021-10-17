@@ -61,7 +61,7 @@ QPushButton{
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>IMAGENS/cadasro_usuario.jpg</normaloff>IMAGENS/cadasro_usuario.jpg</iconset>
+     <normaloff>IMAGENS/cadasro_usuario_adobespark.png</normaloff>IMAGENS/cadasro_usuario_adobespark.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -113,7 +113,7 @@ QPushButton{
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>IMAGENS/icone_servicos.jpg</normaloff>IMAGENS/icone_servicos.jpg</iconset>
+     <normaloff>IMAGENS/icone_servicos_adobespark.png</normaloff>IMAGENS/icone_servicos_adobespark.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -224,7 +224,7 @@ QPushButton{
    </property>
    <property name="icon">
     <iconset>
-     <normaloff>IMAGENS/cadastro_funcionario.jpg</normaloff>IMAGENS/cadastro_funcionario.jpg</iconset>
+     <normaloff>IMAGENS/cadastro_funcionario_adobespark.png</normaloff>IMAGENS/cadastro_funcionario_adobespark.png</iconset>
    </property>
    <property name="iconSize">
     <size>
