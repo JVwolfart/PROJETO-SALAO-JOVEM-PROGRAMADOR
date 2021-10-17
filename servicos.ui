@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Padaria da Pinheira</string>
+   <string>Cadastro e Manutenção de Serviços</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(62, 132, 238);</string>

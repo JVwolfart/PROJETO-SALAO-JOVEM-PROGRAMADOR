@@ -85,7 +85,7 @@
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 3px solid yellow;
+    border: 20px solid yellow;
     border-radius: 5px;   
    
 }
@@ -149,7 +149,7 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 3px solid yellow;
+    border: 20px solid yellow;
     border-radius: 5px;   
    
 }
@@ -200,7 +200,7 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 3px solid yellow;
+    border: 20px solid yellow;
     border-radius: 5px;   
    
 }
@@ -251,7 +251,7 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 3px solid yellow;
+    border: 20px solid yellow;
     border-radius: 5px;   
    
 }
@@ -315,7 +315,7 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 3px solid yellow;
+    border: 20px solid yellow;
     border-radius: 5px;   
    
 }
