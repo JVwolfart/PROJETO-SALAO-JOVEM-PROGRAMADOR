@@ -86,10 +86,6 @@ def fazer_login():
 def abrir_cria_usuario():
     if usuario1.root:
         login.close()
-        cad_usuario.CbCriar.setVisible(False)
-        cad_usuario.CbEditar.setVisible(False)
-        cad_usuario.CbExcluir.setVisible(False)
-        cad_usuario.CbRoot.setVisible(False)
         cad_usuario.show()    
     else:
         erro_sem_permissao()

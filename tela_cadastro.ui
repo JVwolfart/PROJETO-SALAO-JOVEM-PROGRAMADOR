@@ -193,58 +193,6 @@ border-color: rgb(0,0,0);</string>
      <pixmap>IMAGENS/icone_senha.png</pixmap>
     </property>
    </widget>
-   <widget class="QCheckBox" name="CbCriar">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>400</y>
-      <width>110</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Criar</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="CbEditar">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>400</y>
-      <width>110</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Editar</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="CbExcluir">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>400</y>
-      <width>110</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Excluir</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="CbRoot">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>440</y>
-      <width>161</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Administrador</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="BtnPermissao">
     <property name="geometry">
      <rect>
