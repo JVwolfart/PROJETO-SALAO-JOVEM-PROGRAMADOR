@@ -211,11 +211,11 @@ QPushButton{
      <x>40</x>
      <y>380</y>
      <width>131</width>
-     <height>41</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="text">
-    <string>Cadastro de Funcionários</string>
+    <string>Cadastro de Funcionários e profissionais</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

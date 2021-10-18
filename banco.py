@@ -181,6 +181,14 @@ def busca_todos_funcionarios():
     cur.execute(sql)
     return cur.fetchall()
 
+def busca_todos_funcionarios_ordem():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM funcionarios ORDER BY Nome'
+    cur.execute(sql)
+    return cur.fetchall()
+
 def busca_todos_funcionarios_combo():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
