@@ -1,6 +1,9 @@
+from os import truncate
 import sqlite3
 from sqlite3.dbapi2 import Cursor
 from datetime import date
+
+
 
 #data_atual = datetime.datetime.now()
 data_atual = date.today()
@@ -213,6 +216,14 @@ def busca_todos_clientes():
     cur.execute(sql)
     return cur.fetchall()
 
+def busca_todos_clientes_ordem():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM clientes ORDER BY nome'
+    cur.execute(sql)
+    return cur.fetchall()
+
 def busca_todos_clientes_combo():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
@@ -249,6 +260,26 @@ def desligar_cliente(id, status='Desligado'):
     cur.execute(sql, (status, id))
     banco.commit()
     banco.close()
+
+
+def fidelizar_cliente(id, fidelizado=True):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'UPDATE clientes SET Fidelizado=? WHERE Id_cliente=?'
+    cur.execute(sql, (fidelizado, id))
+    banco.commit()
+    banco.close()
+
+def desfidelizar_cliente(id, fidelizado=False):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'UPDATE clientes SET Fidelizado=? WHERE Id_cliente=?'
+    cur.execute(sql, (fidelizado, id))
+    banco.commit()
+    banco.close()
+
 
 def reativar_cliente(id, status='Ativo'):
     cria_tabelas()
