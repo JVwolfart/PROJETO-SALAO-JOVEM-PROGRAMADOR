@@ -21,7 +21,7 @@ def fazer_login():
         usuario1.banco_para_modelo(usuario_banco)
     if usuario == 'ROOT' and senha == 'manager':
         login.close()
-        abrir_cria_usuario()
+        cad_usuario.show()
         manut_usuarios.BtnOrdenar.setVisible(False)
         manut_usuarios.BtnOrdenarID.setVisible(False)
     else:
