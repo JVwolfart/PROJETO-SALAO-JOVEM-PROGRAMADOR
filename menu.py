@@ -121,8 +121,8 @@ def criar_novo_usuario():
         cad_usuario.InputUsuario.setText('')
         cad_usuario.InputSenha.setText('')
         cad_usuario.InputConfirmar.setText('')
-        novo_usuario = banco.buscar_usuario(usuario)
-        id_usuario = str(novo_usuario[0][0])
+        
+        
 ################################
 
 #MANUTENÇÃO DE USUÁRIOS
@@ -248,7 +248,7 @@ def setar_permissoes():
 
 def erro_sem_permissao():
     QMessageBox.about(menu_cadastros, 'ERRO', f'Usuário {usuario1.nome} não tem poder para cadastrar novos usuários, essa permissão é exclusiva para ROOT')
-    print(usuario1.root)
+    
 
 
 
