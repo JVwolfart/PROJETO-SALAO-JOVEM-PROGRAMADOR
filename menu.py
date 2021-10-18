@@ -105,9 +105,9 @@ def criar_novo_usuario():
     usuario = cad_usuario.InputUsuario.text().upper().strip()
     senha = cad_usuario.InputSenha.text()
     confirma = cad_usuario.InputConfirmar.text()
-    criar = cad_usuario.CbCriar.isChecked()
-    editar = cad_usuario.CbEditar.isChecked()
-    excluir = cad_usuario.CbExcluir.isChecked()
+    criar = False
+    editar = False
+    excluir = False
     usuario_banco = banco.buscar_usuario(usuario)
     if len(usuario) < 5 or len(senha) < 5:
         QMessageBox.about(cad_usuario, 'ERRO', 'usuário e senha devem ter pelo menos 5 caractéres')
@@ -121,9 +121,6 @@ def criar_novo_usuario():
         cad_usuario.InputUsuario.setText('')
         cad_usuario.InputSenha.setText('')
         cad_usuario.InputConfirmar.setText('')
-        cad_usuario.CbCriar.setChecked(False)
-        cad_usuario.CbEditar.setChecked(False)
-        cad_usuario.CbExcluir.setChecked(False)
         novo_usuario = banco.buscar_usuario(usuario)
         id_usuario = str(novo_usuario[0][0])
 ################################
