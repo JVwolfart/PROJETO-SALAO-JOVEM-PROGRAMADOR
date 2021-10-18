@@ -39,8 +39,8 @@ def carrega_clientes():
     tabela.setRowCount(len(clientes))
     tabela.setColumnWidth(0, 60)
     tabela.setColumnWidth(1, 350)
-    tabela.setColumnWidth(2, 150)
-    tabela.setColumnWidth(3, 100)
+    tabela.setColumnWidth(2, 190)
+    tabela.setColumnWidth(3, 130)
     tabela.setColumnWidth(4, 100)
     tabela.setColumnWidth(5, 100)
     tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -57,7 +57,6 @@ def carrega_clientes():
             tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'Sim'))
         row += 1
       
-    cliente.show()
 
 
 def pega_cliente():
@@ -80,7 +79,7 @@ def pega_cliente():
             manut_cliente.CbSexo.setCurrentIndex(1)
         else:
             manut_cliente.CbSexo.setCurrentIndex(2)
-        manut_cliente.show()
+        
         if status == 'Desligado':
             manut_cliente.CkAtivo.setChecked(False)
         else:
@@ -89,55 +88,72 @@ def pega_cliente():
             manut_cliente.CkFidelizado.setChecked(False)
         else:
             manut_cliente.CkFidelizado.setChecked(True)
+        manut_cliente.show()
 
 def desligar_cliente():
     id = manut_cliente.InputId.value()
     nome = manut_cliente.Nome.text()
-    men = QMessageBox.question(manut_cliente, 'DESLIGAR CLIENTE', f'ATENÇÃO, deseja realmente desligar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.desligar_cliente(id)
-        QMessageBox.about(manut_cliente, 'CLIENTE DESLIGADO', f'Cliente {nome} desligado com sucesso')
-        carrega_clientes()
-        manut_cliente.close()
+    ativo = manut_cliente.CkAtivo.isChecked()
+    if not ativo:
+        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já está desligado')
     else:
-        return
+        men = QMessageBox.question(manut_cliente, 'DESLIGAR CLIENTE', f'ATENÇÃO, deseja realmente desligar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.desligar_cliente(id)
+            QMessageBox.about(manut_cliente, 'CLIENTE DESLIGADO', f'Cliente {nome} desligado com sucesso')
+            carrega_clientes()
+            manut_cliente.close()
+        else:
+            return
 
 def reativar_cliente():
     id = manut_cliente.InputId.value()
     nome = manut_cliente.Nome.text()
-    men = QMessageBox.question(manut_cliente, 'REATIVAR CLIENTE', f'ATENÇÃO, deseja realmente reativar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.reativar_cliente(id)
-        QMessageBox.about(manut_cliente, 'CLIENTE REATIVADO', f'Cliente {nome} reativado com sucesso')
-        carrega_clientes()
-        manut_cliente.close()
+    ativo = manut_cliente.CkAtivo.isChecked()
+    if ativo:
+        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já está ativo')
     else:
-        return
+        men = QMessageBox.question(manut_cliente, 'REATIVAR CLIENTE', f'ATENÇÃO, deseja realmente reativar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.reativar_cliente(id)
+            QMessageBox.about(manut_cliente, 'CLIENTE REATIVADO', f'Cliente {nome} reativado com sucesso')
+            carrega_clientes()
+            manut_cliente.close()
+        else:
+            return
 
 
 def fidelizar_cliente():
     id = manut_cliente.InputId.value()
     nome = manut_cliente.Nome.text()
-    men = QMessageBox.question(manut_cliente, 'FIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente FIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.fidelizar_cliente(id)
-        QMessageBox.about(manut_cliente, 'CLIENTE FIDELIZADO', f'O Cliente {nome} foi fidelizado com sucesso e a partir de agora pode receber os descontos de fidelidade')
-        carrega_clientes()
-        manut_cliente.close()
+    fidelizado = manut_cliente.CkFidelizado.isChecked()
+    if fidelizado:
+        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já é fidelizado')
     else:
-        return
+        men = QMessageBox.question(manut_cliente, 'FIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente FIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.fidelizar_cliente(id)
+            QMessageBox.about(manut_cliente, 'CLIENTE FIDELIZADO', f'O Cliente {nome} foi fidelizado com sucesso e a partir de agora pode receber os descontos de fidelidade')
+            carrega_clientes()
+            manut_cliente.close()
+        else:
+            return
 
 def desfidelizar_cliente():
     id = manut_cliente.InputId.value()
     nome = manut_cliente.Nome.text()
-    men = QMessageBox.question(manut_cliente, 'DESFIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente DESFIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.desfidelizar_cliente(id)
-        QMessageBox.about(manut_cliente, 'CLIENTE DESFIDELIZADO', f'O Cliente {nome} foi desfidelizado e não contará mais com os descontos de fidelidade')
-        carrega_clientes()
-        manut_cliente.close()
+    fidelizado = manut_cliente.CkFidelizado.isChecked()
+    if not fidelizado:
+        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} não é fidelizado')
     else:
-        return
+        men = QMessageBox.question(manut_cliente, 'DESFIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente DESFIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.desfidelizar_cliente(id)
+            QMessageBox.about(manut_cliente, 'CLIENTE DESFIDELIZADO', f'O Cliente {nome} foi desfidelizado e não contará mais com os descontos de fidelidade')
+            carrega_clientes()
+            manut_cliente.close()
+        else:
+            return
 
 
 def alterar_cliente():
