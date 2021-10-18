@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>931</width>
-    <height>227</height>
+    <width>639</width>
+    <height>529</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -27,6 +27,9 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(52, 101, 164);</string>
+  </property>
+  <property name="inputMethodHints">
+   <set>Qt::ImhMultiLine</set>
   </property>
   <widget class="QPushButton" name="Btn_cadastro_usuario">
    <property name="enabled">
@@ -73,14 +76,20 @@ QPushButton{
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>50</x>
      <y>170</y>
-     <width>151</width>
-     <height>17</height>
+     <width>121</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Cadastro Usuário</string>
+    <string>Cadastro de Usuário</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="Btn_cadastro_servico">
@@ -125,27 +134,39 @@ QPushButton{
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>270</x>
      <y>170</y>
-     <width>191</width>
-     <height>17</height>
+     <width>111</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Cadastro de Serviços</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>480</x>
      <y>170</y>
-     <width>191</width>
-     <height>17</height>
+     <width>121</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Cadastro de Clientes</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="Btn_cadastro_cliente">
@@ -187,21 +208,27 @@ QPushButton{
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>170</y>
-     <width>221</width>
-     <height>17</height>
+     <x>40</x>
+     <y>380</y>
+     <width>131</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Cadastro de Funcionários</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="Btn_cadastro_funcionario">
    <property name="geometry">
     <rect>
-     <x>730</x>
-     <y>40</y>
+     <x>50</x>
+     <y>250</y>
      <width>120</width>
      <height>120</height>
     </rect>
@@ -225,6 +252,67 @@ QPushButton{
    <property name="icon">
     <iconset>
      <normaloff>IMAGENS/cadastro_funcionario_adobespark.png</normaloff>IMAGENS/cadastro_funcionario_adobespark.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>380</y>
+     <width>151</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhMultiLine</set>
+   </property>
+   <property name="text">
+    <string>Cadastro de Formas de pagamento</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Btn_cadastro_fpag">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>250</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>Cadastro a Manutenção de Formas de pagamento</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover {   
+    border: 20px solid yellow;
+    border-radius: 45px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>IMAGENS/icone_fpag.png</normaloff>IMAGENS/icone_fpag.png</iconset>
    </property>
    <property name="iconSize">
     <size>

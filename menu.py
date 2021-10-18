@@ -577,6 +577,7 @@ if __name__ == '__main__':
     menu_cadastros.Btn_cadastro_servico.clicked.connect(servico.show)
     menu_cadastros.Btn_cadastro_cliente.clicked.connect(cliente.show)
     menu_cadastros.Btn_cadastro_funcionario.clicked.connect(teste)
+    menu_cadastros.Btn_cadastro_fpag.clicked.connect(teste)
     ##
 
     #BOTÕES SERVIÇOS

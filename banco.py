@@ -90,6 +90,53 @@ def busca_permissoes(nome):
 
 #####
 
+#FORMAS DE PAGAMENTO
+def cria_tb_fpag():
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'CREATE TABLE IF NOT EXISTS fpag (Id_fpag	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Fpag TEXT, Status_fpag TEXT)'
+    cur.execute(sql)
+    banco.commit()
+    banco.close()
+
+def inserir_fpag(fpag, status='Ativo'):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'INSERT INTO fpag VALUES (?, ?, ?)'
+    cur.execute(sql, (None, fpag, status))
+    banco.commit()
+    banco.close()
+
+def alterar_fpag(id, fpag):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = "UPDATE fpag SET Fpag=? WHERE Id_fpag=?"
+    cur.execute(sql,(fpag, id))
+    banco.commit()
+    banco.close()
+
+def desligar_fpag(id, status='Desligado'):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = "UPDATE fpag SET Status_fpag=? WHERE Id_fpag=?"
+    cur.execute(sql,(status, id))
+    banco.commit()
+    banco.close()
+
+def reativar_fpag(id, status='Ativo'):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = "UPDATE fpag SET Status_fpag=? WHERE Id_fpag=?"
+    cur.execute(sql,(status, id))
+    banco.commit()
+    banco.close()
+
+#########
+
 #FUNCIONÁRIOS
 
 def criar_tb_funcionario():
@@ -587,12 +634,14 @@ def excluir_itens_nf(nf):
     banco.commit()
     banco.close()
 
+
 def cria_tabelas():
     criar_usuario()
     criar_tb_funcionario()
     criar_tb_clientes()
     criar_tb_servicos()
     criar_tb_notas()
+    cria_tb_fpag()
     #criar_tb_itens_nf()
 
 
