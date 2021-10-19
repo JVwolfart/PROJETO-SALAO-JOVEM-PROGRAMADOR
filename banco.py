@@ -296,6 +296,14 @@ def busca_todos_clientes_combo_ativos():
     cur.execute(sql, (status, ))
     return cur.fetchall()
 
+def busca_fidelidade_cliente(id):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Fidelizado FROM clientes WHERE id_cliente=? '
+    cur.execute(sql, (id, ))
+    return cur.fetchone()
+
 def alterar_cliente(id, nome, fone, sexo):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
