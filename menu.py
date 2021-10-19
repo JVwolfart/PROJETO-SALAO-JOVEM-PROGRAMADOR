@@ -725,9 +725,9 @@ if __name__ == '__main__':
     qt = QtWidgets.QApplication(sys.argv)
     
     usuario1 = Usuarios()
-    menu = uic.loadUi('menu2.ui')
+    menu = uic.loadUi('telas_duda/menu2.ui')
     menu_cadastros = uic.loadUi('menu_cadastros.ui')
-    login = uic.loadUi('tela_login.ui')
+    login = uic.loadUi('telas_duda/tela_login.ui')
     cad_usuario = uic.loadUi('tela_cadastro.ui')
     manut_usuarios = uic.loadUi('manutencao_usuarios.ui')
     permissoes = uic.loadUi('permissoes_usuarios.ui')
