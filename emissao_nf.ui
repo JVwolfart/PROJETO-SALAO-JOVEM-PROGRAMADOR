@@ -59,13 +59,13 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>70</y>
       <width>1041</width>
-      <height>741</height>
+      <height>751</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabNf">
      <attribute name="title">
@@ -163,9 +163,9 @@ color: black</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>260</y>
+        <y>320</y>
         <width>1021</width>
-        <height>291</height>
+        <height>231</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -272,7 +272,7 @@ color: rgb(138, 226, 52);</string>
       </column>
       <column>
        <property name="text">
-        <string>Quantidade</string>
+        <string>Profissional</string>
        </property>
        <property name="font">
         <font>
@@ -287,7 +287,7 @@ color: rgb(138, 226, 52);</string>
       </column>
       <column>
        <property name="text">
-        <string>Preço</string>
+        <string>Forma de pagamento</string>
        </property>
        <property name="font">
         <font>
@@ -302,7 +302,22 @@ color: rgb(138, 226, 52);</string>
       </column>
       <column>
        <property name="text">
-        <string>Total</string>
+        <string>Valor cobrado</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Fidelidade</string>
        </property>
        <property name="font">
         <font>
@@ -350,12 +365,12 @@ border-radius: 10px;</string>
        <string>Número da nota fiscal:</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboProdutos">
+     <widget class="QComboBox" name="comboServicos">
       <property name="geometry">
        <rect>
         <x>40</x>
         <y>120</y>
-        <width>261</width>
+        <width>301</width>
         <height>41</height>
        </rect>
       </property>
@@ -376,14 +391,17 @@ color: black</string>
        </rect>
       </property>
       <property name="text">
-       <string>Selecione o produto</string>
+       <string>Selecione o serviço</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="InputQuantidade">
+     <widget class="QDoubleSpinBox" name="InputPtab">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>120</y>
+        <x>50</x>
+        <y>230</y>
         <width>171</width>
         <height>41</height>
        </rect>
@@ -392,17 +410,20 @@ color: black</string>
        <string notr="true">background-color: rgb(255, 255, 255);
 border-radius: 10px;
 border-color: rgb(0,0,0);
-color: black</string>
+color: blue;</string>
       </property>
       <property name="maximum">
        <double>99999.990000000005239</double>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="InputPreco">
+     <widget class="QDoubleSpinBox" name="InputPfat">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>120</y>
+        <x>260</x>
+        <y>230</y>
         <width>171</width>
         <height>41</height>
        </rect>
@@ -411,43 +432,17 @@ color: black</string>
        <string notr="true">background-color: rgb(255, 255, 255);
 border-radius: 10px;
 border-color: rgb(0,0,0);
-color: black</string>
+color: blue;</string>
       </property>
       <property name="maximum">
        <double>99999.990000000005239</double>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>80</y>
-        <width>191</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Informe a quantidade</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>560</x>
-        <y>80</y>
-        <width>191</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Informe o preço</string>
       </property>
      </widget>
      <widget class="QPushButton" name="BtnInserir">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>200</y>
+        <x>780</x>
+        <y>190</y>
         <width>231</width>
         <height>51</height>
        </rect>
@@ -461,7 +456,7 @@ border-radius: 10px;
 background-color: rgb(78, 154, 6);</string>
       </property>
       <property name="text">
-       <string>Inserir produto</string>
+       <string>Inserir serviço</string>
       </property>
      </widget>
      <widget class="QSpinBox" name="NumeroNf">
@@ -484,6 +479,9 @@ color: black</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
+      </property>
+      <property name="maximum">
+       <number>2147483647</number>
       </property>
      </widget>
      <widget class="QFrame" name="frame_2">
@@ -533,24 +531,181 @@ border-radius: 20px;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QSlider" name="horizontalSlider">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
+     <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>30</y>
-        <width>160</width>
-        <height>21</height>
+        <x>360</x>
+        <y>90</y>
+        <width>221</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Selecione o profissional</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboProfi">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>120</y>
+        <width>381</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+color: black</string>
       </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>80</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
       </property>
+      <property name="text">
+       <string>Selecione a forma de pagamento</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboFpag">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>120</y>
+        <width>281</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+color: black</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>200</y>
+        <width>191</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Preço tabela</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>200</y>
+        <width>191</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Preço faturado</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_vip">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>199</y>
+        <width>311</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(32, 74, 135);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="lbhs_2">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>40</y>
+         <width>41</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>20%</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbhs">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>10</y>
+         <width>241</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>Desconto Fidelidade</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbhs_3">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>40</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0%</string>
+       </property>
+      </widget>
+      <widget class="QSlider" name="VipSlider">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>40</y>
+         <width>160</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="maximum">
+        <number>20</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::TicksBothSides</enum>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>

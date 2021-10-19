@@ -99,6 +99,24 @@ def cria_tb_fpag():
     banco.commit()
     banco.close()
 
+def busca_todos_fpags():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM fpag'
+    cur.execute(sql)
+    return cur.fetchall()
+
+
+def busca_todos_fpags_ativas(status='Ativo'):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM fpag WHERE Status_fpag=? ORDER BY Fpag'
+    cur.execute(sql, (status,))
+    return cur.fetchall()
+
+
 def inserir_fpag(fpag, status='Ativo'):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
@@ -471,7 +489,7 @@ def proxima_nf():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT MAX(Nfnum) FROM Nfiscais'
+    sql = 'SELECT MAX(Nf_num) FROM Nfiscais'
     cur.execute(sql)
     return cur.fetchone()
 
@@ -556,21 +574,37 @@ def buscar_nf_func_status(id_func, status):
 
 #ITENS NF
 
+
 def criar_tb_itens_nf():
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'CREATE TABLE IF NOT EXISTS Itens_nf (Id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Nf	INTEGER, Codigo	INTEGER, Quant	REAL, Preco	REAL, Valor	REAL, FOREIGN KEY(Codigo) REFERENCES produtos(Codigo), FOREIGN KEY(Nf) REFERENCES Nfiscais(NFnum))'
+    sql = """CREATE TABLE IF NOT EXISTS "Itens_nf" (
+	"Id_item"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"Nf"	INTEGER,
+	"data_emissao"	DATE,
+	"Codigo_serv"	INTEGER,
+	"Id_profi"	INTEGER,
+	"Id_fpag"	INTEGER,
+	"Preco_tab"	REAL,
+	"Preco_fat"	REAL,
+	"percentual"	INTEGER,
+	"fidelidade"	BOOLEAN,
+	FOREIGN KEY("Id_fpag") REFERENCES "fpag"("Id_fpag"),
+	FOREIGN KEY("Id_profi") REFERENCES "funcionarios"("Id_func"),
+	FOREIGN KEY("Codigo_serv") REFERENCES "servicos"("Codigo"),
+	FOREIGN KEY("Nf") REFERENCES "Nfiscais"("Nf_num")
+)"""
     cur.execute(sql)
     banco.commit()
     banco.close()
 
-def inserir_itens_nf(nf, codigo, qtde, preco ):
-    valor = qtde*preco
+def inserir_itens_nf(nf, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade):
+    global data_atual
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'INSERT INTO Itens_nf VALUES (?, ?, ?, ?, ?, ?, ?)'
-    cur.execute(sql, (None, nf, codigo, qtde, preco, valor, data_atual))
+    sql = 'INSERT INTO Itens_nf VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    cur.execute(sql, (None, nf, data_atual, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade))
     banco.commit()
     banco.close()
 
@@ -658,7 +692,7 @@ def cria_tabelas():
     criar_tb_servicos()
     criar_tb_notas()
     cria_tb_fpag()
-    #criar_tb_itens_nf()
+    criar_tb_itens_nf()
 
 
 #### ESATISTICAS
@@ -712,3 +746,5 @@ def vendas_por_cliente_ranking_desc_datas(data_Inicio, data_Fim):
     sql = 'SELECT clientes.Id_cliente, clientes.Nome, SUM (Nfiscais.valor) FROM clientes LEFT JOIN Nfiscais ON clientes.Id_cliente = Nfiscais.id_cliente WHERE Nfiscais.data BETWEEN ? AND ?  GROUP BY Nfiscais.id_cliente ORDER BY SUM (Nfiscais.valor) DESC '
     cur.execute(sql, (data_Inicio, data_Fim))
     return cur.fetchall()
+
+
