@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1045</width>
-    <height>747</height>
+    <width>1051</width>
+    <height>680</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -621,7 +621,7 @@ border-radius: 40px;</string>
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../../../../../Downloads/PicsArt_10-18-10.18.32.png</pixmap>
+             <pixmap>../IMAGENS/PicsArt_10-18-10.18.32.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
