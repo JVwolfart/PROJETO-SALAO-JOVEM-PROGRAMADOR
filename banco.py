@@ -94,7 +94,7 @@ def busca_permissoes(nome):
 def cria_tb_fpag():
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'CREATE TABLE IF NOT EXISTS fpag (Id_fpag	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Fpag TEXT, Status_fpag TEXT)'
+    sql = 'CREATE TABLE IF NOT EXISTS fpag (Id_fpag	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, Fpag_name TEXT, Status_fpag TEXT)'
     cur.execute(sql)
     banco.commit()
     banco.close()
@@ -130,7 +130,7 @@ def alterar_fpag(id, fpag):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = "UPDATE fpag SET Fpag=? WHERE Id_fpag=?"
+    sql = "UPDATE fpag SET Fpag_name=? WHERE Id_fpag=?"
     cur.execute(sql,(fpag, id))
     banco.commit()
     banco.close()

@@ -90,7 +90,8 @@ def inserir_item_nf():
     preco_tab = nf.InputPtab.value()
     preco_fat = nf.InputPfat.value()
     desc = nf.VipSlider.value()
-    fidelidade = nf.vip.isVisible()
+    fidelidade = nf.frame_vip.isVisible()
+    print(fidelidade)
     banco.inserir_itens_nf(num_nf, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade)
     QMessageBox.about(nf, 'ITEM INCLUÍDO', f'Item {item} incluído com sucesso')
 

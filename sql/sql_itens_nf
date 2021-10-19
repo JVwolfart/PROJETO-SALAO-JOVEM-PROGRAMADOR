@@ -1,0 +1,1 @@
+SELECT Id_item, Nf, data_emissao, Codigo_serv, servicos.Nome, Id_profi, funcionarios.Nome, Itens_nf.Id_fpag, Fpag_name, Preco_fat, percentual, fidelidade FROM Itens_nf LEFT JOIN servicos on servicos.Codigo = Itens_nf.Codigo_serv LEFT JOIN funcionarios on funcionarios.Id_func = Itens_nf.Id_profi LEFT JOIN fpag on fpag.Id_fpag = Itens_nf.Id_fpag 
