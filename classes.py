@@ -45,7 +45,8 @@ class NFiscal():
     def __init__(self):
         self.num = None
         self.data = None
-        self.id_func = None
         self.id_cliente = None
+        self.cliente = None
         self.valor = 0
-        self.status = 'P'
+        self.status = 'Pendente'
+        self.desconto_fidelidade = None

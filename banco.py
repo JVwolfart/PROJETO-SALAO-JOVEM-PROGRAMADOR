@@ -493,6 +493,13 @@ def proxima_nf():
     cur.execute(sql)
     return cur.fetchone()
 
+def busca_nf(nf):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nf_num=?'
+    cur.execute(sql, (nf,))
+    return cur.fetchone()
 
 def gravar_nf(id_cliente, valor=0, status='Pendente', desconto=False):
     cria_tabelas()
@@ -508,7 +515,7 @@ def busca_todas_notas():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, valor, Nfiscais.status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente ORDER BY NFnum DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente ORDER BY Nf_num DESC'
     cur.execute(sql)
     return cur.fetchall()
 
@@ -516,7 +523,7 @@ def busca_todas_notas_status(status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE status=? ORDER BY NFnum DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Status=? ORDER BY Nf_num DESC'
     cur.execute(sql, (status,))
     return cur.fetchall()
 
@@ -540,7 +547,7 @@ def buscar_nf_cliente(id_cliente):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE Nfiscais.id_cliente=? ORDER BY NFnum DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE clientes.Id_cliente=? ORDER BY Nf_num DESC'
     cur.execute(sql, (id_cliente,))
     return cur.fetchall()
 
@@ -548,7 +555,7 @@ def buscar_nf_cliente_status(id_cliente, status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE Nfiscais.id_cliente=? AND status=? ORDER BY NFnum DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE clientes.Id_cliente=? AND Nfiscais.Status=? ORDER BY Nf_num DESC'
     cur.execute(sql, (id_cliente, status))
     return cur.fetchall()
 
@@ -641,22 +648,10 @@ def atualizar_nf_cancelamento(nf, total):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = "UPDATE Nfiscais SET valor=?, status=? WHERE NFnum=?"
+    sql = "UPDATE Nfiscais SET valor=?, status=? WHERE Nf_num=?"
     cur.execute(sql,(total, status, nf))
     banco.commit()
     banco.close()
-
-
-def cancelar_nf(nf):
-    status = 'Cancelada'
-    cria_tabelas()
-    banco = sqlite3.connect('bdados.db')
-    cur = banco.cursor()
-    sql = "UPDATE Nfiscais SET status=? WHERE NFnum=?"
-    cur.execute(sql,(status, nf))
-    banco.commit()
-    banco.close()
-    
 
 def alterar_itens_nf(qtde, preco, id):
     cria_tabelas()

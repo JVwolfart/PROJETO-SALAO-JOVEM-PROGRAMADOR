@@ -5,6 +5,7 @@ import banco
 from PyQt5.QtWidgets import QMessageBox
 from datetime import date, datetime
 from classes import Usuarios
+import funcoes
 
 def teste():
     print('Tudo OK')
