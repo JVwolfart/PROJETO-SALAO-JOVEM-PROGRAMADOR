@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1054</width>
+    <width>1120</width>
     <height>839</height>
    </rect>
   </property>
@@ -60,7 +60,7 @@
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>1041</width>
+      <width>1101</width>
       <height>751</height>
      </rect>
     </property>
@@ -164,7 +164,7 @@ color: black</string>
        <rect>
         <x>10</x>
         <y>320</y>
-        <width>1021</width>
+        <width>1081</width>
         <height>231</height>
        </rect>
       </property>
@@ -182,7 +182,7 @@ color: black</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -212,37 +212,7 @@ color: rgb(138, 226, 52);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>ID</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>N° Nfiscal</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Código</string>
+        <string>ID do item</string>
        </property>
        <property name="font">
         <font>
@@ -287,22 +257,7 @@ color: rgb(138, 226, 52);</string>
       </column>
       <column>
        <property name="text">
-        <string>Forma de pagamento</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Valor cobrado</string>
+        <string>Preço faturado</string>
        </property>
        <property name="font">
         <font>
@@ -318,6 +273,36 @@ color: rgb(138, 226, 52);</string>
       <column>
        <property name="text">
         <string>Fidelidade</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Desconto %</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Forma de pagamento</string>
        </property>
        <property name="font">
         <font>
@@ -357,7 +342,7 @@ border-radius: 10px;</string>
        <rect>
         <x>30</x>
         <y>20</y>
-        <width>221</width>
+        <width>161</width>
         <height>31</height>
        </rect>
       </property>
@@ -442,7 +427,7 @@ color: blue;</string>
       <property name="geometry">
        <rect>
         <x>780</x>
-        <y>190</y>
+        <y>220</y>
         <width>231</width>
         <height>51</height>
        </rect>
@@ -465,9 +450,9 @@ background-color: rgb(78, 154, 6);</string>
       </property>
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>200</x>
         <y>20</y>
-        <width>151</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -508,7 +493,7 @@ border-radius: 20px;</string>
         <rect>
          <x>20</x>
          <y>20</y>
-         <width>1061</width>
+         <width>931</width>
          <height>41</height>
         </rect>
        </property>
@@ -706,6 +691,70 @@ color: black</string>
         <enum>QSlider::TicksBothSides</enum>
        </property>
       </widget>
+     </widget>
+     <widget class="QSpinBox" name="Id_Cliente">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>20</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+color: black</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="maximum">
+       <number>2147483647</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>20</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ID Cliente:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="Inome">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>20</y>
+        <width>481</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(32, 74, 135);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+</string>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>Nome do Cliente</string>
+      </property>
      </widget>
     </widget>
    </widget>

@@ -5,6 +5,7 @@ import banco
 from PyQt5.QtWidgets import QMessageBox
 from datetime import date, datetime
 from classes import Usuarios
+import funcoes
 
 def teste():
     print('Tudo OK')
@@ -76,7 +77,7 @@ def fazer_login():
             '''
             ###############
             login.close()
-            menu.lbl_ola.setText(f'Seja bem vindo usuário {usuario1.nome}')
+            menu.lbl_ola.setText(f'Seja bem vindo usuário {usuario1.nome.title()}')
             #menu.lbl_id_user.setText(f'{usuario1.id}')
             menu.showMaximized()
             QMessageBox.about(menu, 'BOAS VINDAS', f'Bem vindo usuário {usuario1.nome}, você possui as seguintes permissões: {permi}')
@@ -725,9 +726,9 @@ if __name__ == '__main__':
     qt = QtWidgets.QApplication(sys.argv)
     
     usuario1 = Usuarios()
-    menu = uic.loadUi('menu2.ui')
+    menu = uic.loadUi('telas_duda/menu2.ui')
     menu_cadastros = uic.loadUi('menu_cadastros.ui')
-    login = uic.loadUi('tela_login.ui')
+    login = uic.loadUi('telas_duda/tela_login.ui')
     cad_usuario = uic.loadUi('tela_cadastro.ui')
     manut_usuarios = uic.loadUi('manutencao_usuarios.ui')
     permissoes = uic.loadUi('permissoes_usuarios.ui')
