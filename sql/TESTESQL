@@ -1,0 +1,1 @@
+SELECT Nf_num, NF, Data, Nfiscais.Id_cliente, Nome, Desconto_fidelidade, Status, * FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente LEFT JOIN Itens_nf ON Nf_num = Itens_nf.Nf

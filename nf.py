@@ -74,12 +74,14 @@ def calcular_desconto():
 
 def emitir_nf():
     id_cliente = nf.comboClientes.currentData()
+    nome_cli= nf.comboClientes.currentText()
     desconto_fidelidade = nf.vip.isVisible()
     banco.gravar_nf(id_cliente, desconto=desconto_fidelidade)
     numero_nf = banco.proxima_nf()
     numero_nf = numero_nf[0]
     nf.NumeroNf.setValue(numero_nf)
     nf.Id_Cliente.setValue(id_cliente)
+    nf.Inome.setText(nome_cli)
     nf.tabWidget.setCurrentIndex(1)
 
 def inserir_item_nf():

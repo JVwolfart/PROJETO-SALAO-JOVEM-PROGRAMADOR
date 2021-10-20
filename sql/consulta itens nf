@@ -1,0 +1,1 @@
+SELECT Id_item, NF, data_emissao, servicos.Codigo, servicos.Nome, Preco_fat, fidelidade, Itens_nf.percentual FROM Itens_nf LEFT JOIN servicos ON servicos.Codigo = Itens_nf.Codigo_serv WHERE Itens_nf.Nf = 19
