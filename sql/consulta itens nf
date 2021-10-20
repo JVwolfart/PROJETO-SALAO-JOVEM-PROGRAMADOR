@@ -1,1 +1,1 @@
-SELECT Id_item, NF, data_emissao, servicos.Codigo, servicos.Nome, Preco_fat, fidelidade, Itens_nf.percentual FROM Itens_nf LEFT JOIN servicos ON servicos.Codigo = Itens_nf.Codigo_serv WHERE Itens_nf.Nf = 19
+SELECT Id_item as ID, NF, servicos.Codigo, servicos.Nome as serviço , funcionarios.Nome as profissional, Preco_fat, fidelidade, Itens_nf.percentual FROM Itens_nf LEFT JOIN servicos ON servicos.Codigo = Itens_nf.Codigo_serv LEFT JOIN funcionarios on funcionarios.Id_func = Itens_nf.Id_profi  WHERE Itens_nf.Nf = 23
