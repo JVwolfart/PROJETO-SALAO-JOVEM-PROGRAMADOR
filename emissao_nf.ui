@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1054</width>
+    <width>1120</width>
     <height>839</height>
    </rect>
   </property>
@@ -60,7 +60,7 @@
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>1041</width>
+      <width>1101</width>
       <height>751</height>
      </rect>
     </property>
@@ -164,7 +164,7 @@ color: black</string>
        <rect>
         <x>10</x>
         <y>320</y>
-        <width>1021</width>
+        <width>1081</width>
         <height>231</height>
        </rect>
       </property>
@@ -182,7 +182,7 @@ color: black</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -212,37 +212,7 @@ color: rgb(138, 226, 52);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>ID</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>N° Nfiscal</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Código</string>
+        <string>ID do item</string>
        </property>
        <property name="font">
         <font>
@@ -287,22 +257,7 @@ color: rgb(138, 226, 52);</string>
       </column>
       <column>
        <property name="text">
-        <string>Forma de pagamento</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Valor cobrado</string>
+        <string>Preço faturado</string>
        </property>
        <property name="font">
         <font>
@@ -318,6 +273,36 @@ color: rgb(138, 226, 52);</string>
       <column>
        <property name="text">
         <string>Fidelidade</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Desconto %</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Forma de pagamento</string>
        </property>
        <property name="font">
         <font>
@@ -508,7 +493,7 @@ border-radius: 20px;</string>
         <rect>
          <x>20</x>
          <y>20</y>
-         <width>1061</width>
+         <width>931</width>
          <height>41</height>
         </rect>
        </property>

@@ -614,7 +614,7 @@ def buscar_itens_nf(nf):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT *FROM Itens_nf LEFT JOIN produtos on produtos.Codigo = Itens_nf.Codigo WHERE Nf=?'
+    sql = 'SELECT Id_item as ID, NF, servicos.Codigo, servicos.Nome as serviço , funcionarios.Nome as profissional, Preco_fat, fidelidade, Itens_nf.percentual, fpag.Fpag_name FROM Itens_nf LEFT JOIN servicos ON servicos.Codigo = Itens_nf.Codigo_serv LEFT JOIN funcionarios on funcionarios.Id_func = Itens_nf.Id_profi LEFT JOIN fpag on Itens_nf.Id_fpag = fpag.Id_fpag  WHERE Itens_nf.Nf=?'
     cur.execute(sql, (nf,))
     return cur.fetchall()
 
@@ -622,7 +622,7 @@ def calcula_total_nf(nf):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT sum(valor) FROM Itens_nf WHERE Nf =?'
+    sql = 'SELECT sum(Preco_fat) FROM Itens_nf WHERE Nf =?'
     cur.execute(sql, (nf,))
     return cur.fetchall()
 
@@ -631,7 +631,7 @@ def atualizar_nf(nf, total):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = "UPDATE Nfiscais SET valor=?, status=? WHERE NFnum=?"
+    sql = "UPDATE Nfiscais SET valor=?, status=? WHERE Nf_num=?"
     cur.execute(sql,(total, status, nf))
     banco.commit()
     banco.close()
@@ -672,7 +672,7 @@ def excluir_item_nf(id):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = "DELETE FROM Itens_nf  WHERE Id=?"
+    sql = "DELETE FROM Itens_nf  WHERE Id_item=?"
     cur.execute(sql,(id,))
     banco.commit()
     banco.close()
