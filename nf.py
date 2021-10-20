@@ -79,6 +79,7 @@ def emitir_nf():
     numero_nf = banco.proxima_nf()
     numero_nf = numero_nf[0]
     nf.NumeroNf.setValue(numero_nf)
+    nf.Id_Cliente.setValue(id_cliente)
     nf.tabWidget.setCurrentIndex(1)
 
 def inserir_item_nf():
@@ -90,9 +91,10 @@ def inserir_item_nf():
     preco_tab = nf.InputPtab.value()
     preco_fat = nf.InputPfat.value()
     desc = nf.VipSlider.value()
+    id_cliente = nf.Id_Cliente.value()
     fidelidade = nf.frame_vip.isVisible()
     print(fidelidade)
-    banco.inserir_itens_nf(num_nf, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade)
+    banco.inserir_itens_nf(num_nf, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade, id_cliente)
     QMessageBox.about(nf, 'ITEM INCLUÍDO', f'Item {item} incluído com sucesso')
 
 

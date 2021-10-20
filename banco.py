@@ -112,7 +112,7 @@ def busca_todos_fpags_ativas(status='Ativo'):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT * FROM fpag WHERE Status_fpag=? ORDER BY Fpag'
+    sql = 'SELECT * FROM fpag WHERE Status_fpag=? ORDER BY Fpag_name'
     cur.execute(sql, (status,))
     return cur.fetchall()
 
@@ -589,22 +589,24 @@ def criar_tb_itens_nf():
 	"Preco_fat"	REAL,
 	"percentual"	INTEGER,
 	"fidelidade"	BOOLEAN,
-	FOREIGN KEY("Id_fpag") REFERENCES "fpag"("Id_fpag"),
-	FOREIGN KEY("Id_profi") REFERENCES "funcionarios"("Id_func"),
+	"id_cliente"	INTEGER,
+	FOREIGN KEY("id_cliente") REFERENCES "clientes"("Id_cliente"),
+	FOREIGN KEY("Nf") REFERENCES "Nfiscais"("Nf_num"),
 	FOREIGN KEY("Codigo_serv") REFERENCES "servicos"("Codigo"),
-	FOREIGN KEY("Nf") REFERENCES "Nfiscais"("Nf_num")
+	FOREIGN KEY("Id_profi") REFERENCES "funcionarios"("Id_func"),
+	FOREIGN KEY("Id_fpag") REFERENCES "fpag"("Id_fpag")
 )"""
     cur.execute(sql)
     banco.commit()
     banco.close()
 
-def inserir_itens_nf(nf, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade):
+def inserir_itens_nf(nf, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade, id_cliente):
     global data_atual
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'INSERT INTO Itens_nf VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-    cur.execute(sql, (None, nf, data_atual, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade))
+    sql = 'INSERT INTO Itens_nf VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    cur.execute(sql, (None, nf, data_atual, codigo, id_profi, id_fpag, preco_tab, preco_fat, desc, fidelidade,id_cliente))
     banco.commit()
     banco.close()
 
