@@ -34,7 +34,6 @@ def busca_preco():
     preco_servico = banco.buscar_preco_id(id)
     if len(preco_servico) != 0:
         preco = float(preco_servico[0][0])
-        print(preco_servico)
         nf.InputPtab.setValue(preco)
         nf.InputPfat.setValue(preco)
         calcular_desconto()    
