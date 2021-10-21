@@ -424,6 +424,8 @@ def carrega_nfs_canceladas():
 
 def carrega_todas_nfs_cliente():
     id_cliente = nf_cliente.comboClientes.currentData()
+    cliente = nf_cliente.comboClientes.currentText()
+    vendas.lbl_escolha.setText(f'Cliente selecionado : {cliente}')
     tabela = vendas.TabelaNfs
     row = 0
     nfs = banco.buscar_nf_cliente(id_cliente)
@@ -457,6 +459,155 @@ def carrega_todas_nfs_cliente():
     carrega_nfs_pendentes_clientes()
     carrega_nfs_canceladas_clientes()
     nf_cliente.close()
+
+
+#### notas por data de emissão
+def carrega_todas_nfs_dtemissao():
+    data = nf_data.InputData.text()
+    vendas.lbl_escolha.setText(f'Data de emissão selecionada: {data}')
+    vendas.lbl_total.setText(f'')
+    dtemissão = funcoes.data_banco2(data)
+    tabela = vendas.TabelaNfs
+    row = 0
+    nfs=banco.buscar_nf_data(dtemissão)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+        vendas.lbl_total.setText(f'Total das notas listadas: R$ {total:.2f}')
+    carrega_nfs_emitidas_dtemissao()
+    carrega_nfs_pendentes_dtemissao()
+    carrega_nfs_canceladas_dtemissao()
+    nf_data.close()
+
+def carrega_nfs_emitidas_dtemissao():
+    data = nf_data.InputData.text()
+    vendas.lbl_escolha.setText(f'Data de emissão selecionada: {data}')
+    vendas.lbl_total_emitidas.setText(f'')
+    dtemissão = funcoes.data_banco2(data)
+    row = 0
+    nfs = banco.busca_nf_data_status(dtemissão, 'Emitida')
+    tabela = vendas.TabelaEmitidas
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+        vendas.lbl_total_emitidas.setText(f'Total das notas listadas: R$ {total:.2f}')
+
+def carrega_nfs_pendentes_dtemissao():
+    data = nf_data.InputData.text()
+    vendas.lbl_escolha.setText(f'Data de emissão selecionada: {data}')
+    vendas.lbl_total_pendentes.setText(f'')
+    dtemissão = funcoes.data_banco2(data)
+    tabela = vendas.TabelaPendentes
+    row = 0
+    nfs = banco.busca_nf_data_status(dtemissão, 'Pendente')
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+        vendas.lbl_total_pendentes.setText(f'Total das notas listadas: R$ {total:.2f}')
+
+
+def carrega_nfs_canceladas_dtemissao():
+    data = nf_data.InputData.text()
+    vendas.lbl_escolha.setText(f'Data de emissão selecionada: {data}')
+    vendas.lbl_total_canceladas.setText(f'')
+    dtemissão = funcoes.data_banco2(data)
+    tabela = vendas.TabelaCanceladas
+    row = 0
+    nfs = banco.busca_nf_data_status(dtemissão, 'Cancelada')
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+        vendas.lbl_total_canceladas.setText(f'Total das notas listadas: R$ {total:.2f}')
+
+
 
 def carrega_nfs_emitidas_clientes():
     id_cliente = nf_cliente.comboClientes.currentData()
@@ -634,16 +785,17 @@ def cancelar_nf():
 
 
 def escrever_cliente():
-    vendas.lbl_escolha.setText('')
-    cliente = nf_cliente.comboClientes.currentText()
-    vendas.lbl_escolha.setText(f'Cliente: {cliente}')
+    #vendas.lbl_escolha.setText('')
+    #cliente = nf_cliente.comboClientes.currentText()
+    #vendas.lbl_escolha.setText(f'Cliente selecionado : {cliente}')
+    pass
 
 def escrever_data():
     vendas.lbl_escolha.setText('')
-    data = nf_data.InputData.text()
-    vendas.lbl_escolha.setText(f'Data de emissão: {data}')
+    carrega_todas_nfs_dtemissao()
 
 def carrega_tabelas_nf():
+    vendas.lbl_escolha.setText('Busca Todas as Notas fiscais')
     carrega_todas_nfs()
     carrega_nfs_emitidas()
     carrega_nfs_pendentes()
@@ -651,7 +803,7 @@ def carrega_tabelas_nf():
     vendas.show()
 
 def rb_todas_nfs():
-    vendas.lbl_escolha.setText('')
+    vendas.lbl_escolha.setText('Busca Todas as Notas fiscais')
     carrega_tabelas_nf()
 
 

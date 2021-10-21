@@ -531,7 +531,7 @@ def busca_nf_data_status(data, status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE status=? AND data=? ORDER BY NFnum DESC'
+    sql = 'SELECT NF_num, Nfiscais.data as dia ,Nfiscais.Id_cliente, clientes.Nome as cliente, valor,Desconto_fidelidade, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE status=? AND data=? ORDER BY NF_num DESC'
     cur.execute(sql, (status, data))
     return cur.fetchall()
 
@@ -539,7 +539,7 @@ def buscar_nf_data(data):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente,  valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE data=? ORDER BY NFnum DESC'
+    sql = 'SELECT NF_num, Nfiscais.data as dia ,Nfiscais.Id_cliente,  clientes.Nome as cliente,  valor,Desconto_fidelidade, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE data=? ORDER BY NF_num DESC'
     cur.execute(sql, (data,))
     return cur.fetchall()
 

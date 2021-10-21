@@ -68,7 +68,7 @@
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -1091,7 +1091,7 @@ border-radius: 10px;</string>
      <rect>
       <x>10</x>
       <y>80</y>
-      <width>471</width>
+      <width>1121</width>
       <height>51</height>
      </rect>
     </property>
@@ -1105,9 +1105,6 @@ border-radius: 10px;</string>
     </property>
     <property name="text">
      <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
