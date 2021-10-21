@@ -32,18 +32,21 @@ def busca_fiel():
 def busca_preco():
     id = nf.comboServicos.currentData()
     preco_servico = banco.buscar_preco_id(id)
-    preco = float(preco_servico[0][0])
-    nf.InputPtab.setValue(preco)
-    nf.InputPfat.setValue(preco)
-    calcular_desconto()    
+    if len(preco_servico) != 0:
+        preco = float(preco_servico[0][0])
+        print(preco_servico)
+        nf.InputPtab.setValue(preco)
+        nf.InputPfat.setValue(preco)
+        calcular_desconto()    
 
 def busca_preco_manut():
     id = manut_nf.comboServicos.currentData()
     preco_servico = banco.buscar_preco_id(id)
-    preco = float(preco_servico[0][0])
-    manut_nf.InputPtab.setValue(preco)
-    manut_nf.InputPfat.setValue(preco)
-    calcular_desconto_manut()    
+    if len(preco_servico) != 0:
+        preco = float(preco_servico[0][0])
+        manut_nf.InputPtab.setValue(preco)
+        manut_nf.InputPfat.setValue(preco)
+        calcular_desconto_manut()    
 
 def cliente_nf_combo():
     nf.comboClientes.clear()
