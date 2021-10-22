@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1051</width>
-    <height>680</height>
+    <width>950</width>
+    <height>690</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,8 +21,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>600</height>
+    <width>950</width>
+    <height>690</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -64,7 +64,7 @@ background-color: rgb(173, 127, 168);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(216, 164, 194);</string>
+       <string notr="true">background-color: rgb(215, 139, 185);</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -86,12 +86,14 @@ background-color: rgb(173, 127, 168);</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 20px solid yellow;
+    border: 10px solid ;
+	border-color: rgb(236, 174, 204);
     border-radius: 45px;   
    
 }
 QPushButton{   
     background-color:rgb(238, 238, 236);
+	border-radius: 45px;
 }</string>
          </property>
          <property name="text">
@@ -103,7 +105,7 @@ QPushButton{
          </property>
          <property name="iconSize">
           <size>
-           <width>100</width>
+           <width>90</width>
            <height>100</height>
           </size>
          </property>
@@ -150,12 +152,14 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 20px solid yellow;
+    border: 10px solid ;
+	border-color: rgb(236, 174, 204);
     border-radius: 45px;   
    
 }
 QPushButton{   
     background-color:rgb(238, 238, 236);
+	border-radius: 45px;
 }</string>
          </property>
          <property name="text">
@@ -167,7 +171,7 @@ QPushButton{
          </property>
          <property name="iconSize">
           <size>
-           <width>100</width>
+           <width>90</width>
            <height>100</height>
           </size>
          </property>
@@ -201,12 +205,14 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 20px solid yellow;
+    border: 10px solid ;
+	border-color: rgb(236, 174, 204);
     border-radius: 45px;   
    
 }
 QPushButton{   
     background-color:rgb(238, 238, 236);
+	border-radius: 45px;
 }</string>
          </property>
          <property name="text">
@@ -252,12 +258,14 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 20px solid yellow;
+    border: 10px solid ;
+	border-color: rgb(236, 174, 204);
     border-radius: 45px;   
    
 }
 QPushButton{   
     background-color:rgb(238, 238, 236);
+	border-radius: 45px;
 }</string>
          </property>
          <property name="text">
@@ -316,12 +324,14 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton:hover {   
-    border: 20px solid yellow;
+    border: 10px solid ;
+	border-color: rgb(236, 174, 204);
     border-radius: 45px;   
    
 }
 QPushButton{   
     background-color:rgb(238, 238, 236);
+	border-radius: 45px;
 }</string>
          </property>
          <property name="text">
@@ -333,7 +343,7 @@ QPushButton{
          </property>
          <property name="iconSize">
           <size>
-           <width>100</width>
+           <width>90</width>
            <height>100</height>
           </size>
          </property>
@@ -405,7 +415,7 @@ QPushButton{
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(203, 137, 176);</string>
+          <string notr="true">background-color: rgb(216, 164, 194);</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -556,18 +566,11 @@ border-radius: 40px;</string>
                </property>
                <property name="font">
                 <font>
-                 <family>Z003</family>
-                 <pointsize>32</pointsize>
-                 <weight>9</weight>
-                 <italic>true</italic>
-                 <bold>false</bold>
-                 <underline>false</underline>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
+                 <pointsize>20</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                 <underline>true</underline>
                 </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">font: 75 italic 32pt &quot;Z003&quot;;</string>
                </property>
                <property name="text">
                 <string>TextLabel</string>
