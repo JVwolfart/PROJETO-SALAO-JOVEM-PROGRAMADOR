@@ -795,7 +795,7 @@ def escrever_data():
     carrega_todas_nfs_dtemissao()
 
 def carrega_tabelas_nf():
-    vendas.lbl_escolha.setText('Busca Todas as Notas fiscais')
+    vendas.lbl_escolha.setText('Busca Todas as Notas fiscais (últimas 50 nfs ordem decrescente)')
     carrega_todas_nfs()
     carrega_nfs_emitidas()
     carrega_nfs_pendentes()
@@ -803,7 +803,7 @@ def carrega_tabelas_nf():
     vendas.show()
 
 def rb_todas_nfs():
-    vendas.lbl_escolha.setText('Busca Todas as Notas fiscais')
+    vendas.lbl_escolha.setText('Busca Todas as Notas fiscais (últimas 50 nfs ordem decrescente)')
     carrega_tabelas_nf()
 
 
@@ -1184,6 +1184,5 @@ if __name__ == '__main__':
     ##############
     
     carrega_tabelas_nf()
-    #carrega_servicos()  
     banco.cria_tabelas()
     qt.exec_()
