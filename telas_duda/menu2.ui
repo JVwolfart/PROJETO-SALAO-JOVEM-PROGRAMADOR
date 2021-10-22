@@ -572,11 +572,16 @@ border-radius: 40px;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>20</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                 <underline>true</underline>
+                 <family>Z003</family>
+                 <pointsize>35</pointsize>
+                 <weight>9</weight>
+                 <italic>true</italic>
+                 <bold>false</bold>
+                 <underline>false</underline>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 75 italic 35pt &quot;Z003&quot;;</string>
                </property>
                <property name="text">
                 <string>TextLabel</string>
