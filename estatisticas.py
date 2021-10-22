@@ -20,7 +20,7 @@ def carrega_total_dia():
     row = 0
     nfs = banco.vendas_por_dia()
     tabela.setRowCount(len(nfs))
-    tabela.setColumnWidth(0, 200)
+    tabela.setColumnWidth(0, 250)
     tabela.setColumnWidth(1, 200)
     tabela.setColumnWidth(2, 200)
     tabela.setColumnWidth(3, 200)
@@ -30,7 +30,7 @@ def carrega_total_dia():
     for c in nfs:
         total += c[2]
         data = funcoes.banco_data(c[0])
-        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'Total do dia {data}'))
         tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'R$ {c[1]:.2f}'))
         tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'R$ {c[2]:.2f}'))
         percentual = 100-(float(c[2])/float(c[1]))*100
