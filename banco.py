@@ -515,7 +515,7 @@ def busca_todas_notas():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente ORDER BY Nf_num DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente ORDER BY Nf_num DESC LIMIT 50'
     cur.execute(sql)
     return cur.fetchall()
 
@@ -523,7 +523,7 @@ def busca_todas_notas_status(status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Status=? ORDER BY Nf_num DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Status=? ORDER BY Nf_num DESC LIMIT 50'
     cur.execute(sql, (status,))
     return cur.fetchall()
 
@@ -531,7 +531,7 @@ def busca_nf_data_status(data, status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE status=? AND data=? ORDER BY NFnum DESC'
+    sql = 'SELECT NF_num, Nfiscais.data as dia ,Nfiscais.Id_cliente, clientes.Nome as cliente, valor,Desconto_fidelidade, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE status=? AND data=?'
     cur.execute(sql, (status, data))
     return cur.fetchall()
 
@@ -539,7 +539,7 @@ def buscar_nf_data(data):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente,  valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE data=? ORDER BY NFnum DESC'
+    sql = 'SELECT NF_num, Nfiscais.data as dia ,Nfiscais.Id_cliente,  clientes.Nome as cliente,  valor,Desconto_fidelidade, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente WHERE data=?'
     cur.execute(sql, (data,))
     return cur.fetchall()
 
@@ -547,7 +547,7 @@ def buscar_nf_cliente(id_cliente):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE clientes.Id_cliente=? ORDER BY Nf_num DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE clientes.Id_cliente=?'
     cur.execute(sql, (id_cliente,))
     return cur.fetchall()
 
@@ -555,26 +555,46 @@ def buscar_nf_cliente_status(id_cliente, status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE clientes.Id_cliente=? AND Nfiscais.Status=? ORDER BY Nf_num DESC'
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE clientes.Id_cliente=? AND Nfiscais.Status=?'
     cur.execute(sql, (id_cliente, status))
     return cur.fetchall()
 
 ##############################
 
-def buscar_nf_func(id_func):
+
+def busca_nf_intervalo_datas(data_inicio, data_fim):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, funcionarios.Nome as vendedor, matricula, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente, funcionarios on Nfiscais.id_func = funcionarios.Id_func WHERE Nfiscais.id_func=? ORDER BY NFnum DESC'
-    cur.execute(sql, (id_func,))
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Data BETWEEN ? AND ?'
+    cur.execute(sql, (data_inicio, data_fim))
     return cur.fetchall()
 
-def buscar_nf_func_status(id_func, status):
+
+def busca_nf_intervalo_datas_status(data_inicio, data_fim, status):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT NFnum, Nfiscais.data as dia , clientes.Nome as cliente, funcionarios.Nome as vendedor, matricula, valor, status FROM Nfiscais LEFT JOIN clientes on Nfiscais.id_cliente = clientes.Id_cliente, funcionarios on Nfiscais.id_func = funcionarios.Id_func WHERE Nfiscais.id_func=? AND status=? ORDER BY NFnum DESC'
-    cur.execute(sql, (id_func, status))
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Data BETWEEN ? AND ? AND Status=?'
+    cur.execute(sql, (data_inicio, data_fim, status))
+    return cur.fetchall()
+
+
+def busca_nf_intervalo_notas(nota_inicio, nota_fim):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Nf_num BETWEEN ? AND ?'
+    cur.execute(sql, (nota_inicio, nota_fim))
+    return cur.fetchall()
+
+
+def busca_nf_intervalo_notas_status(nota_inicio, nota_fim, status):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Nf_num BETWEEN ? AND ? AND Status=?'
+    cur.execute(sql, (nota_inicio, nota_fim, status))
     return cur.fetchall()
 
 #############################

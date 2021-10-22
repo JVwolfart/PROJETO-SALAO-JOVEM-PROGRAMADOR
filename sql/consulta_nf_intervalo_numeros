@@ -1,0 +1,1 @@
+SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Nf_num BETWEEN 1 AND 10  ORDER BY Nf_num DESC

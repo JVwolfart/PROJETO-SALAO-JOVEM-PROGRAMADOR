@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1153</width>
-    <height>893</height>
+    <height>884</height>
    </rect>
   </property>
   <property name="font">
@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Vendas e faturamento</string>
+   <string>Estatísticas do negócio</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(62, 132, 238);</string>

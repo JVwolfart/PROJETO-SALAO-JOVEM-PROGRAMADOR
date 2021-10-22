@@ -57,6 +57,10 @@ def data_banco1(data):
     data_format = data[6:] + '/' + data[3:5] + '/' + data[0:2]
     return data_format
 
+#FORMATA DATA CONVENCIONAL PARA DATA DO BANCO
+def data_banco2(data):
+    data_format = data[6:] + '-' + data[3:5] + '-' + data[0:2]
+    return data_format
 
 def calcula_intervalo_dias(data_inicio, data_fim):
     inicio = analise.dataInicial.date()
