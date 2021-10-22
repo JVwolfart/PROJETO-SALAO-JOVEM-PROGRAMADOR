@@ -121,6 +121,7 @@ def emitir_nf():
     nf.Id_Cliente.setValue(id_cliente)
     nf.Inome.setText(nome_cli)
     nf.tabWidget.setCurrentIndex(1)
+    nf.lbl_total.setText('')
     carrega_itens_nf()
 
 def inserir_item_nf():
@@ -267,7 +268,7 @@ def finalizar_nf():
         nf.close()
         carrega_tabelas_nf()
         vendas.tabWidget.setCurrentIndex(1)
-        vendas.lbl_escolha.setText('')
+        #vendas.lbl_escolha.setText('')
 
 def finalizar_nf_manut():
     num_nf = manut_nf.NumeroNf.value()
