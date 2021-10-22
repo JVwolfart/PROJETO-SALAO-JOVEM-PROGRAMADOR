@@ -823,7 +823,7 @@ def consulta_intervalo_datas():
     data_final = funcoes.data_banco(data_final)
     maior_data = funcoes.inicial_maior_final(data_inicial, data_final)
     if not maior_data:
-        QMessageBox.about(intervalo_datas, 'ERRO', 'Data inicial deve ser maior ou igual a final')
+        QMessageBox.about(intervalo_datas, 'ERRO', 'Data inicial deve ser menor ou igual a final')
     else:
         vendas.lbl_escolha.setText(f'Consulta notas entre os dias {funcoes.banco_data(data_inicial)} e {funcoes.banco_data(data_final)}')
         carrega_nfs_intervalo_datas()
@@ -831,6 +831,9 @@ def consulta_intervalo_datas():
         carrega_nfs_pendentes_intervalo_datas()
         carrega_nfs_canceladas_intervalo_datas()
         intervalo_datas.close()
+
+
+
 
 def carrega_nfs_intervalo_datas():
     data_inicial = intervalo_datas.DataInicial.text()
@@ -979,6 +982,48 @@ def carrega_nfs_canceladas_intervalo_datas():
     vendas.lbl_total_canceladas.setText(f'Total das notas listadas: R$ {total:.2f}')
 
 
+def consulta_intervalo_notas():
+    nota_inicial = intervalo_nf.NotaInicial.value()
+    nota_final = intervalo_nf.NotaFinal.value()
+    if nota_inicial > nota_final:
+        QMessageBox.about(intervalo_nf, 'ERRO', 'Nota inicial deve ser menor ou igual a final')
+    else:
+        vendas.lbl_escolha.setText(f'Consulta notas entre {nota_inicial} e {nota_final}')
+        carrega_nf_intervalo_notas()
+        intervalo_nf.close()
+
+def carrega_nf_intervalo_notas():
+    nota_inicial = intervalo_nf.NotaInicial.value()
+    nota_final = intervalo_nf.NotaFinal.value()
+    tabela = vendas.TabelaNfs
+    row = 0
+    nfs = banco.busca_nf_intervalo_notas(nota_inicial, nota_final)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+    vendas.lbl_total.setText(f'Total das notas listadas: R$ {total:.2f}')
     
 
 if __name__ == '__main__':
@@ -995,6 +1040,7 @@ if __name__ == '__main__':
     nf_cliente = uic.loadUi('nf_por_cliente.ui')
     nf_data = uic.loadUi('nf_por_data.ui')
     intervalo_datas = uic.loadUi('nf_por_intervalo_de_data.ui')
+    intervalo_nf = uic.loadUi('nf_por_intervalo_de_notas.ui')
     
     #BOTÕES NF
     vendas.BtnNVenda.clicked.connect(carrega_combos_nf)
@@ -1005,6 +1051,7 @@ if __name__ == '__main__':
     vendas.RbCliente.clicked.connect(abrir_consulta_cliente)
     vendas.RbData.clicked.connect(nf_data.show)
     vendas.RbIntervaloDatas.clicked.connect(intervalo_datas.show)
+    vendas.RbIntervaloNotas.clicked.connect(intervalo_nf.show)
     nf_cliente.BtnConfirmar.clicked.connect(carrega_todas_nfs_cliente)
     nf_cliente.comboClientes.currentTextChanged.connect(escrever_cliente)
     nf_data.InputData.setDate(data_atual)
@@ -1012,6 +1059,7 @@ if __name__ == '__main__':
     intervalo_datas.DataInicial.setDate(data_atual)
     intervalo_datas.DataFinal.setDate(data_atual)
     intervalo_datas.BtnConfirmar.clicked.connect(consulta_intervalo_datas)
+    intervalo_nf.BtnConfirmar.clicked.connect(consulta_intervalo_notas)
     nf.vip.setVisible(0)
     nf.frame_vip.setVisible(0)
     nf.comboClientes.currentTextChanged.connect(busca_fiel)

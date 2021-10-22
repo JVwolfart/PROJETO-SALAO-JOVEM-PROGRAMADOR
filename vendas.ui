@@ -1068,8 +1068,8 @@ color: rgb(32, 74, 135);</string>
    <widget class="QPushButton" name="BtnNVenda">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>10</y>
+      <x>630</x>
+      <y>20</y>
       <width>231</width>
       <height>51</height>
      </rect>
@@ -1118,6 +1118,19 @@ border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Por intervalo de datas</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RbIntervaloNotas">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>50</y>
+      <width>221</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Por intervalo de notas</string>
     </property>
    </widget>
   </widget>

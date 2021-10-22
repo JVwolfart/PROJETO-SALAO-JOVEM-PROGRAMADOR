@@ -594,6 +594,25 @@ def busca_nf_intervalo_datas_status(data_inicio, data_fim, status):
     sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Data BETWEEN ? AND ? AND Status=? ORDER BY Nf_num DESC'
     cur.execute(sql, (data_inicio, data_fim, status))
     return cur.fetchall()
+
+
+def busca_nf_intervalo_notas(nota_inicio, nota_fim):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Nf_num BETWEEN ? AND ?  ORDER BY Nf_num DESC'
+    cur.execute(sql, (nota_inicio, nota_fim))
+    return cur.fetchall()
+
+
+def busca_nf_intervalo_notas_status(nota_inicio, nota_fim, status):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Nf_num BETWEEN ? AND ? AND Status=? ORDER BY Nf_num DESC'
+    cur.execute(sql, (nota_inicio, nota_fim, status))
+    return cur.fetchall()
+
 #############################
 
 #ITENS NF
