@@ -68,7 +68,7 @@
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -104,7 +104,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>25</pointsize>
+         <pointsize>15</pointsize>
          <weight>75</weight>
          <bold>true</bold>
          <underline>false</underline>
@@ -231,6 +231,21 @@ color: rgb(32, 74, 135);</string>
       <column>
        <property name="text">
         <string>Percentual médio de desconto</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Total de descontos no dia</string>
        </property>
        <property name="font">
         <font>

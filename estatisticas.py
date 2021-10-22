@@ -24,9 +24,11 @@ def carrega_total_dia():
     tabela.setColumnWidth(1, 200)
     tabela.setColumnWidth(2, 200)
     tabela.setColumnWidth(3, 200)
+    tabela.setColumnWidth(4, 200)
     tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
     tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
     total = 0
+    total_desc = 0
     for c in nfs:
         total += c[2]
         data = funcoes.banco_data(c[0])
@@ -35,8 +37,11 @@ def carrega_total_dia():
         tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'R$ {c[2]:.2f}'))
         percentual = 100-(float(c[2])/float(c[1]))*100
         tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{percentual:.2f} %'))
+        desconto = c[1]-c[2]
+        total_desc+=desconto
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {desconto:.2f}'))
         row += 1
-        estatisitcas.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+        estatisitcas.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f} e total de descontos R$ {total_desc:.2f}')
 
 
 def carrega_ranking_servicos_total():
@@ -68,7 +73,7 @@ def carrega_ranking_servicos_total():
         horas = total_minutos // 60
         resto_minutos = total_minutos % 60
         media = float(c[3])/int(c[0])
-        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{total_minutos} = {horas} horas e {resto_minutos} minutos'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{total_minutos}m = {horas} horas e {resto_minutos} minutos'))
         tabela.setItem(row, 7, QtWidgets.QTableWidgetItem(f'R$ {media:.2f}'))
         row += 1
         estatisitcas.lbl_total_servicos.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
