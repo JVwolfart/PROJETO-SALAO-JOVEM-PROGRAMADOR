@@ -161,9 +161,9 @@ border-radius: 10px;
          <widget class="QLabel" name="lbl_ola">
           <property name="geometry">
            <rect>
-            <x>100</x>
+            <x>250</x>
             <y>0</y>
-            <width>581</width>
+            <width>501</width>
             <height>52</height>
            </rect>
           </property>
@@ -527,7 +527,69 @@ border-radius: 10px;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_5"/>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QStackedWidget" name="stackedWidget">
+            <property name="currentIndex">
+             <number>2</number>
+            </property>
+            <widget class="QWidget" name="page">
+             <widget class="QLabel" name="label_2">
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>30</y>
+                <width>671</width>
+                <height>431</height>
+               </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 231, 249);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>../IMAGENS/PicsArt_10-18-10.18.32.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_2">
+             <widget class="QLabel" name="label">
+              <property name="geometry">
+               <rect>
+                <x>310</x>
+                <y>190</y>
+                <width>55</width>
+                <height>16</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>pagina 2</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_3">
+             <widget class="QLabel" name="label_3">
+              <property name="geometry">
+               <rect>
+                <x>320</x>
+                <y>220</y>
+                <width>55</width>
+                <height>16</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>pagina 3</string>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
