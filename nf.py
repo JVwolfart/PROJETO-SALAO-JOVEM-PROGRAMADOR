@@ -990,6 +990,9 @@ def consulta_intervalo_notas():
     else:
         vendas.lbl_escolha.setText(f'Consulta notas entre {nota_inicial} e {nota_final}')
         carrega_nf_intervalo_notas()
+        carrega_nf_emitidas_intervalo_notas()
+        carrega_nf_pendentes_intervalo_notas()
+        carrega_nf_canceladas_intervalo_notas()
         intervalo_nf.close()
 
 def carrega_nf_intervalo_notas():
@@ -1024,7 +1027,109 @@ def carrega_nf_intervalo_notas():
         tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
         row += 1
     vendas.lbl_total.setText(f'Total das notas listadas: R$ {total:.2f}')
+
+
+def carrega_nf_emitidas_intervalo_notas():
+    nota_inicial = intervalo_nf.NotaInicial.value()
+    nota_final = intervalo_nf.NotaFinal.value()
+    tabela = vendas.TabelaEmitidas
+    row = 0
+    status = 'Emitida'
+    nfs = banco.busca_nf_intervalo_notas_status(nota_inicial, nota_final, status)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+    vendas.lbl_total_emitidas.setText(f'Total das notas listadas: R$ {total:.2f}')
     
+def carrega_nf_pendentes_intervalo_notas():
+    nota_inicial = intervalo_nf.NotaInicial.value()
+    nota_final = intervalo_nf.NotaFinal.value()
+    tabela = vendas.TabelaPendentes
+    row = 0
+    status = 'Pendente'
+    nfs = banco.busca_nf_intervalo_notas_status(nota_inicial, nota_final, status)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+    vendas.lbl_total_pendentes.setText(f'Total das notas listadas: R$ {total:.2f}')
+
+def carrega_nf_canceladas_intervalo_notas():
+    nota_inicial = intervalo_nf.NotaInicial.value()
+    nota_final = intervalo_nf.NotaFinal.value()
+    tabela = vendas.TabelaCanceladas
+    row = 0
+    status = 'Cancelada'
+    nfs = banco.busca_nf_intervalo_notas_status(nota_inicial, nota_final, status)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 50)
+    tabela.setColumnWidth(1, 130)
+    tabela.setColumnWidth(2, 80)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    for c in nfs:
+        total += c[4]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        data = funcoes.banco_data(c[1])
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {c[4]:.2f}'))
+        if c[5] == 0:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'NÃO'))
+        else:
+            tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'SIM'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        row += 1
+    vendas.lbl_total_canceladas.setText(f'Total das notas listadas: R$ {total:.2f}')
 
 if __name__ == '__main__':
     usuario1 = Usuarios
