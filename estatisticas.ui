@@ -12,7 +12,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1153</width>
+    <width>1216</width>
     <height>884</height>
    </rect>
   </property>
@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Estatísticas do negócio</string>
+   <string>Vendas e faturamento</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(62, 132, 238);</string>
@@ -60,7 +60,7 @@
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>1131</width>
+      <width>1201</width>
       <height>731</height>
      </rect>
     </property>
@@ -68,37 +68,60 @@
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
-      <string>Todas as notas</string>
+      <string>Total de vendas</string>
      </attribute>
-     <widget class="QLabel" name="label_3">
+     <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>10</y>
-        <width>1021</width>
-        <height>51</height>
+        <x>20</x>
+        <y>600</y>
+        <width>1111</width>
+        <height>80</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>17</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <underline>true</underline>
-       </font>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;</string>
       </property>
-      <property name="text">
-       <string>Dê um duplo clique na nota fiscal para ver os itens ou para alterar caso esteja pendente.</string>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QLabel" name="lbl_total">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>1061</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(115, 210, 22);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </widget>
-     <widget class="QTableWidget" name="TabelaNfs">
+     <widget class="QTableWidget" name="TabelaVendasDia">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -162,21 +185,6 @@ color: rgb(32, 74, 135);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>N° de NF</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>Data da venda</string>
        </property>
        <property name="font">
@@ -192,7 +200,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>ID do cliente</string>
+        <string>Total bruto</string>
        </property>
        <property name="font">
         <font>
@@ -207,7 +215,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Cliente</string>
+        <string>Total faturado com descontos</string>
        </property>
        <property name="font">
         <font>
@@ -222,37 +230,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Valor</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Fidelizado</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Status da NF</string>
+        <string>Percentual médio de desconto</string>
        </property>
        <property name="font">
         <font>
@@ -266,57 +244,34 @@ color: rgb(32, 74, 135);</string>
        </property>
       </column>
      </widget>
-     <widget class="QFrame" name="frame_2">
+     <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
-        <width>1111</width>
-        <height>80</height>
+        <x>10</x>
+        <y>10</y>
+        <width>1021</width>
+        <height>51</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);
-border-radius: 20px;</string>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+      <property name="text">
+       <string>Total faturado por dia (ordem de data decrescente)</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
-      <widget class="QLabel" name="lbl_total">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>1061</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>25</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-         <underline>false</underline>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(115, 210, 22);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tabEmitidas">
+    <widget class="QWidget" name="tabServicos">
      <attribute name="title">
-      <string>Notas emitidas</string>
+      <string>Ranking por serviço</string>
      </attribute>
      <widget class="QFrame" name="frame_3">
       <property name="geometry">
@@ -337,7 +292,7 @@ border-radius: 20px;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="lbl_total_emitidas">
+      <widget class="QLabel" name="lbl_total_servicos">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -365,15 +320,39 @@ border-radius: 20px;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="TabelaEmitidas">
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>0</y>
+        <width>1021</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ranking de serviços por valor faturado</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="TabelaServicos">
       <property name="enabled">
        <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>60</y>
-        <width>1111</width>
+        <y>70</y>
+        <width>1181</width>
         <height>501</height>
        </rect>
       </property>
@@ -429,7 +408,7 @@ color: rgb(32, 74, 135);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>N° de NF</string>
+        <string>Posição no ranking</string>
        </property>
        <property name="font">
         <font>
@@ -444,7 +423,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Data da venda</string>
+        <string>Quant</string>
        </property>
        <property name="font">
         <font>
@@ -459,7 +438,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>ID do cliente</string>
+        <string>Serviço</string>
        </property>
        <property name="font">
         <font>
@@ -474,7 +453,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Cliente</string>
+        <string>Total bruto</string>
        </property>
        <property name="font">
         <font>
@@ -489,7 +468,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Valor</string>
+        <string>Total com desconto</string>
        </property>
        <property name="font">
         <font>
@@ -504,7 +483,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Fidelizado</string>
+        <string>Média desc %</string>
        </property>
        <property name="font">
         <font>
@@ -519,7 +498,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Status</string>
+        <string>Total aprox de minutos em atendimento</string>
        </property>
        <property name="font">
         <font>
@@ -532,35 +511,26 @@ color: rgb(32, 74, 135);</string>
         <set>AlignCenter</set>
        </property>
       </column>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>0</y>
-        <width>1021</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>17</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <underline>true</underline>
-       </font>
-      </property>
-      <property name="text">
-       <string>Dê um duplo clique na nota fiscal para ver os itens ou cancelar a nota.</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
+      <column>
+       <property name="text">
+        <string>Média de valor</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
      </widget>
     </widget>
-    <widget class="QWidget" name="tabPendentes">
+    <widget class="QWidget" name="tabClientes">
      <attribute name="title">
-      <string>Notas pendentes</string>
+      <string>Ranking por cliente</string>
      </attribute>
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
@@ -581,7 +551,7 @@ border-radius: 20px;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="lbl_total_pendentes">
+      <widget class="QLabel" name="lbl_total_clientes">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -609,7 +579,7 @@ border-radius: 20px;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="TabelaPendentes">
+     <widget class="QTableWidget" name="TabelaClientes">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -673,7 +643,7 @@ color: rgb(32, 74, 135);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>N° de NF</string>
+        <string>Posição no ranking</string>
        </property>
        <property name="font">
         <font>
@@ -688,7 +658,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Data da venda</string>
+        <string>Nome do cliente</string>
        </property>
        <property name="font">
         <font>
@@ -703,7 +673,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>ID do cliente</string>
+        <string>Quant serviços usados</string>
        </property>
        <property name="font">
         <font>
@@ -718,7 +688,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Cliente</string>
+        <string>Total bruto</string>
        </property>
        <property name="font">
         <font>
@@ -733,7 +703,22 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Valor</string>
+        <string>Total com desconto</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>% de desc (médio)</string>
        </property>
        <property name="font">
         <font>
@@ -761,26 +746,11 @@ color: rgb(32, 74, 135);</string>
         <set>AlignCenter</set>
        </property>
       </column>
-      <column>
-       <property name="text">
-        <string>Status</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </column>
      </widget>
-     <widget class="QLabel" name="label_5">
+     <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>50</x>
+        <x>10</x>
         <y>10</y>
         <width>1021</width>
         <height>51</height>
@@ -795,16 +765,16 @@ color: rgb(32, 74, 135);</string>
        </font>
       </property>
       <property name="text">
-       <string>Dê um duplo clique na nota fiscal para concluir, incluir itens ou cancelar a nota</string>
+       <string>Ranking de clientes por valor faturado</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tabCanceladas">
+    <widget class="QWidget" name="tabProfissionais">
      <attribute name="title">
-      <string>Notas canceladas</string>
+      <string>Ranking por profissionais</string>
      </attribute>
      <widget class="QFrame" name="frame_5">
       <property name="geometry">
@@ -825,7 +795,7 @@ border-radius: 20px;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="lbl_total_canceladas">
+      <widget class="QLabel" name="lbl_total_profi">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -853,7 +823,7 @@ border-radius: 20px;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="TabelaCanceladas">
+     <widget class="QTableWidget" name="TabelaProfi">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -917,7 +887,7 @@ color: rgb(32, 74, 135);</string>
       </attribute>
       <column>
        <property name="text">
-        <string>N° de NF</string>
+        <string>Posição no ranking</string>
        </property>
        <property name="font">
         <font>
@@ -932,7 +902,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Data da venda</string>
+        <string>N° de atendimentos</string>
        </property>
        <property name="font">
         <font>
@@ -947,7 +917,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>ID do cliente</string>
+        <string>Nome do profissional</string>
        </property>
        <property name="font">
         <font>
@@ -962,7 +932,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Cliente</string>
+        <string>Especialidade</string>
        </property>
        <property name="font">
         <font>
@@ -977,7 +947,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Valor</string>
+        <string>Total bruto</string>
        </property>
        <property name="font">
         <font>
@@ -992,7 +962,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Fidelizado</string>
+        <string>Total com desconto</string>
        </property>
        <property name="font">
         <font>
@@ -1007,7 +977,7 @@ color: rgb(32, 74, 135);</string>
       </column>
       <column>
        <property name="text">
-        <string>Status</string>
+        <string>% desc (médio)</string>
        </property>
        <property name="font">
         <font>
@@ -1021,20 +991,260 @@ color: rgb(32, 74, 135);</string>
        </property>
       </column>
      </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>10</y>
+        <width>1021</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ranking de profissionais por valor faturado</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
-   </widget>
-   <widget class="QRadioButton" name="RbData">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>181</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Por data da venda</string>
-    </property>
+    <widget class="QWidget" name="tabFpag">
+     <attribute name="title">
+      <string>Ranking por formas de pagamento</string>
+     </attribute>
+     <widget class="QFrame" name="frame_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>600</y>
+        <width>1111</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="lbl_total_fpag">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>1061</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(115, 210, 22);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="TabelaFpag">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>1111</width>
+        <height>501</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>465</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Ubuntu</family>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="cursor" stdset="0">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(138, 226, 52);
+color: rgb(32, 74, 135);</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="horizontalScrollMode">
+       <enum>QAbstractItemView::ScrollPerPixel</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>150</number>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Posição no ranking</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>N° de utilizações</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Forma de pagamento</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Total bruto</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Total com desconto</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>% desc (médio)</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
+      </column>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>1021</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ranking de formas de pagamento por valor faturado</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QRadioButton" name="RbTodas">
     <property name="geometry">
@@ -1046,23 +1256,10 @@ color: rgb(32, 74, 135);</string>
      </rect>
     </property>
     <property name="text">
-     <string>Todas as notas</string>
+     <string>Todo o período</string>
     </property>
     <property name="checked">
      <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RbCliente">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>50</y>
-      <width>151</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Por cliente</string>
     </property>
    </widget>
    <widget class="QPushButton" name="BtnNVenda">
@@ -1083,7 +1280,7 @@ background-color: rgb(245, 121, 0);
 border-radius: 10px;</string>
     </property>
     <property name="text">
-     <string>Nova venda</string>
+     <string>Atualizar estatísticas</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_escolha">
@@ -1110,27 +1307,14 @@ border-radius: 10px;</string>
    <widget class="QRadioButton" name="RbIntervaloDatas">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>220</x>
       <y>20</y>
       <width>221</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>Por intervalo de datas</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RbIntervaloNotas">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>50</y>
-      <width>221</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Por intervalo de notas</string>
+     <string>Intervalo de datas</string>
     </property>
    </widget>
   </widget>

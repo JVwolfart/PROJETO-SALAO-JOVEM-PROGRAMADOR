@@ -1,0 +1,1 @@
+SELECT  count(Itens_nf.Id_profi), funcionarios.nome, funcionarios.Cargo, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN funcionarios on Itens_nf.Id_profi = funcionarios.Id_func GROUP BY Itens_nf.Id_profi ORDER BY sum(Preco_fat) DESC

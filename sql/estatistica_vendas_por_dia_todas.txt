@@ -1,0 +1,1 @@
+SELECT data_emissao, sum(Preco_fat), sum(Preco_tab) FROM Itens_nf GROUP BY data_emissao

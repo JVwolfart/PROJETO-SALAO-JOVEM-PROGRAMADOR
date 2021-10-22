@@ -1,0 +1,1 @@
+SELECT clientes.Nome,  count(Itens_nf.id_cliente), sum(Preco_tab), sum(Preco_fat), clientes.Fidelizado FROM Itens_nf LEFT JOIN clientes on Itens_nf.id_cliente = clientes.Id_cliente GROUP BY Itens_nf.id_cliente ORDER BY sum(Preco_fat) DESC
