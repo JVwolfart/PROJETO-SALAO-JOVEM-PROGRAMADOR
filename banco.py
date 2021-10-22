@@ -577,6 +577,23 @@ def buscar_nf_func_status(id_func, status):
     cur.execute(sql, (id_func, status))
     return cur.fetchall()
 
+
+def busca_nf_intervalo_datas(data_inicio, data_fim):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Data BETWEEN ? AND ? ORDER BY Nf_num DESC'
+    cur.execute(sql, (data_inicio, data_fim))
+    return cur.fetchall()
+
+
+def busca_nf_intervalo_datas_status(data_inicio, data_fim, status):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT Nf_num, Data, Nfiscais.Id_cliente, Nome, Valor, Desconto_fidelidade, Status  FROM Nfiscais LEFT JOIN clientes ON Nfiscais.Id_cliente = clientes.Id_cliente WHERE Nfiscais.Data BETWEEN ? AND ? AND Status=? ORDER BY Nf_num DESC'
+    cur.execute(sql, (data_inicio, data_fim, status))
+    return cur.fetchall()
 #############################
 
 #ITENS NF

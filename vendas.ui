@@ -1107,6 +1107,19 @@ border-radius: 10px;</string>
      <string/>
     </property>
    </widget>
+   <widget class="QRadioButton" name="RbIntervaloDatas">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>20</y>
+      <width>221</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Por intervalo de datas</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
