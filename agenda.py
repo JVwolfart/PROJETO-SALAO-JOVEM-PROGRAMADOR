@@ -28,10 +28,8 @@ def setar_hoje():
 
 def consulta_agenda():
 
-    print ("cheguei")
     data_sel = funcoes.data_banco(ag.InputData.text())
-    print(data_sel)
-    print(data_atual)
+
     data_valida = (funcoes.inicial_maior_final(str(data_atual),str(data_sel)))
     if not data_valida:
         QMessageBox.about(ag, 'DATA INVÁLIDA', f'ATENÇÃO !! A data do agendamento precisa ser igual ou maior que a data atual')
@@ -54,8 +52,7 @@ def consulta_agenda():
 
         ag.tabWidget.setCurrentIndex(1)
         
-        print(cliente)
-        print(profi)
+
 
 
 def cliente_ag_combo():
