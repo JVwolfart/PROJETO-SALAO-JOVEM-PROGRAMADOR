@@ -183,6 +183,15 @@ def busca_func_matricula(matricula):
     cur.execute(sql, (matricula,))
     return cur.fetchall()
 
+def busca_func_id(id):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM funcionarios WHERE Id_func = ?'
+    cur.execute(sql, (id,))
+    return cur.fetchall()
+
+
 def busca_func_nome(nome):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
@@ -279,6 +288,14 @@ def busca_cliente_nome(nome):
     cur = banco.cursor()
     sql = 'SELECT * FROM clientes WHERE Nome = ?'
     cur.execute(sql, (nome,))
+    return cur.fetchall()
+
+def busca_cliente_id(id):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM clientes WHERE Id_cliente = ?'
+    cur.execute(sql, (id,))
     return cur.fetchall()
 
 def busca_todos_clientes():
@@ -701,6 +718,40 @@ def excluir_itens_nf(nf):
     banco.commit()
     banco.close()
 
+#######################################
+
+### AGENDA
+
+def criar_tb_agenda():
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = """CREATE TABLE IF NOT EXISTS "agenda" (
+	"Id_agenda"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"data_agenda"	DATA,
+	"hora"	TEXT,
+	"id_cliente"	INTEGER,
+	"id_profi"	INTEGER,
+	"id_servico"	INTEGER,
+	"status_agenda"	TEXT,
+	FOREIGN KEY("id_servico") REFERENCES "servicos"("Codigo"),
+	FOREIGN KEY("id_profi") REFERENCES "funcionarios"("Id_func"),
+	FOREIGN KEY("id_cliente") REFERENCES "clientes"("Id_cliente"))"""
+
+    cur.execute(sql)
+    banco.commit()
+    banco.close()
+
+def inserir_agendamento(data, hora, id_cliente, id_profi, id_servico, status = "Agendado"):
+    global data_atual
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'INSERT INTO agenda VALUES (?, ?, ?, ?, ?, ?, ?)'
+    cur.execute(sql, (None, data, hora, id_cliente, id_profi, id_servico, status))
+    banco.commit()
+    banco.close()
+
+
 
 def cria_tabelas():
     criar_usuario()
@@ -710,6 +761,7 @@ def cria_tabelas():
     criar_tb_notas()
     cria_tb_fpag()
     criar_tb_itens_nf()
+    criar_tb_agenda()
 
 
 #### ESATISTICAS
@@ -779,3 +831,7 @@ def vendas_por_fpag_ranking_desc():
     sql = 'SELECT  count(Itens_nf.Id_fpag), fpag.Fpag_name, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN fpag on Itens_nf.Id_fpag = fpag.Id_fpag GROUP BY Itens_nf.Id_fpag ORDER BY sum(Preco_fat) DESC'
     cur.execute(sql)
     return cur.fetchall()
+
+
+
+
