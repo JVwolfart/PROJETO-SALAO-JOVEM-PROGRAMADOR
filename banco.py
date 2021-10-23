@@ -751,6 +751,14 @@ def inserir_agendamento(data, hora, id_cliente, id_profi, id_servico, status = "
     banco.commit()
     banco.close()
 
+def busca_toda_agenda_dia(dia):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM fpag'
+    cur.execute(sql)
+    return cur.fetchall()
+
 
 
 def cria_tabelas():
