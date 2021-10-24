@@ -83,7 +83,7 @@ def profi_agenda_combo():
     agenda.comboProfi.clear()
     profi = banco.busca_todos_funcionarios_combo()
     for c in profi:
-        agenda.comboProfi.addItem(f"{c[1]} -> {c[2]}", QVariant(c[0]))
+        agenda.comboProfi.addItem(f"{c[1]} -> {c[2]}  -> {c[4]}", QVariant(c[0]))
     
 
 
