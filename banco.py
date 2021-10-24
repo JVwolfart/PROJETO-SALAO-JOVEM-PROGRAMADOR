@@ -755,10 +755,17 @@ def busca_toda_agenda_dia(dia):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, clientes.Nome as cliente, servicos.Nome as servico, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE  data_agenda = ? order by hora'
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, funcionarios.Nome as profissional, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE  data_agenda >= ? order by data_agenda,hora'
     cur.execute(sql, (dia,))
     return cur.fetchall()
 
+def busca_agenda_dia_profi(dia, id_profi):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, clientes.Fidelizado, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE id_profi = ? and data_agenda >= ? ORDER by  data_agenda,hora'
+    cur.execute(sql, (id_profi, dia))
+    return cur.fetchall()
 
 
 def cria_tabelas():

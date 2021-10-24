@@ -22,6 +22,11 @@ def escreve_data():
     else:
         dia = agenda.InputData.text()
         agenda.lbl_dia.setText(f"Data selecionada: {dia}")
+    carrega_agenda_dia_geral()
+    carrega_agenda_dia_profi()
+    profi_agenda_combo()
+
+    agenda.show()
         
 def setar_hoje():
     agenda.InputData.setDate(data_atual)
@@ -73,6 +78,12 @@ def profi_ag_combo():
     profi = banco.busca_todos_funcionarios_combo_ativos()
     for c in profi:
         ag.comboProfi.addItem(f"{c[1]} -> {c[2]}", QVariant(c[0]))
+
+def profi_agenda_combo():
+    agenda.comboProfi.clear()
+    profi = banco.busca_todos_funcionarios_combo()
+    for c in profi:
+        agenda.comboProfi.addItem(f"{c[1]} -> {c[2]}", QVariant(c[0]))
     
 
 
@@ -89,12 +100,71 @@ def grava_agendamento():
     id_profi = int(ag.id_profi.text())
     id_servico = ag.comboServicos.currentData()
     data = funcoes.data_banco(data)
-    print(data, hora, id_cliente, id_profi, id_servico)
     banco.inserir_agendamento(data,hora,id_cliente,id_profi,id_servico)
     QMessageBox.about(ag, 'AGENDAMENTO INSERIDO', f'ATENÇÃO !! AGENDAMENTO INSERIDO COM SUCESSO')
+    carrega_agenda_dia_geral()
     
+def carrega_agenda_dia_geral():
+    dia_escolhido = agenda.InputData.text()
+    dia_escolhido = funcoes.data_banco(dia_escolhido)
+    agen = banco.busca_toda_agenda_dia(dia_escolhido)
+    tabela = agenda.TabelaAgenda
+    row = 0
+    tabela.setRowCount(len(agen))
+    tabela.setColumnWidth(0, 100)
+    tabela.setColumnWidth(1, 70)
+    tabela.setColumnWidth(2, 100)
+    tabela.setColumnWidth(3, 200)
+    tabela.setColumnWidth(4, 200)
+    tabela.setColumnWidth(5, 150)
+    tabela.setColumnWidth(6, 250)
+    tabela.setColumnWidth(7, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    for c in agen:
+        data = funcoes.banco_data(c[0])
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{c[1]}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'{c[4]}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'{c[5]}'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        tabela.setItem(row, 7, QtWidgets.QTableWidgetItem(f'{c[7]}'))
+        row += 1
 
-
+def carrega_agenda_dia_profi():
+    dia_escolhido = agenda.InputData.text()
+    profi = agenda.comboProfi.currentData()
+    dia_escolhido = funcoes.data_banco(dia_escolhido)
+    agen = banco.busca_agenda_dia_profi(dia_escolhido,profi)
+    tabela = agenda.TabelaAgendaProfi
+    row = 0
+    tabela.setRowCount(len(agen))
+    tabela.setColumnWidth(0, 100)
+    tabela.setColumnWidth(1, 70)
+    tabela.setColumnWidth(2, 100)
+    tabela.setColumnWidth(3, 250)
+    tabela.setColumnWidth(4, 150)
+    tabela.setColumnWidth(5, 250)
+    tabela.setColumnWidth(6, 70)
+    tabela.setColumnWidth(7, 100)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    for c in agen:
+        data = funcoes.banco_data(c[0])
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{c[1]}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'{c[4]}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'{c[5]}'))
+        if c[6]==1:
+            tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'SIM'))
+        else:
+            tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'NÃO'))
+        tabela.setItem(row, 7, QtWidgets.QTableWidgetItem(f'{c[7]}'))
+        row += 1        
 
 def agendamento():
     dia = ag.InputData.text()
@@ -105,11 +175,9 @@ def agendamento():
             print('hora menor')
             QMessageBox.about(ag, 'HORA INVÁLIDA', f'ATENÇÃO !! A HORA do agendamento precisa ser maior que a HORA atual')
         else:
-            print('ok')
             grava_agendamento()
          
     else:
-        print('dia diferente')
         grava_agendamento()
         
         
@@ -168,6 +236,7 @@ if __name__ == '__main__':
     agenda.InputData.dateChanged.connect(escreve_data)
     agenda.BtnAgendamento.clicked.connect(inicia_agendamento)
     agenda.BtnHoje.clicked.connect(setar_hoje)
+    agenda.comboProfi.currentTextChanged.connect(carrega_agenda_dia_profi)
     ag.BtnConsultaAgenda.clicked.connect(consulta_agenda)
     ag.BtnSair.clicked.connect(ag.close)
     ag.BtnAgendar.clicked.connect(agendamento)
@@ -178,6 +247,6 @@ if __name__ == '__main__':
     hora_fim = datetime.time.fromisoformat('08:00:00')
     ag.hora.setTime(hora_fim)  
 '''
-    agenda.show()
+    escreve_data()
     banco.cria_tabelas()
     qt.exec_()
