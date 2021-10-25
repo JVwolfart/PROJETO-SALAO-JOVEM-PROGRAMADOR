@@ -11,6 +11,7 @@ def teste():
     print('Tudo OK')
 
 data_atual = date.today()
+hora = datetime.now().time()
 
 
 #FUNÇÕES PARA TELA LOGIN

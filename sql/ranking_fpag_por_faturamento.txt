@@ -1,0 +1,1 @@
+SELECT  count(Itens_nf.Id_fpag), fpag.Fpag_name, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN fpag on Itens_nf.Id_fpag = fpag.Id_fpag GROUP BY Itens_nf.Id_fpag ORDER BY sum(Preco_fat) DESC

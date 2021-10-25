@@ -183,6 +183,15 @@ def busca_func_matricula(matricula):
     cur.execute(sql, (matricula,))
     return cur.fetchall()
 
+def busca_func_id(id):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM funcionarios WHERE Id_func = ?'
+    cur.execute(sql, (id,))
+    return cur.fetchall()
+
+
 def busca_func_nome(nome):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
@@ -279,6 +288,14 @@ def busca_cliente_nome(nome):
     cur = banco.cursor()
     sql = 'SELECT * FROM clientes WHERE Nome = ?'
     cur.execute(sql, (nome,))
+    return cur.fetchall()
+
+def busca_cliente_id(id):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT * FROM clientes WHERE Id_cliente = ?'
+    cur.execute(sql, (id,))
     return cur.fetchall()
 
 def busca_todos_clientes():
@@ -701,6 +718,55 @@ def excluir_itens_nf(nf):
     banco.commit()
     banco.close()
 
+#######################################
+
+### AGENDA
+
+def criar_tb_agenda():
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = """CREATE TABLE IF NOT EXISTS "agenda" (
+	"Id_agenda"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"data_agenda"	DATA,
+	"hora"	TEXT,
+	"id_cliente"	INTEGER,
+	"id_profi"	INTEGER,
+	"id_servico"	INTEGER,
+	"status_agenda"	TEXT,
+	FOREIGN KEY("id_servico") REFERENCES "servicos"("Codigo"),
+	FOREIGN KEY("id_profi") REFERENCES "funcionarios"("Id_func"),
+	FOREIGN KEY("id_cliente") REFERENCES "clientes"("Id_cliente"))"""
+
+    cur.execute(sql)
+    banco.commit()
+    banco.close()
+
+def inserir_agendamento(data, hora, id_cliente, id_profi, id_servico, status = "Agendado"):
+    global data_atual
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'INSERT INTO agenda VALUES (?, ?, ?, ?, ?, ?, ?)'
+    cur.execute(sql, (None, data, hora, id_cliente, id_profi, id_servico, status))
+    banco.commit()
+    banco.close()
+
+def busca_toda_agenda_dia(dia):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, funcionarios.Nome as profissional, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE  data_agenda >= ? order by data_agenda,hora'
+    cur.execute(sql, (dia,))
+    return cur.fetchall()
+
+def busca_agenda_dia_profi(dia, id_profi):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, clientes.Fidelizado, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE id_profi = ? and data_agenda >= ? ORDER by  data_agenda,hora'
+    cur.execute(sql, (id_profi, dia))
+    return cur.fetchall()
+
 
 def cria_tabelas():
     criar_usuario()
@@ -710,15 +776,24 @@ def cria_tabelas():
     criar_tb_notas()
     cria_tb_fpag()
     criar_tb_itens_nf()
+    criar_tb_agenda()
 
 
 #### ESATISTICAS
 
-def vendas_por_item_ranking_desc():
+def vendas_por_dia():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT produtos.Codigo, nome, SUM (Itens_nf.Quant), SUM (Itens_nf.Valor) FROM produtos LEFT JOIN Itens_nf ON Itens_nf.Codigo = produtos.Codigo GROUP BY produtos.Codigo ORDER BY SUM (Itens_nf.Valor) DESC'
+    sql = 'SELECT data_emissao, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf GROUP BY data_emissao ORDER BY data_emissao DESC'
+    cur.execute(sql)
+    return cur.fetchall()
+
+def vendas_por_servico_ranking_desc():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT  count(Codigo_serv), servicos.Nome, sum(Preco_tab), sum(Preco_fat), servicos.Tempo_medio FROM Itens_nf LEFT JOIN servicos on Codigo_serv = Codigo GROUP BY Codigo_serv ORDER BY sum(Preco_fat) DESC'
     cur.execute(sql)
     return cur.fetchall()
 
@@ -734,7 +809,7 @@ def vendas_por_funcionario_ranking_desc():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT funcionarios.Id_func, funcionarios.Matricula, funcionarios.Nome, SUM (Nfiscais.valor) FROM funcionarios LEFT JOIN Nfiscais ON funcionarios.Id_func = Nfiscais.id_func GROUP BY Nfiscais.id_func ORDER BY SUM (Nfiscais.valor) DESC'
+    sql = 'SELECT  count(Itens_nf.Id_profi), funcionarios.nome, funcionarios.Cargo, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN funcionarios on Itens_nf.Id_profi = funcionarios.Id_func GROUP BY Itens_nf.Id_profi ORDER BY sum(Preco_fat) DESC'
     cur.execute(sql)
     return cur.fetchall()
 
@@ -751,7 +826,7 @@ def vendas_por_cliente_ranking_desc():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT clientes.Id_cliente, clientes.Nome, SUM (Nfiscais.valor) FROM clientes LEFT JOIN Nfiscais ON clientes.Id_cliente = Nfiscais.id_cliente GROUP BY Nfiscais.id_cliente ORDER BY SUM (Nfiscais.valor) DESC'
+    sql = 'SELECT clientes.Nome,  count(Itens_nf.id_cliente), sum(Preco_tab), sum(Preco_fat), clientes.Fidelizado FROM Itens_nf LEFT JOIN clientes on Itens_nf.id_cliente = clientes.Id_cliente GROUP BY Itens_nf.id_cliente ORDER BY sum(Preco_fat) DESC'
     cur.execute(sql)
     return cur.fetchall()
     
@@ -763,5 +838,15 @@ def vendas_por_cliente_ranking_desc_datas(data_Inicio, data_Fim):
     sql = 'SELECT clientes.Id_cliente, clientes.Nome, SUM (Nfiscais.valor) FROM clientes LEFT JOIN Nfiscais ON clientes.Id_cliente = Nfiscais.id_cliente WHERE Nfiscais.data BETWEEN ? AND ?  GROUP BY Nfiscais.id_cliente ORDER BY SUM (Nfiscais.valor) DESC '
     cur.execute(sql, (data_Inicio, data_Fim))
     return cur.fetchall()
+
+def vendas_por_fpag_ranking_desc():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT  count(Itens_nf.Id_fpag), fpag.Fpag_name, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN fpag on Itens_nf.Id_fpag = fpag.Id_fpag GROUP BY Itens_nf.Id_fpag ORDER BY sum(Preco_fat) DESC'
+    cur.execute(sql)
+    return cur.fetchall()
+
+
 
 

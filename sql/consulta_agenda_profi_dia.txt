@@ -1,0 +1,1 @@
+SELECT data_agenda, hora, servicos.Nome, clientes.Nome as cliente, servicos.Nome as servico, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE id_profi = 7 and data_agenda >= "2021-10-25" ORDER by  data_agenda,hora

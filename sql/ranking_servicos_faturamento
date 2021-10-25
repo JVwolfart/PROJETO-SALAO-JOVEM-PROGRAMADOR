@@ -1,0 +1,1 @@
+SELECT  count(Codigo_serv), servicos.Nome, sum(Preco_tab), sum(Preco_fat), servicos.Tempo_medio FROM Itens_nf LEFT JOIN servicos on Codigo_serv = Codigo GROUP BY Codigo_serv ORDER BY sum(Preco_fat) DESC
