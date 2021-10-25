@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>962</width>
+    <height>565</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>14</pointsize>
+   </font>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Manutenção de Clientes</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(216, 164, 194);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="BtnDesligar">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>440</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	color: rgb(255, 255, 255);
+	background-color: rgb(239, 41, 41);
+	border-radius: 10px;
+	
+}
+QPushButton:hover {   
+	background-color: rgb(249, 51, 51);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Desligar Cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnAlterar">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>440</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	background-color:rgb(78, 154, 6);
+	color: rgb(255, 255, 255);
+	border-radius: 10px;
+	
+}
+QPushButton:hover {   
+	background-color:rgb(85, 165, 10);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Alterar Dados do Cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnSair">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>440</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	color: rgb(255, 255, 255);
+	background-color: rgb(245, 121, 0);
+	border-radius: 10px;
+	
+}
+QPushButton:hover {   
+	background-color: rgb(250, 131, 0)
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Sair</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="InputId">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Id do Cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnReativar">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>440</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	color: rgb(0, 0, 0);
+	border-radius: 10px;
+	background-color: rgb(237, 212, 0);
+	
+}
+QPushButton:hover {   
+	background-color: rgb(247, 222, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Reativar Cliente</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Nome">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>180</y>
+      <width>861</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string>Nome do Cliente</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Itelefone">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>300</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+</string>
+    </property>
+    <property name="inputMask">
+     <string>(99) 09999-9999</string>
+    </property>
+    <property name="text">
+     <string>() -</string>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="cursorPosition">
+     <number>15</number>
+    </property>
+    <property name="dragEnabled">
+     <bool>false</bool>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="cursorMoveStyle">
+     <enum>Qt::LogicalMoveStyle</enum>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="CbSexo">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>300</y>
+      <width>311</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(46, 52, 54);
+border-radius: 10px;
+border-color: rgb(0,0,0);
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Feminino</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../IMAGENS/genero feminino.png</normaloff>../IMAGENS/genero feminino.png</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Masculino</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../IMAGENS/genero masculino.jpg</normaloff>../IMAGENS/genero masculino.jpg</iconset>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Outro</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../IMAGENS/genero outros.jpg</normaloff>../IMAGENS/genero outros.jpg</iconset>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>260</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gênero (sexo) :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>260</y>
+      <width>171</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Telefone/Whatsapp:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnDesfidelizar">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>500</y>
+      <width>231</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	color: rgb(255, 255, 255);
+	background-color: rgb(239, 41, 41);
+	border-radius: 10px;
+	
+}
+QPushButton:hover {   
+	background-color: rgb(249, 51, 51);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Desfidelizar Cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnFidelizar">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>500</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	color: rgb(0, 0, 0);
+	border-radius: 10px;
+	background-color: rgb(237, 212, 0);
+	
+}
+QPushButton:hover {   
+	background-color: rgb(247, 222, 0);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Fidelizar Cliente</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="CkAtivo">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>380</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>ATIVO</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="CkFidelizado">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>390</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>FIDELIZADO</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>20</y>
+      <width>331</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Manutenção de cliente:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>-70</y>
+      <width>911</width>
+      <height>411</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../IMAGENS/marca d'agua.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>label_3</zorder>
+   <zorder>BtnDesligar</zorder>
+   <zorder>BtnAlterar</zorder>
+   <zorder>BtnSair</zorder>
+   <zorder>InputId</zorder>
+   <zorder>label</zorder>
+   <zorder>BtnReativar</zorder>
+   <zorder>Nome</zorder>
+   <zorder>Itelefone</zorder>
+   <zorder>CbSexo</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_4</zorder>
+   <zorder>BtnDesfidelizar</zorder>
+   <zorder>BtnFidelizar</zorder>
+   <zorder>CkAtivo</zorder>
+   <zorder>CkFidelizado</zorder>
+   <zorder>label_5</zorder>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>BtnDesligar</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>816</width>
-    <height>495</height>
+    <width>762</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="font">
@@ -25,26 +25,20 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Selecionar notas por data de emissão</string>
+   <string>Selecionar notas por cliente</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(62, 132, 238);
-background-color: rgb(216, 164, 194);</string>
+   <string notr="true">background-color: rgb(216, 164, 194);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="BtnConfirmar">
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>160</y>
-      <width>131</width>
+      <y>150</y>
+      <width>181</width>
       <height>41</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-     </font>
     </property>
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
@@ -64,64 +58,34 @@ QPushButton:hover {
      <string>Confirmar</string>
     </property>
    </widget>
-   <widget class="QDateEdit" name="InputData">
+   <widget class="QComboBox" name="comboClientes">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>60</x>
       <y>150</y>
-      <width>251</width>
-      <height>51</height>
+      <width>411</width>
+      <height>41</height>
      </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Ubuntu</family>
-      <pointsize>21</pointsize>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
 border-radius: 10px;
 border-color: rgb(0,0,0);
-font: 21pt &quot;Ubuntu&quot;;
-color: black;
-</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="dateTime">
-     <datetime>
-      <hour>0</hour>
-      <minute>0</minute>
-      <second>0</second>
-      <year>2021</year>
-      <month>1</month>
-      <day>1</day>
-     </datetime>
-    </property>
-    <property name="calendarPopup">
-     <bool>true</bool>
-    </property>
-    <property name="timeSpec">
-     <enum>Qt::LocalTime</enum>
+color: black</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>50</y>
+      <x>150</x>
+      <y>60</y>
       <width>591</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <pointsize>17</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -130,15 +94,15 @@ color: black;
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Informe a data de emissão da nota para consulta</string>
+     <string>Selecione o cliente para consulta</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>110</y>
-      <width>751</width>
+      <y>80</y>
+      <width>731</width>
       <height>391</height>
      </rect>
     </property>
@@ -146,7 +110,7 @@ color: black;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>IMAGENS/marca d'agua.png</pixmap>
+     <pixmap>../IMAGENS/marca d'agua.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -154,7 +118,7 @@ color: black;
    </widget>
    <zorder>label_3</zorder>
    <zorder>BtnConfirmar</zorder>
-   <zorder>InputData</zorder>
+   <zorder>comboClientes</zorder>
    <zorder>label_4</zorder>
   </widget>
  </widget>
