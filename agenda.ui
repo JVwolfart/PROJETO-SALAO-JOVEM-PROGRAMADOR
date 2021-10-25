@@ -68,11 +68,11 @@
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
-      <string>Todos agendamentos do dia</string>
+      <string>Todos a partir da data selecionada</string>
      </attribute>
      <widget class="QLabel" name="label_3">
       <property name="geometry">
