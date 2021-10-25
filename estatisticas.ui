@@ -1280,7 +1280,7 @@ color: rgb(32, 74, 135);</string>
    <widget class="QLabel" name="lbl_escolha">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>80</y>
       <width>1121</width>
       <height>51</height>

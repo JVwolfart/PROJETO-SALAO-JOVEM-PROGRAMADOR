@@ -730,20 +730,20 @@ if __name__ == '__main__':
     menu = uic.loadUi('telas_duda/menu2.ui')
     menu_cadastros = uic.loadUi('telas_duda/menu_cadastros.ui')
     login = uic.loadUi('telas_duda/tela_login.ui')
-    cad_usuario = uic.loadUi('tela_cadastro.ui')
+    cad_usuario = uic.loadUi('telas_duda/tela_cadastro.ui')
     manut_usuarios = uic.loadUi('manutencao_usuarios.ui')
     permissoes = uic.loadUi('permissoes_usuarios.ui')
 
     #TELAS SERVIÇOS
-    servico = uic.loadUi('servicos.ui')
+    servico = uic.loadUi('telas_duda/servicos.ui')
     manut_servico = uic.loadUi('manut_servico.ui')
 
     #TELAS clienteS
-    cliente = uic.loadUi('clientes.ui')
+    cliente = uic.loadUi('telas_duda/clientes.ui')
     manut_cliente = uic.loadUi('manut_cliente.ui')
 
     #TELAS profissionais
-    profissional = uic.loadUi('profissionais.ui')
+    profissional = uic.loadUi('telas_duda/profissionais.ui')
     manut_profissional = uic.loadUi('manut_profissional.ui')
 
     #TELAS FPAGS
