@@ -99,6 +99,7 @@ def abrir_cria_usuario():
 def abrir_tela_login():
     cad_usuario.close()
     menu.close()
+    menu_cadastros.close()
     login.InputUsuario.setText('')
     login.InputSenha.setText('')
     login.show()
@@ -731,24 +732,24 @@ if __name__ == '__main__':
     menu_cadastros = uic.loadUi('telas_duda/menu_cadastros.ui')
     login = uic.loadUi('telas_duda/tela_login.ui')
     cad_usuario = uic.loadUi('telas_duda/tela_cadastro.ui')
-    manut_usuarios = uic.loadUi('manutencao_usuarios.ui')
-    permissoes = uic.loadUi('permissoes_usuarios.ui')
+    manut_usuarios = uic.loadUi('telas_duda/manutencao_usuarios.ui')
+    permissoes = uic.loadUi('telas_duda/permissoes_usuarios.ui')
 
     #TELAS SERVIÇOS
     servico = uic.loadUi('telas_duda/servicos.ui')
-    manut_servico = uic.loadUi('manut_servico.ui')
+    manut_servico = uic.loadUi('telas_duda/manut_servico.ui')
 
     #TELAS clienteS
     cliente = uic.loadUi('telas_duda/clientes.ui')
-    manut_cliente = uic.loadUi('manut_cliente.ui')
+    manut_cliente = uic.loadUi('telas_duda/manut_cliente.ui')
 
     #TELAS profissionais
     profissional = uic.loadUi('telas_duda/profissionais.ui')
-    manut_profissional = uic.loadUi('manut_profissional.ui')
+    manut_profissional = uic.loadUi('telas_duda/manut_profissional.ui')
 
     #TELAS FPAGS
-    fpag = uic.loadUi('fpag.ui')
-    manut_fpag = uic.loadUi('manut_fpag.ui')
+    fpag = uic.loadUi('telas_duda/fpag.ui')
+    manut_fpag = uic.loadUi('telas_duda/manut_fpag.ui')
     
     ##menu2
     menu.Btn_Sair.clicked.connect(menu.close)

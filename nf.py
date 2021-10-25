@@ -1140,13 +1140,13 @@ if __name__ == '__main__':
     qt = QtWidgets.QApplication(sys.argv)
     
     #TELAS NF
-    nf = uic.loadUi('emissao_nf.ui')
+    nf = uic.loadUi('telas_duda/emissao_nf.ui')
     vendas = uic.loadUi('vendas.ui')
-    manut_nf = uic.loadUi('manut_nf.ui')
-    nf_cliente = uic.loadUi('nf_por_cliente.ui')
+    manut_nf = uic.loadUi('telas_duda/manut_nf.ui')
+    nf_cliente = uic.loadUi('telas_duda/nf_por_cliente.ui')
     nf_data = uic.loadUi('nf_por_data.ui')
-    intervalo_datas = uic.loadUi('nf_por_intervalo_de_data.ui')
-    intervalo_nf = uic.loadUi('nf_por_intervalo_de_notas.ui')
+    intervalo_datas = uic.loadUi('telas_duda/nf_por_intervalo_de_data.ui')
+    intervalo_nf = uic.loadUi('telas_duda/nf_por_intervalo_de_notas.ui')
     
     #BOTÕES NF
     vendas.BtnNVenda.clicked.connect(carrega_combos_nf)

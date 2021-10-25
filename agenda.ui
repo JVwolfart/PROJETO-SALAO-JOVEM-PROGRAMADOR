@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1314</width>
-    <height>893</height>
+    <height>892</height>
    </rect>
   </property>
   <property name="font">
@@ -68,11 +68,11 @@
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
-      <string>Todos agendamentos do dia</string>
+      <string>Todos a partir da data selecionada</string>
      </attribute>
      <widget class="QLabel" name="label_3">
       <property name="geometry">

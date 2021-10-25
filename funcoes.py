@@ -98,3 +98,10 @@ def inicial_maior_final(inicio, fim):
         return True
     else:
         return False
+
+
+def valida_data_servico_efetuado(inicio, fim):
+    if inicio >= fim:
+        return True
+    else:
+        return False

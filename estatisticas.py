@@ -362,7 +362,7 @@ if __name__ == '__main__':
     qt = QtWidgets.QApplication(sys.argv)
     
     #TELAS ESTATISTICAS
-    estatisitcas = uic.loadUi('estatisticas.ui')
+    estatisitcas = uic.loadUi('telas_duda/estatisticas.ui')
     data_estat = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
     
     #BOTÕES NF
