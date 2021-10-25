@@ -728,7 +728,7 @@ if __name__ == '__main__':
     
     usuario1 = Usuarios()
     menu = uic.loadUi('telas_duda/menu2.ui')
-    menu_cadastros = uic.loadUi('menu_cadastros.ui')
+    menu_cadastros = uic.loadUi('telas_duda/menu_cadastros.ui')
     login = uic.loadUi('telas_duda/tela_login.ui')
     cad_usuario = uic.loadUi('tela_cadastro.ui')
     manut_usuarios = uic.loadUi('manutencao_usuarios.ui')
