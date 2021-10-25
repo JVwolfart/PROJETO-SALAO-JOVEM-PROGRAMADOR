@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>665</width>
+    <height>765</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Tela de cadastro</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(254, 230, 248);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="InputUsuario">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>370</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	border-color: 2px solid rgb(0,0,0);
+}
+QLineEdit:hover {
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	border: 3px solid rgb(215, 139, 185);
+}
+</string>
+    </property>
+    <property name="placeholderText">
+     <string>Usuário:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="InputSenha">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>450</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	border-color: 2px solid rgb(0,0,0);
+}
+QLineEdit:hover {
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	border: 3px solid rgb(215, 139, 185);
+}
+</string>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Senha:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnCadastrar">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>640</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	background-color: rgb(244, 163, 0);
+	border-radius: 10px;
+}
+QPushButton:hover {   
+	background-color: rgb(250, 170, 0);
+}
+QPushButton:pressed {   
+	background-color: rgb(255, 175, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>Cadastrar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnLogin">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>640</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {     
+	background-color: rgb(0, 170, 0);
+	border-radius: 10px;
+}
+QPushButton:hover {   
+	background-color: rgb(0, 190, 0);
+}
+QPushButton:pressed {   
+	background-color: rgb(0, 200, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>Fazer Login</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>240</y>
+      <width>481</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>21</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Cadastro de novo usuário:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="InputConfirmar">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>520</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit{
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	border-color: 2px solid rgb(0,0,0);
+}
+QLineEdit:hover {
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	border: 3px solid rgb(215, 139, 185);
+}
+</string>
+    </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Confirme a senha:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BtnPermissao">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>700</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(245, 121, 0);
+border-radius: 10px;</string>
+    </property>
+    <property name="text">
+     <string>Configurar permissões de usuários</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IconeSenha_2">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>510</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../IMAGENS/pngwing.com.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IconeSenha_3">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>440</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../IMAGENS/pngwing.com.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IconeUsuario_2">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>360</y>
+      <width>61</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../IMAGENS/User_icon_BLACK-01.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>531</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../IMAGENS/PicsArt_10-18-10.18.32.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>InputUsuario</tabstop>
+  <tabstop>InputSenha</tabstop>
+  <tabstop>InputConfirmar</tabstop>
+  <tabstop>BtnCadastrar</tabstop>
+  <tabstop>BtnLogin</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
