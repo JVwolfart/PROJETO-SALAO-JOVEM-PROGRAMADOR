@@ -99,6 +99,7 @@ def abrir_cria_usuario():
 def abrir_tela_login():
     cad_usuario.close()
     menu.close()
+    menu_cadastros.close()
     login.InputUsuario.setText('')
     login.InputSenha.setText('')
     login.show()
