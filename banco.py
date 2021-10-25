@@ -789,6 +789,15 @@ def vendas_por_dia():
     cur.execute(sql)
     return cur.fetchall()
 
+
+def vendas_por_dia_intervalo(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT data_emissao, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf WHERE data_emissao BETWEEN ? AND ? GROUP BY data_emissao ORDER BY data_emissao DESC'
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
+
 def vendas_por_servico_ranking_desc():
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
@@ -797,12 +806,13 @@ def vendas_por_servico_ranking_desc():
     cur.execute(sql)
     return cur.fetchall()
 
-def vendas_por_item_ranking_desc_datas(data_inicio, data_fim):
+
+def vendas_por_servico_ranking_desc_intervalo(data_inicial, data_final):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT produtos.Codigo, nome, SUM (Itens_nf.Quant), SUM (Itens_nf.Valor) FROM produtos LEFT JOIN Itens_nf ON Itens_nf.Codigo = produtos.Codigo WHERE Itens_nf.data_venda BETWEEN ? AND ?  GROUP BY produtos.Codigo ORDER BY SUM (Itens_nf.Valor) DESC'
-    cur.execute(sql, (data_inicio, data_fim))
+    sql = 'SELECT  count(Codigo_serv), servicos.Nome, sum(Preco_tab), sum(Preco_fat), servicos.Tempo_medio FROM Itens_nf  LEFT JOIN servicos on Codigo_serv = Codigo WHERE data_emissao BETWEEN ? AND ? GROUP BY Codigo_serv ORDER BY sum(Preco_fat) DESC'
+    cur.execute(sql, (data_inicial, data_final))
     return cur.fetchall()
 
 def vendas_por_funcionario_ranking_desc():
@@ -813,13 +823,15 @@ def vendas_por_funcionario_ranking_desc():
     cur.execute(sql)
     return cur.fetchall()
 
-def vendas_por_funcionario_ranking_desc_data(data_inicio, data_fim):
+
+def vendas_por_funcionario_ranking_desc_intervalo(data_inicial, data_final):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT funcionarios.Id_func, funcionarios.Matricula, funcionarios.Nome, SUM (Nfiscais.valor), funcionarios.Status_func FROM funcionarios LEFT JOIN Nfiscais ON funcionarios.Id_func = Nfiscais.id_func WHERE Nfiscais.data BETWEEN ? AND ? GROUP BY Nfiscais.id_func ORDER BY SUM (Nfiscais.valor) DESC'
-    cur.execute(sql, (data_inicio, data_fim))
+    sql = 'SELECT  count(Itens_nf.Id_profi), funcionarios.nome, funcionarios.Cargo, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN funcionarios on Itens_nf.Id_profi = funcionarios.Id_func WHERE data_emissao BETWEEN ? AND ? GROUP BY Itens_nf.Id_profi ORDER BY sum(Preco_fat) DESC'
+    cur.execute(sql, (data_inicial, data_final))
     return cur.fetchall()
+
 
 ## busca todas as vendas em totais dos clientes em um ranking do maior para o menor em valor total
 def vendas_por_cliente_ranking_desc():
@@ -830,13 +842,12 @@ def vendas_por_cliente_ranking_desc():
     cur.execute(sql)
     return cur.fetchall()
     
-## busca todas as vendas em totais dos clientes em um ranking do maior para o menor em valor total em um intervalo de datas
-def vendas_por_cliente_ranking_desc_datas(data_Inicio, data_Fim):
+def vendas_por_cliente_ranking_desc_intervalo(data_inicial, data_final):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT clientes.Id_cliente, clientes.Nome, SUM (Nfiscais.valor) FROM clientes LEFT JOIN Nfiscais ON clientes.Id_cliente = Nfiscais.id_cliente WHERE Nfiscais.data BETWEEN ? AND ?  GROUP BY Nfiscais.id_cliente ORDER BY SUM (Nfiscais.valor) DESC '
-    cur.execute(sql, (data_Inicio, data_Fim))
+    sql = 'SELECT clientes.Nome,  count(Itens_nf.id_cliente), sum(Preco_tab), sum(Preco_fat), clientes.Fidelizado FROM Itens_nf LEFT JOIN clientes on Itens_nf.id_cliente = clientes.Id_cliente WHERE data_emissao BETWEEN ? AND ? GROUP BY Itens_nf.id_cliente ORDER BY sum(Preco_fat) DESC'
+    cur.execute(sql, (data_inicial, data_final))
     return cur.fetchall()
 
 def vendas_por_fpag_ranking_desc():
@@ -847,6 +858,14 @@ def vendas_por_fpag_ranking_desc():
     cur.execute(sql)
     return cur.fetchall()
 
+
+def vendas_por_fpag_ranking_desc_intervalo(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT  count(Itens_nf.Id_fpag), fpag.Fpag_name, sum(Preco_tab), sum(Preco_fat) FROM Itens_nf LEFT JOIN fpag on Itens_nf.Id_fpag = fpag.Id_fpag WHERE data_emissao BETWEEN ? AND ? GROUP BY Itens_nf.Id_fpag ORDER BY sum(Preco_fat) DESC'
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
 
 
 

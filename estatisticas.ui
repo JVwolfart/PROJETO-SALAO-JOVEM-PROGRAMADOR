@@ -1277,27 +1277,6 @@ color: rgb(32, 74, 135);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="BtnNVenda">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>20</y>
-      <width>231</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(245, 121, 0);
-border-radius: 10px;</string>
-    </property>
-    <property name="text">
-     <string>Atualizar estatísticas</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="lbl_escolha">
     <property name="geometry">
      <rect>
