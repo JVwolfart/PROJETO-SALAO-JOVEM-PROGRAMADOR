@@ -71,7 +71,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabServicos">
      <attribute name="title">
@@ -228,9 +228,6 @@ border-color: rgb(0,0,0);
         <weight>75</weight>
         <bold>true</bold>
        </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
        <string>Cadastro de novo serviço:</string>
