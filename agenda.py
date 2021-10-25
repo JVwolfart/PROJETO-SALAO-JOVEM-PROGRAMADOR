@@ -56,7 +56,7 @@ def consulta_agenda():
         ag.telefone.setText(cliente[0][2])
 
         ag.tabWidget.setCurrentIndex(1)
-        
+        carrega_ag_dia_profi()
 
 
 
@@ -73,6 +73,13 @@ def servico_ag_combo():
         ag.comboServicos.addItem(f"{c[1]}", QVariant(c[0]))
 
 
+def servico_ag_combo_manut():
+    manut_ag.comboServicos.clear()
+    servicos = banco.busca_todos_servicos_ativos()
+    for c in servicos:
+        manut_ag.comboServicos.addItem(f"{c[1]}", QVariant(c[0]))
+
+
 def profi_ag_combo():
     ag.comboProfi.clear()
     profi = banco.busca_todos_funcionarios_combo_ativos()
@@ -85,6 +92,19 @@ def profi_agenda_combo():
     for c in profi:
         agenda.comboProfi.addItem(f"{c[1]} -> {c[2]}  -> {c[4]}", QVariant(c[0]))
     
+
+def busca_tempo_servico():
+    servico = ag.comboServicos.currentData()
+    tempo = banco.busca_tempo_servico_codigo(servico)
+    if len(tempo) != 0:
+        ag.InputTempo.setText(f'{tempo[0][0]}')
+
+
+def busca_tempo_servico_manut():
+    servico = manut_ag.comboServicos.currentData()
+    tempo = banco.busca_tempo_servico_codigo(servico)
+    if len(tempo) != 0:
+        manut_ag.InputTempo.setText(f'{tempo[0][0]}')
 
 
 def inicia_agendamento():
@@ -103,6 +123,7 @@ def grava_agendamento():
     banco.inserir_agendamento(data,hora,id_cliente,id_profi,id_servico)
     QMessageBox.about(ag, 'AGENDAMENTO INSERIDO', f'ATENÇÃO !! AGENDAMENTO INSERIDO COM SUCESSO')
     carrega_agenda_dia_geral()
+    carrega_ag_dia_profi()
     
 def carrega_agenda_dia_geral():
     dia_escolhido = agenda.InputData.text()
@@ -166,6 +187,43 @@ def carrega_agenda_dia_profi():
         tabela.setItem(row, 7, QtWidgets.QTableWidgetItem(f'{c[7]}'))
         row += 1        
 
+
+def carrega_ag_dia_profi():
+    dia_escolhido = ag.InputData.text()
+    profi = ag.comboProfi.currentData()
+    dia_escolhido = funcoes.data_banco(dia_escolhido)
+    agen = banco.busca_agenda_dia_profi(dia_escolhido,profi)
+    tabela = ag.TabelaAgendaProfi
+    row = 0
+    tabela.setRowCount(len(agen))
+    tabela.setColumnWidth(0, 100)
+    tabela.setColumnWidth(1, 70)
+    tabela.setColumnWidth(2, 100)
+    tabela.setColumnWidth(3, 250)
+    tabela.setColumnWidth(4, 150)
+    tabela.setColumnWidth(5, 250)
+    tabela.setColumnWidth(6, 70)
+    tabela.setColumnWidth(7, 100)
+    tabela.setColumnWidth(8, 30)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    for c in agen:
+        data = funcoes.banco_data(c[0])
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{c[1]}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'{c[4]}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'{c[5]}'))
+        if c[6]==1:
+            tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'SIM'))
+        else:
+            tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'NÃO'))
+        tabela.setItem(row, 7, QtWidgets.QTableWidgetItem(f'{c[7]}'))
+        tabela.setItem(row, 8, QtWidgets.QTableWidgetItem(f'{c[8]}'))
+        row += 1
+
+
 def agendamento():
     dia = ag.InputData.text()
     dia = datetime(int(dia[6:]), int(dia[3:5]), int(dia[0:2]))
@@ -181,7 +239,56 @@ def agendamento():
         grava_agendamento()
         
         
-        
+def pega_ag():
+    linha = ag.TabelaAgendaProfi.currentRow()
+    id_agenda = ag.TabelaAgendaProfi.item(linha, 8).text()
+    data = ag.TabelaAgendaProfi.item(linha, 0).text()
+    hora = ag.TabelaAgendaProfi.item(linha, 1).text()
+    cliente = ag.TabelaAgendaProfi.item(linha, 3).text()
+    tele = ag.TabelaAgendaProfi.item(linha, 4).text()
+    status = ag.TabelaAgendaProfi.item(linha, 7).text()
+    if status == 'Serviço efetuado':
+        QMessageBox.about(ag, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
+    elif status == 'Eliminado':
+        QMessageBox.about(ag, 'ERRO', 'Serviço já foi eliminado, não pode mais ser alterado')
+    else:
+        manut_ag.InputIdAgenda.setText(id_agenda)
+        manut_ag.data_agendamento.setText(data)
+        hora = time.fromisoformat(hora)
+        manut_ag.hora.setTime(hora)
+        manut_ag.cliente.setText(cliente)
+        manut_ag.telefone.setText(tele)
+        manut_ag.comboStatus.setCurrentText(status)
+        servico_ag_combo_manut()
+        manut_ag.show()
+
+def alterar_agendamento():
+    id_ag = int(manut_ag.InputIdAgenda.text())
+    hora = manut_ag.hora.text()
+    status = manut_ag.comboStatus.currentText()
+    codigo_servico = manut_ag.comboServicos.currentData()
+    data_ag = manut_ag.data_agendamento.text()
+    if status == 'Serviço efetuado':
+        data_ag = funcoes.data_banco(data_ag)
+        global data_atual
+        dia_hoje = datetime.strftime(data_atual, '%Y-%m-%d')
+        ok = funcoes.valida_data_servico_efetuado(dia_hoje, data_ag)
+        if not ok:
+            QMessageBox.about(manut_ag, 'ERRO', 'Opção de status inválida, serviço não pode ser considerado efetuado pois seu agendamento é pra data futura')
+        else:
+            banco.alterar_agendamento(hora, codigo_servico, status, id_ag)
+            QMessageBox.about(manut_ag, 'AGENDAMENTO ALTERADO', 'Agendamento alterado com sucesso')
+            manut_ag.close()
+            carrega_ag_dia_profi()
+            carrega_agenda_dia_geral()
+            carrega_agenda_dia_profi()
+    else:   
+        banco.alterar_agendamento(hora, codigo_servico, status, id_ag)
+        QMessageBox.about(manut_ag, 'AGENDAMENTO ALTERADO', 'Agendamento alterado com sucesso')
+        manut_ag.close()
+        carrega_ag_dia_profi()
+        carrega_agenda_dia_geral()
+        carrega_agenda_dia_profi()
 
 if __name__ == '__main__':
     usuario1 = Usuarios
@@ -193,6 +300,7 @@ if __name__ == '__main__':
     #TELAS ESTATISTICAS
     agenda = uic.loadUi('agenda.ui')
     ag = uic.loadUi('agendamento.ui')
+    manut_ag = uic.loadUi('manut_agendamento.ui')
     
     
     #BOTÕES NF
@@ -240,6 +348,11 @@ if __name__ == '__main__':
     ag.BtnConsultaAgenda.clicked.connect(consulta_agenda)
     ag.BtnSair.clicked.connect(ag.close)
     ag.BtnAgendar.clicked.connect(agendamento)
+    ag.comboServicos.currentTextChanged.connect(busca_tempo_servico)
+    ag.TabelaAgendaProfi.doubleClicked.connect(pega_ag)
+    manut_ag.comboServicos.currentTextChanged.connect(busca_tempo_servico_manut)
+    manut_ag.BtnAlterar.clicked.connect(alterar_agendamento)
+    manut_ag.BtnSair.clicked.connect(manut_ag.close)
     
     '''hora = datetime.now().time()
     
