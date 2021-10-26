@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1153</width>
-    <height>967</height>
+    <height>897</height>
    </rect>
   </property>
   <property name="font">
@@ -32,7 +32,7 @@
     <property name="geometry">
      <rect>
       <x>1000</x>
-      <y>50</y>
+      <y>10</y>
       <width>41</width>
       <height>51</height>
      </rect>
@@ -59,9 +59,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>250</y>
+      <y>210</y>
       <width>1131</width>
-      <height>731</height>
+      <height>671</height>
      </rect>
     </property>
     <property name="cursor">
@@ -71,7 +71,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -110,7 +110,7 @@
         <x>10</x>
         <y>70</y>
         <width>1111</width>
-        <height>501</height>
+        <height>461</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -270,8 +270,8 @@
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>10</x>
+        <y>540</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -322,8 +322,8 @@ border-radius: 20px;</string>
      <widget class="QFrame" name="frame_3">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>590</y>
+        <x>10</x>
+        <y>520</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -375,7 +375,7 @@ border-radius: 20px;</string>
         <x>10</x>
         <y>60</y>
         <width>1111</width>
-        <height>501</height>
+        <height>451</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -564,9 +564,9 @@ border-radius: 20px;</string>
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>600</y>
-        <width>1111</width>
+        <x>20</x>
+        <y>540</y>
+        <width>1101</width>
         <height>80</height>
        </rect>
       </property>
@@ -617,7 +617,7 @@ border-radius: 20px;</string>
         <x>20</x>
         <y>70</y>
         <width>1101</width>
-        <height>501</height>
+        <height>451</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -806,8 +806,8 @@ border-radius: 20px;</string>
      <widget class="QFrame" name="frame_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>10</x>
+        <y>530</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -859,7 +859,7 @@ border-radius: 20px;</string>
         <x>10</x>
         <y>70</y>
         <width>1111</width>
-        <height>501</height>
+        <height>441</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1021,8 +1021,8 @@ border-radius: 20px;</string>
    <widget class="QRadioButton" name="RbData">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>160</y>
+      <x>210</x>
+      <y>70</y>
       <width>181</width>
       <height>28</height>
      </rect>
@@ -1034,9 +1034,9 @@ border-radius: 20px;</string>
    <widget class="QRadioButton" name="RbTodas">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>160</y>
-      <width>121</width>
+      <x>50</x>
+      <y>70</y>
+      <width>151</width>
       <height>28</height>
      </rect>
     </property>
@@ -1050,9 +1050,9 @@ border-radius: 20px;</string>
    <widget class="QRadioButton" name="RbCliente">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>160</y>
-      <width>151</width>
+      <x>400</x>
+      <y>70</y>
+      <width>121</width>
       <height>28</height>
      </rect>
     </property>
@@ -1063,8 +1063,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="BtnNVenda">
     <property name="geometry">
      <rect>
-      <x>830</x>
-      <y>140</y>
+      <x>990</x>
+      <y>40</y>
       <width>151</width>
       <height>51</height>
      </rect>
@@ -1091,7 +1091,7 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>190</y>
+      <y>100</y>
       <width>1091</width>
       <height>51</height>
      </rect>
@@ -1111,8 +1111,8 @@ QPushButton:hover{
    <widget class="QRadioButton" name="RbIntervaloDatas">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>160</y>
+      <x>760</x>
+      <y>70</y>
       <width>221</width>
       <height>28</height>
      </rect>
@@ -1124,9 +1124,9 @@ QPushButton:hover{
    <widget class="QRadioButton" name="RbIntervaloNotas">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>160</y>
-      <width>161</width>
+      <x>530</x>
+      <y>70</y>
+      <width>221</width>
       <height>28</height>
      </rect>
     </property>
@@ -1138,7 +1138,7 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>50</y>
+      <y>10</y>
       <width>801</width>
       <height>41</height>
      </rect>

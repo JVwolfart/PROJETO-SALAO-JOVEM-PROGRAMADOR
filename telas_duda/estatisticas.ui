@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1216</width>
-    <height>953</height>
+    <height>893</height>
    </rect>
   </property>
   <property name="font">
@@ -32,7 +32,7 @@
     <property name="geometry">
      <rect>
       <x>1080</x>
-      <y>30</y>
+      <y>0</y>
       <width>41</width>
       <height>51</height>
      </rect>
@@ -59,9 +59,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>220</y>
+      <y>190</y>
       <width>1201</width>
-      <height>721</height>
+      <height>691</height>
      </rect>
     </property>
     <property name="cursor">
@@ -71,7 +71,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -80,8 +80,8 @@
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>10</x>
+        <y>560</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -133,7 +133,7 @@ border-radius: 20px;</string>
         <x>10</x>
         <y>70</y>
         <width>1111</width>
-        <height>501</height>
+        <height>481</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -292,9 +292,9 @@ border-radius: 20px;</string>
      <widget class="QFrame" name="frame_3">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>590</y>
-        <width>1111</width>
+        <x>10</x>
+        <y>560</y>
+        <width>1181</width>
         <height>80</height>
        </rect>
       </property>
@@ -369,7 +369,7 @@ border-radius: 20px;</string>
         <x>10</x>
         <y>70</y>
         <width>1181</width>
-        <height>501</height>
+        <height>481</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -550,8 +550,8 @@ background-color: rgb(255, 255, 255);</string>
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>600</y>
+        <x>20</x>
+        <y>560</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -603,7 +603,7 @@ border-radius: 20px;</string>
         <x>20</x>
         <y>70</y>
         <width>1101</width>
-        <height>501</height>
+        <height>481</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -792,8 +792,8 @@ border-radius: 20px;</string>
      <widget class="QFrame" name="frame_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>10</x>
+        <y>560</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -845,7 +845,7 @@ border-radius: 20px;</string>
         <x>10</x>
         <y>70</y>
         <width>1111</width>
-        <height>501</height>
+        <height>481</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1034,8 +1034,8 @@ border-radius: 20px;</string>
      <widget class="QFrame" name="frame_6">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>600</y>
+        <x>10</x>
+        <y>560</y>
         <width>1111</width>
         <height>80</height>
        </rect>
@@ -1087,7 +1087,7 @@ border-radius: 20px;</string>
         <x>10</x>
         <y>70</y>
         <width>1111</width>
-        <height>501</height>
+        <height>471</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1259,7 +1259,7 @@ border-radius: 20px;</string>
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>120</y>
+      <y>90</y>
       <width>151</width>
       <height>28</height>
      </rect>
@@ -1275,7 +1275,7 @@ border-radius: 20px;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>150</y>
+      <y>120</y>
       <width>1121</width>
       <height>51</height>
      </rect>
@@ -1296,7 +1296,7 @@ border-radius: 20px;</string>
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>120</y>
+      <y>90</y>
       <width>221</width>
       <height>28</height>
      </rect>
@@ -1309,7 +1309,7 @@ border-radius: 20px;</string>
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>40</y>
+      <y>10</y>
       <width>801</width>
       <height>41</height>
      </rect>

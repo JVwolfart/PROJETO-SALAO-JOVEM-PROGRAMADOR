@@ -401,11 +401,6 @@ color: black</string>
     </item>
     <item>
      <property name="text">
-      <string>Pendente</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
       <string>Eliminado</string>
      </property>
     </item>
