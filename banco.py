@@ -764,15 +764,24 @@ def busca_toda_agenda_dia(dia):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, funcionarios.Nome as profissional, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, status_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE  data_agenda >= ? order by data_agenda,hora'
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, funcionarios.Nome as profissional, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, status_agenda, Id_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE  data_agenda >= ? AND status_agenda <> "Eliminado" order by data_agenda,hora'
     cur.execute(sql, (dia,))
+    return cur.fetchall()
+
+
+def busca_toda_agenda_dia_pendentes(status='Pendente'):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, funcionarios.Nome as profissional, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, status_agenda, Id_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE status_agenda=? order by data_agenda,hora'
+    cur.execute(sql, (status,))
     return cur.fetchall()
 
 def busca_agenda_dia_profi(dia, id_profi):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, clientes.Fidelizado, status_agenda, Id_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE id_profi = ? and data_agenda >= ? ORDER by  data_agenda,hora'
+    sql = 'SELECT data_agenda, hora, servicos.Tempo_medio, clientes.Nome as cliente, clientes.Telefone, servicos.Nome as servico, clientes.Fidelizado, status_agenda, Id_agenda FROM agenda LEFT JOIN servicos on agenda.id_servico = servicos.Codigo LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN funcionarios on agenda.id_profi= funcionarios.Id_func WHERE id_profi = ? and data_agenda >= ? AND status_agenda <> "Eliminado" ORDER by  data_agenda,hora'
     cur.execute(sql, (id_profi, dia))
     return cur.fetchall()
 
@@ -783,6 +792,38 @@ def alterar_agendamento(hora, id_servico, status, id_ag):
     cur = banco.cursor()
     sql = 'UPDATE agenda SET hora=?, id_servico=?, status_agenda=? WHERE id_agenda=?'
     cur.execute(sql, (hora, id_servico, status, id_ag))
+    banco.commit()
+    banco.close()
+
+
+def efetuar_agendamento(id_ag):
+    status='Serviço efetuado'
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'UPDATE agenda SET status_agenda=? WHERE id_agenda=?'
+    cur.execute(sql, (status, id_ag))
+    banco.commit()
+    banco.close()
+
+
+def alterar_status_pendentes(id_ag, status):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'UPDATE agenda SET status_agenda=? WHERE id_agenda=?'
+    cur.execute(sql, (status, id_ag))
+    banco.commit()
+    banco.close()
+
+def setar_pendentes():
+    status='Pendente'
+    global data_atual
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'UPDATE agenda SET status_agenda=? WHERE data_agenda<? AND status_agenda = "Agendado"'
+    cur.execute(sql, (status, data_atual))
     banco.commit()
     banco.close()
 

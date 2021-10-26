@@ -1141,7 +1141,7 @@ if __name__ == '__main__':
     
     #TELAS NF
     nf = uic.loadUi('telas_duda/emissao_nf.ui')
-    vendas = uic.loadUi('vendas.ui')
+    vendas = uic.loadUi('telas_duda/vendas.ui')
     manut_nf = uic.loadUi('telas_duda/manut_nf.ui')
     nf_cliente = uic.loadUi('telas_duda/nf_por_cliente.ui')
     nf_data = uic.loadUi('nf_por_data.ui')

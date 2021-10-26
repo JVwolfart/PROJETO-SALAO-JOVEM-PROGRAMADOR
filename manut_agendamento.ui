@@ -409,6 +409,11 @@ color: black</string>
       <string>Eliminado</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Cliente não compareceu</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLineEdit" name="InputIdAgenda">
     <property name="enabled">
