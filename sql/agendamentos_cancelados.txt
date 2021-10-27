@@ -1,0 +1,1 @@
+SELECT clientes.Nome, count(agenda.id_cliente), clientes.Fidelizado, agenda.status_agenda FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico LEFT JOIN clientes on clientes.Id_cliente = agenda.id_cliente WHERE status_agenda='Cancelado pelo cliente' OR status_agenda='Cliente não compareceu' GROUP BY clientes.Nome, agenda.status_agenda  ORDER BY clientes.Nome

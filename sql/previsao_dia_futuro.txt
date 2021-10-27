@@ -1,0 +1,1 @@
+SELECT data_agenda, sum(servicos.Valor) FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico WHERE status_agenda='Agendado' AND data_agenda BETWEEN '2021-10-27' AND '2999-12-31' GROUP BY data_agenda

@@ -1,0 +1,1 @@
+SELECT funcionarios.Nome, count(agenda.id_profi), sum(servicos.Valor) as Total_servico, funcionarios.Cargo FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico LEFT JOIN funcionarios on funcionarios.Id_func = agenda.id_profi WHERE status_agenda='Agendado' AND data_agenda BETWEEN '2021-10-27' AND '2999-12-31' GROUP BY agenda.id_profi ORDER BY TotaL_servico DESC

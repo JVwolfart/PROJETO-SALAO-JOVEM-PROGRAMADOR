@@ -927,4 +927,46 @@ def vendas_por_fpag_ranking_desc_intervalo(data_inicial, data_final):
     return cur.fetchall()
 
 
+#FUNÇÕES ESTATÍSTICAS FUTURO BASEADO NA AGENDA
 
+def previsao_fat_dia(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT data_agenda, sum(servicos.Valor) FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico WHERE status_agenda="Agendado" AND data_agenda BETWEEN ? AND ? GROUP BY data_agenda'
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
+
+def previsao_fat_servico_futuro(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT servicos.Nome, count(id_servico), sum(servicos.Valor) as Total_servico FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico WHERE status_agenda="Agendado" AND data_agenda BETWEEN ? AND ? GROUP BY id_servico ORDER BY TotaL_servico DESC'
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
+
+
+def previsao_fat_cliente_futuro(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT clientes.Nome, count(agenda.id_cliente), sum(servicos.Valor) as Total_servico, clientes.Fidelizado FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico LEFT JOIN clientes on clientes.Id_cliente = agenda.id_cliente WHERE status_agenda="Agendado" AND data_agenda BETWEEN ? AND ? GROUP BY agenda.id_cliente ORDER BY TotaL_servico DESC'
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
+
+
+def previsao_fat_profi_futuro(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT funcionarios.Nome, count(agenda.id_profi), sum(servicos.Valor) as Total_servico, funcionarios.Cargo FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico LEFT JOIN funcionarios on funcionarios.Id_func = agenda.id_profi WHERE status_agenda="Agendado" AND data_agenda BETWEEN ? AND ? GROUP BY agenda.id_profi ORDER BY TotaL_servico DESC'
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
+
+def lista_negra_cancelamentos():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT clientes.Nome, count(agenda.id_cliente), clientes.Fidelizado, agenda.status_agenda FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico LEFT JOIN clientes on clientes.Id_cliente = agenda.id_cliente WHERE status_agenda="Cancelado pelo cliente" OR status_agenda="Cliente não compareceu" GROUP BY clientes.Nome, agenda.status_agenda  ORDER BY clientes.Nome'
+    cur.execute(sql)
+    return cur.fetchall()
