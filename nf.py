@@ -52,14 +52,14 @@ def cliente_nf_combo():
     clientes = banco.busca_todos_clientes_combo_ativos()
     for c in clientes:
         nf.comboClientes.addItem(f"{c[1]}", QVariant(c[0]))
-    nf.show()
+    #nf.show()
 
 def servico_nf_combo():
     nf.comboServicos.clear()
     servicos = banco.busca_todos_servicos_ativos()
     for c in servicos:
         nf.comboServicos.addItem(f"{c[1]}", QVariant(c[0]))
-    nf.show()
+    #nf.show()
 
 
 def profi_nf_combo():
@@ -67,14 +67,14 @@ def profi_nf_combo():
     profi = banco.busca_todos_funcionarios_combo_ativos()
     for c in profi:
         nf.comboProfi.addItem(f"{c[1]} -> {c[2]}", QVariant(c[0]))
-    nf.show()
+    #nf.show()
 
 def fpag_nf_combo():
     nf.comboFpag.clear()
     fpags = banco.busca_todos_fpags_ativas()
     for c in fpags:
         nf.comboFpag.addItem(f"{c[1]}", QVariant(c[0]))
-    nf.show()
+    #nf.show()
 
 
 def servico_nf_combo_manut():
@@ -291,6 +291,7 @@ def carrega_combos_nf():
     servico_nf_combo()
     profi_nf_combo()
     fpag_nf_combo()
+    nf.show()
 
 def carrega_combos_nf_manut():
     servico_nf_combo_manut()
