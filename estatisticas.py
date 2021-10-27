@@ -14,6 +14,7 @@ def teste():
 
 data_atual = date.today()
 
+#FUNÇÕES ESTATÍSTICAS
 
 def carrega_total_dia():
     tabela = estatisitcas.TabelaVendasDia
@@ -365,7 +366,7 @@ if __name__ == '__main__':
     estatisitcas = uic.loadUi('telas_duda/estatisticas.ui')
     data_estat = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
     
-    #BOTÕES NF
+    #BOTÕES ESTATÍSTICAS
     estatisitcas.RbIntervaloDatas.clicked.connect(data_estat.show)
     estatisitcas.RbTodas.clicked.connect(carrega_tabelas_estatisticas)
     data_estat.DataInicial.setDate(data_atual)

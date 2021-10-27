@@ -15,6 +15,10 @@ def teste():
 data_atual = date.today()
 hora = datetime.now().time()
 
+#FUNÇÕES DA AGENDA
+def inicializar_agenda():
+    escreve_data()
+    atualizar_pendentes()
 
 def escreve_data():    
     if agenda.InputData.date() == data_atual:
@@ -109,10 +113,22 @@ def busca_tempo_servico_manut():
 
 
 def inicia_agendamento():
+    ag.tabWidget.setCurrentIndex(0)
+    limpa_campos_ag()
     profi_ag_combo()
     cliente_ag_combo()
     servico_ag_combo()
     ag.show()
+
+
+def limpa_campos_ag():
+    ag.data_agendamento.setText('')
+    ag.id_profi.setText('')
+    ag.profissional.setText('')
+    ag.especialidade.setText('')
+    ag.id_cliente.setText('')
+    ag.cliente.setText('')
+    ag.telefone.setText('')
 
 def grava_agendamento():
     data = ag.data_agendamento.text()
@@ -413,47 +429,15 @@ if __name__ == '__main__':
     usuario1.banco_para_modelo(usuario1, usuario_banco)
     qt = QtWidgets.QApplication(sys.argv)
     
-    #TELAS ESTATISTICAS
+    #TELAS AGENDA
     agenda = uic.loadUi('agenda.ui')
     ag = uic.loadUi('agendamento.ui')
     manut_ag = uic.loadUi('manut_agendamento.ui')
     manut_pendente = uic.loadUi('manut_agenda.ui')
     
     
-    #BOTÕES NF
-    '''vendas.BtnNVenda.clicked.connect(carrega_combos_nf)
-    vendas.TabelaNfs.doubleClicked.connect(pega_nf)
-    vendas.TabelaEmitidas.doubleClicked.connect(pega_nf_emitida)
-    vendas.TabelaPendentes.doubleClicked.connect(pega_nf_pendente)
-    vendas.RbTodas.clicked.connect(rb_todas_nfs)
-    vendas.RbCliente.clicked.connect(abrir_consulta_cliente)
-    vendas.RbData.clicked.connect(nf_data.show)
-    vendas.RbIntervaloDatas.clicked.connect(intervalo_datas.show)
-    vendas.RbIntervaloNotas.clicked.connect(intervalo_nf.show)
-    nf_cliente.BtnConfirmar.clicked.connect(carrega_todas_nfs_cliente)
-    nf_cliente.comboClientes.currentTextChanged.connect(escrever_cliente)
-    nf_data.InputData.setDate(data_atual)
-    nf_data.BtnConfirmar.clicked.connect(escrever_data)
-    intervalo_datas.DataInicial.setDate(data_atual)
-    intervalo_datas.DataFinal.setDate(data_atual)
-    intervalo_datas.BtnConfirmar.clicked.connect(consulta_intervalo_datas)
-    intervalo_nf.BtnConfirmar.clicked.connect(consulta_intervalo_notas)
-    nf.vip.setVisible(0)
-    nf.frame_vip.setVisible(0)
-    nf.comboClientes.currentTextChanged.connect(busca_fiel)
-    nf.comboServicos.currentTextChanged.connect(busca_preco)
-    nf.VipSlider.valueChanged.connect(calcular_desconto)
-    nf.BtnGerarNf.clicked.connect(emitir_nf)
-    nf.BtnInserir.clicked.connect(inserir_item_nf)
-    nf.BtnCalcularNf.clicked.connect(finalizar_nf)
-    nf.TabelaItensNf.doubleClicked.connect(excluir_item_nf)
-    manut_nf.BtnInserir.clicked.connect(inserir_item_nf_manut)
-    manut_nf.comboServicos.currentTextChanged.connect(busca_preco_manut)
-    manut_nf.VipSlider.valueChanged.connect(calcular_desconto_manut)
-    manut_nf.TabelaItensNf.doubleClicked.connect(excluir_item_nf_manut)
-    manut_nf.BtnSair.clicked.connect(manut_nf.close)
-    manut_nf.BtnCancelarNf.clicked.connect(cancelar_nf)
-    manut_nf.BtnCalcularNf.clicked.connect(finalizar_nf_manut)'''
+    #BOTÕES AGENDA
+    
     ##############
     agenda.InputData.setDate(data_atual)
     ag.InputData.setDate(data_atual)
@@ -475,13 +459,7 @@ if __name__ == '__main__':
     manut_ag.BtnSair.clicked.connect(manut_ag.close)
     manut_pendente.BtnAlterar.clicked.connect(alterar_status_pendente)
     manut_pendente.BtnSair.clicked.connect(manut_pendente.close)
-    '''hora = datetime.now().time()
-    
-    ag.hora.setTime(hora)
-    hora_fim = datetime.time.fromisoformat('08:00:00')
-    ag.hora.setTime(hora_fim)  
-'''
-    escreve_data()
-    atualizar_pendentes()
+
+    inicializar_agenda()
     banco.cria_tabelas()
     qt.exec_()

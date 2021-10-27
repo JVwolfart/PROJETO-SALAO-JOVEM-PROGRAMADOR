@@ -13,6 +13,7 @@ def teste():
 
 data_atual = date.today()
 
+#FUNÇÕES DE NOTAS FISCAIS
 def busca_fiel():
     id = nf.comboClientes.currentData()
     if id != None:

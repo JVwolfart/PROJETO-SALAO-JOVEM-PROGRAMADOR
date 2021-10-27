@@ -275,7 +275,7 @@ QPushButton{
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="label_7">
          <property name="font">
           <font>
            <pointsize>10</pointsize>
@@ -286,6 +286,57 @@ QPushButton{
          </property>
          <property name="text">
           <string>Estatísticas</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Btn_agenda">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>Estatísticas do negócio e ranking</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton:hover {   
+    border: 20px solid yellow;
+    border-radius: 45px;   
+   
+}
+QPushButton{   
+    background-color:rgb(238, 238, 236);
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>IMAGENS/icone_agendamento.png</normaloff>IMAGENS/icone_agendamento.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>80</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Agendamento</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
