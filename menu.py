@@ -2311,6 +2311,7 @@ def grava_agendamento():
     banco.inserir_agendamento(data,hora,id_cliente,id_profi,id_servico)
     QMessageBox.about(ag, 'AGENDAMENTO INSERIDO', f'ATENÇÃO !! AGENDAMENTO INSERIDO COM SUCESSO')
     carrega_agenda_dia_geral()
+    carrega_agenda_dia_profi()
     carrega_ag_dia_profi()
     
 def carrega_agenda_dia_geral():
