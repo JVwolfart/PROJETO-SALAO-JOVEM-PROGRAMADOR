@@ -82,7 +82,7 @@ def fazer_login():
             menu.lbl_ola.setText(f'Seja bem vindo usuário {usuario1.nome.title()}')
             #menu.lbl_id_user.setText(f'{usuario1.id}')
             menu.showMaximized()
-            QMessageBox.about(menu, 'BOAS VINDAS', f'Bem vindo usuário {usuario1.nome}, você possui as seguintes permissões: {permi}')
+            QMessageBox.about(menu, 'BOAS VINDAS', f'Bem vindo usuário {usuario1.nome}, Além das funções Básicas de Cadastros, você possui as seguintes permissões: {permi}')
             banco.cria_tabelas()
             carrega_tabelas()
 

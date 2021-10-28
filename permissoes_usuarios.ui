@@ -124,7 +124,7 @@ QPushButton:hover {
      <rect>
       <x>150</x>
       <y>450</y>
-      <width>110</width>
+      <width>161</width>
       <height>28</height>
      </rect>
     </property>
@@ -136,7 +136,7 @@ QPushButton:hover {
      </font>
     </property>
     <property name="text">
-     <string>Criar</string>
+     <string>Faturamento</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="CbEditar">
@@ -144,7 +144,7 @@ QPushButton:hover {
      <rect>
       <x>370</x>
       <y>450</y>
-      <width>110</width>
+      <width>171</width>
       <height>28</height>
      </rect>
     </property>
@@ -156,7 +156,7 @@ QPushButton:hover {
      </font>
     </property>
     <property name="text">
-     <string>Editar</string>
+     <string>Estatistica</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="CbExcluir">
@@ -176,7 +176,7 @@ QPushButton:hover {
      </font>
     </property>
     <property name="text">
-     <string>Excluir</string>
+     <string>Agenda</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -203,7 +203,7 @@ QPushButton:hover {
     <property name="geometry">
      <rect>
       <x>370</x>
-      <y>490</y>
+      <y>500</y>
       <width>121</width>
       <height>28</height>
      </rect>

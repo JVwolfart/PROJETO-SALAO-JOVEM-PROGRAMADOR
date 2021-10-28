@@ -125,7 +125,7 @@ color: rgb(138, 226, 52);</string>
     </column>
     <column>
      <property name="text">
-      <string>Criar</string>
+      <string>Faturamento</string>
      </property>
      <property name="font">
       <font>
@@ -138,7 +138,7 @@ color: rgb(138, 226, 52);</string>
     </column>
     <column>
      <property name="text">
-      <string>Editar</string>
+      <string>Estatistica</string>
      </property>
      <property name="font">
       <font>
@@ -151,7 +151,7 @@ color: rgb(138, 226, 52);</string>
     </column>
     <column>
      <property name="text">
-      <string>Excluir</string>
+      <string>Agenda</string>
      </property>
      <property name="font">
       <font>
