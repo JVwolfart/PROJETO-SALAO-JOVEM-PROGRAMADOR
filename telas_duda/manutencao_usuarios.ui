@@ -131,7 +131,7 @@ QPushButton:hover {
     </column>
     <column>
      <property name="text">
-      <string>Criar</string>
+      <string>Faturamento</string>
      </property>
      <property name="font">
       <font>
@@ -144,7 +144,7 @@ QPushButton:hover {
     </column>
     <column>
      <property name="text">
-      <string>Editar</string>
+      <string>Estatistica</string>
      </property>
      <property name="font">
       <font>
@@ -157,7 +157,7 @@ QPushButton:hover {
     </column>
     <column>
      <property name="text">
-      <string>Excluir</string>
+      <string>Agenda</string>
      </property>
      <property name="font">
       <font>

@@ -8,18 +8,18 @@ class Usuarios():
        self.id = None
        self.nome = None
        self.senha = None
-       self.criar = None
-       self.editar = None
-       self.excluir = None
+       self.faturamento = None
+       self.estatistica = None
+       self.agenda = None
        self.root = None
     
     def banco_para_modelo(self, usuario_banco):
         self.id = usuario_banco[0][0]
         self.nome = usuario_banco[0][1]
         self.senha = usuario_banco[0][2]
-        self.criar = usuario_banco[0][3]
-        self.editar = usuario_banco[0][4]
-        self.excluir = usuario_banco[0][5]
+        self.faturamento = usuario_banco[0][3]
+        self.estatistica = usuario_banco[0][4]
+        self.agenda = usuario_banco[0][5]
         self.root = usuario_banco[0][6] 
 
 class Funcionario():

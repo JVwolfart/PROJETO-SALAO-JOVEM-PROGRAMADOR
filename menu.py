@@ -109,9 +109,9 @@ def criar_novo_usuario():
     usuario = cad_usuario.InputUsuario.text().upper().strip()
     senha = cad_usuario.InputSenha.text()
     confirma = cad_usuario.InputConfirmar.text()
-    criar = False
-    editar = False
-    excluir = False
+    faturamento = False
+    estatistica = False
+    agenda = False
     usuario_banco = banco.buscar_usuario(usuario)
     if len(usuario) < 5 or len(senha) < 5:
         QMessageBox.about(cad_usuario, 'ERRO', 'usuário e senha devem ter pelo menos 5 caractéres')
@@ -120,7 +120,7 @@ def criar_novo_usuario():
     elif len(usuario_banco) != 0:
         QMessageBox.about(cad_usuario, 'ERRO', 'Usuário já existe no sistema')
     else:
-        banco.novo_usuario(usuario, senha, criar, editar, excluir)
+        banco.novo_usuario(usuario, senha, faturamento, estatistica, agenda)
         QMessageBox.about(cad_usuario, 'USUÁRIO CRIADO', f'Usuário {usuario} criado com sucesso!')
         cad_usuario.InputUsuario.setText('')
         cad_usuario.InputSenha.setText('')
@@ -137,11 +137,11 @@ def carrega_usuarios():
     tabela = manut_usuarios.TabelaUsuarios
     tabela.setRowCount(len(usuarios))
     tabela.setColumnWidth(0, 50)
-    tabela.setColumnWidth(1, 350)
-    tabela.setColumnWidth(2, 100)
-    tabela.setColumnWidth(3, 100)
-    tabela.setColumnWidth(4, 100)
-    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(1, 250)
+    tabela.setColumnWidth(2, 140)
+    tabela.setColumnWidth(3, 140)
+    tabela.setColumnWidth(4, 140)
+    tabela.setColumnWidth(5, 140)
     tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
     tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
     for c in usuarios:
@@ -170,22 +170,22 @@ def carrega_usuarios():
 def pega_usuario():
     linha = manut_usuarios.TabelaUsuarios.currentRow()
     nome = manut_usuarios.TabelaUsuarios.item(linha, 1).text()
-    criar = manut_usuarios.TabelaUsuarios.item(linha, 2).text()
-    editar = manut_usuarios.TabelaUsuarios.item(linha, 3).text()
-    excluir = manut_usuarios.TabelaUsuarios.item(linha, 4).text()
+    faturamento = manut_usuarios.TabelaUsuarios.item(linha, 2).text()
+    estatistica = manut_usuarios.TabelaUsuarios.item(linha, 3).text()
+    agenda = manut_usuarios.TabelaUsuarios.item(linha, 4).text()
     root = manut_usuarios.TabelaUsuarios.item(linha, 5).text()
     permissoes.InputUsuario.setText(nome)
-    if criar == 'SIM':
+    if faturamento == 'SIM':
         permissoes.CbCriar.setChecked(True)
     else:
         permissoes.CbCriar.setChecked(False)
     
-    if editar == 'SIM':
+    if estatistica == 'SIM':
         permissoes.CbEditar.setChecked(True)
     else:
         permissoes.CbEditar.setChecked(False)
 
-    if excluir == 'SIM':
+    if agenda == 'SIM':
         permissoes.CbExcluir.setChecked(True)
     else:
         permissoes.CbExcluir.setChecked(False)
@@ -239,11 +239,11 @@ def permissao():
 
 def setar_permissoes():
     nome = permissoes.InputUsuario.text()
-    criar = permissoes.CbCriar.isChecked()
-    editar = permissoes.CbEditar.isChecked()
-    excluir = permissoes.CbExcluir.isChecked()
+    faturamento = permissoes.CbCriar.isChecked()
+    estatistica = permissoes.CbEditar.isChecked()
+    agenda = permissoes.CbExcluir.isChecked()
     root = permissoes.CbRoot.isChecked()
-    banco.alterar_permissoes(nome, criar, editar, excluir, root)
+    banco.alterar_permissoes(nome, faturamento, estatistica, agenda, root)
     QMessageBox.about(permissoes, 'PERMISSÕES ALTERADAS', f'Permissões do usuário {nome} alteradas com sucesso')
     carrega_usuarios()
     permissoes.close()

@@ -13,7 +13,7 @@ data_atual = date.today()
 def criar_usuario():
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = 'CREATE TABLE IF NOT EXISTS usuarios(nome TEXT, senha TEXT, criar BOOLEAN, editar BOOLEAN, excluir BOOLEAN, root BOOLEAN)'
+    sql = 'CREATE TABLE IF NOT EXISTS usuarios(nome TEXT, senha TEXT, faturamento BOOLEAN, estatistica BOOLEAN, agenda BOOLEAN, root BOOLEAN)'
     cur.execute(sql)
     banco.commit()
     banco.close()
@@ -27,22 +27,22 @@ def buscar_usuario(nome):
     return cur.fetchall()
     #banco.commit()
 
-def novo_usuario(nome, senha, criar, editar, excluir, root=False):
+def novo_usuario(nome, senha, faturamento, estatistica, agenda, root=False):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
     sql = "INSERT INTO usuarios VALUES(?,?,?,?,?,?)"
-    cur.execute(sql, (nome,senha,criar,editar,excluir,root))
+    cur.execute(sql, (nome,senha,faturamento,estatistica,agenda,root))
     #cur.execute(f"INSERT INTO usuarios VALUES('{nome}','{senha}', {criar}, {editar}, {excluir}, {root})")
     banco.commit()
     banco.close()
 
-def alterar_permissoes(nome, criar, editar, excluir, root):
+def alterar_permissoes(nome, faturamento, estatistica, agenda, root):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = "UPDATE usuarios SET criar=?, editar=?, excluir=?, root=? WHERE nome=?"
-    cur.execute(sql, (criar,editar,excluir,root,nome))
+    sql = "UPDATE usuarios SET faturamento=?, estatistica=?, agenda=?, root=? WHERE nome=?"
+    cur.execute(sql, (faturamento,estatistica,agenda,root,nome))
     #cur.execute(f"UPDATE usuarios SET criar={criar}, editar={editar}, excluir={excluir}, root={root} WHERE nome='{nome}'")
     banco.commit()
     banco.close()
@@ -69,22 +69,22 @@ def busca_permissoes(nome):
     cria_tabelas()
     banco = sqlite3.connect('bdados.db')
     cur = banco.cursor()
-    sql = "SELECT criar, editar, excluir, root FROM usuarios WHERE nome=?"
+    sql = "SELECT faturamento, estatistica, agenda, root FROM usuarios WHERE nome=?"
     cur.execute(sql, (nome,))
     #cur.execute(f"SELECT criar, editar, excluir, root FROM usuarios WHERE nome='{nome}'")
     permissoes = cur.fetchone()
     autorizacoes = []
     for k, c in enumerate(permissoes):
         if k == 0 and c == 1:
-            autorizacoes.append('Criar')
+            autorizacoes.append('Faturamento')
         if k == 1 and c == 1:
-            autorizacoes.append('Editar')
+            autorizacoes.append('Estatistica')
         if k == 2 and c == 1:
-            autorizacoes.append('Excluir')
+            autorizacoes.append('Agenda')
         if k == 3 and c == 1:
             autorizacoes.append('Root')
     if len(autorizacoes) == 0:
-        autorizacoes.append('Apenas consulta, caso queira outras permissões solicite ao administrador')
+        autorizacoes.append('Você não possui permissões liberadas, conseguirá apenas acessar algumas funcionalidades do menu de cadastros. Caso queira outras permissões solicite ao administrador')
     return autorizacoes
     #banco.commit()
 
