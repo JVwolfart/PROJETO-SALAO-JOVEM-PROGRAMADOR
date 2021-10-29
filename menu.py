@@ -2749,6 +2749,7 @@ def limpa_rodape_tabela_estatisticas_futuro():
 #FUNÇÕES ESTATÍSTICAS GÊNERO REALIZADO
 
 def carrega_estat_genero():
+    estat_genero.lbl_escolha.setText('Todo o Período')
     tabela = estat_genero.TabelaVendasGenero
     row = 0
     nfs = banco.vendas_realizadas_genero()
@@ -2831,6 +2832,7 @@ def verificar_intervalo_estat_genero():
 #FUNÇÕES ESTATÍSTICAS GÊNERO PREVISÃO FUTURA
 
 def carrega_estat_genero_futuro():
+    estat_genero_futuro.lbl_escolha.setText('Todo o Período')
     tabela = estat_genero_futuro.TabelaVendasGenero
     row = 0
     nfs = banco.vendas_previstas_genero()
