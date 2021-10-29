@@ -71,7 +71,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -390,10 +390,10 @@ border-radius: 20px;</string>
         <set>AlignCenter</set>
        </property>
        <property name="background">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
+        <color>
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </property>
       </column>
@@ -1087,9 +1087,9 @@ color: black;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>200</x>
       <y>80</y>
-      <width>81</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -1100,7 +1100,7 @@ color: black;
    <widget class="QDateEdit" name="DataFinal">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>700</x>
       <y>80</y>
       <width>191</width>
       <height>31</height>
@@ -1146,7 +1146,7 @@ color: black;
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>590</x>
       <y>80</y>
       <width>121</width>
       <height>31</height>

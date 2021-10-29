@@ -33,67 +33,11 @@ def fazer_login():
         if senha != usuario1.senha:
             QMessageBox.about(login, 'ERRO', 'Senha não confere')
         else:
-            #usuario1.banco_para_modelo(usuario_banco)
             permi = banco.busca_permissoes(usuario)
             manut_usuarios.BtnOrdenar.setVisible(False)
             manut_usuarios.BtnOrdenarID.setVisible(False)
-            #menu_cadastros.Btn_cadastro_usuario.setEnabled(usuario''_banco[0][6])
-            '''#MANUT SERVIÇOS
-
-            manut_servico.BtnDesligar.setVisible(usuario1.root)
-            manut_servico.BtnReativar.setVisible(usuario1.root)
-
-            #MANUT CLIENTES
-
-            manut_cliente.BtnDesligar.setVisible(usuario1.root)
-            manut_cliente.BtnReativar.setVisible(usuario1.root)
-            manut_cliente.BtnFidelizar.setVisible(usuario1.root)
-            manut_cliente.BtnDesfidelizar.setVisible(usuario1.root)'''
-
-
-            '''#VENDAS
-
-            vendas.BtnCadFuncionario.setVisible(usuario_banco[0][6])
-            vendas.BtnCadClientes.setVisible(usuario_banco[0][3])
-            vendas.BtnCadProdutos.setVisible(usuario_banco[0][3])
-            vendas.BtnNVenda.setVisible(usuario_banco[0][3])
-            vendas.BtnRoot.setVisible(usuario_banco[0][6])
-            if usuario_banco[0][6]:
-                vendas.lbl_root.setVisible(False)
-            
-
-            #FUNCIONÁRIOS
-            cad_func.BtnInserir.setVisible(usuario_banco[0][6])
-            manut_func.BtnAlterar.setVisible(usuario_banco[0][4])
-            manut_func.BtnDesligar.setVisible(usuario_banco[0][6])
-            manut_func.BtnReativar.setVisible(usuario_banco[0][6])
-            ##############
-
-            #CLIENTES
-            cad_cliente.BtnInserir.setVisible(usuario_banco[0][3])
-            manut_cliente.BtnAlterar.setVisible(usuario_banco[0][4])
-            manut_cliente.BtnDesligar.setVisible(usuario_banco[0][5])
-            manut_cliente.BtnReativar.setVisible(usuario_banco[0][6])
-            #####################
-
-            #PRODUTOS
-            cad_produtos.BtnInserir.setVisible(usuario_banco[0][3])
-            manut_produtos.BtnAlterar.setVisible(usuario_banco[0][4])
-            manut_produtos.BtnDesligar.setVisible(usuario_banco[0][5])
-            manut_produtos.BtnReativar.setVisible(usuario_banco[0][6])
-            ###############
-
-            #NOTA FISCAL
-            manut_nf.BtnInserir.setVisible(usuario_banco[0][3])
-            manut_nf.BtnCalcularNf.setVisible(usuario_banco[0][3])
-            manut_nf.BtnCancelarNf.setVisible(usuario_banco[0][5])
-            manut_item.BtnAlterar.setVisible(usuario_banco[0][4])
-            manut_item.BtnExcluir.setVisible(usuario_banco[0][5])
-            '''
-            ###############
             login.close()
             menu.lbl_ola.setText(f'Seja bem vindo usuário {usuario1.nome.title()}')
-            #menu.lbl_id_user.setText(f'{usuario1.id}')
             menu.showMaximized()
             QMessageBox.about(menu, 'BOAS VINDAS', f'Bem vindo usuário {usuario1.nome}, Além das funções Básicas de Cadastros, você possui as seguintes permissões: {permi}')
             banco.cria_tabelas()
@@ -2801,6 +2745,172 @@ def limpa_rodape_tabela_estatisticas_futuro():
     estat_futuro.lbl_total_profi.setText('')
 
 
+
+#FUNÇÕES ESTATÍSTICAS GÊNERO REALIZADO
+
+def carrega_estat_genero():
+    tabela = estat_genero.TabelaVendasGenero
+    row = 0
+    nfs = banco.vendas_realizadas_genero()
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 120)
+    tabela.setColumnWidth(1, 150)
+    tabela.setColumnWidth(2, 150)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 200)
+    tabela.setColumnWidth(5, 150)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    media_atendimento = 0
+    media_minuto = 0
+    for c in nfs:
+        total += c[1]
+        media_atendimento = c[1]/c[2]
+        media_minuto = c[1]/c[3]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'R$ {c[1]:.2f}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]} min = {c[3]//60} horas e {c[3]%60} minutos'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {media_atendimento:.2f}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {media_minuto:.2f}'))
+        row += 1
+        estat_genero.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+    estat_genero.show()
+
+
+def carrega_estat_genero_intervalo(data_inicial, data_final):
+    tabela = estat_genero.TabelaVendasGenero
+    row = 0
+    nfs = banco.vendas_realizadas_genero_intervalo(data_inicial, data_final)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 120)
+    tabela.setColumnWidth(1, 150)
+    tabela.setColumnWidth(2, 150)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 200)
+    tabela.setColumnWidth(5, 150)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    media_atendimento = 0
+    media_minuto = 0
+    for c in nfs:
+        total += c[1]
+        media_atendimento = c[1]/c[2]
+        media_minuto = c[1]/c[3]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'R$ {c[1]:.2f}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]} min = {c[3]//60} horas e {c[3]%60} minutos'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {media_atendimento:.2f}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {media_minuto:.2f}'))
+        row += 1
+        estat_genero.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+    estat_genero.show()
+
+
+
+
+
+def verificar_intervalo_estat_genero():
+    data_inicial = data_estat_genero.DataInicial.text()
+    data_final = data_estat_genero.DataFinal.text()
+    data_inicial = funcoes.data_banco(data_inicial)
+    data_final = funcoes.data_banco(data_final)
+    ok = funcoes.inicial_maior_final(data_inicial, data_final)
+    if not ok:
+        QMessageBox.about(data_estat_genero, 'ERRO', 'Data inválida, a data inicial precisa ser menor ou igual a data final')
+    else:
+        estat_genero.lbl_total.setText('')
+        carrega_estat_genero_intervalo(data_inicial, data_final)
+        estat_genero.lbl_escolha.setText(f'Data inicial = {data_estat_genero.DataInicial.text()}, data final = {data_estat_genero.DataFinal.text()}')
+        data_estat_genero.close()
+
+
+#FUNÇÕES ESTATÍSTICAS GÊNERO PREVISÃO FUTURA
+
+def carrega_estat_genero_futuro():
+    tabela = estat_genero_futuro.TabelaVendasGenero
+    row = 0
+    nfs = banco.vendas_previstas_genero()
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 120)
+    tabela.setColumnWidth(1, 150)
+    tabela.setColumnWidth(2, 150)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 200)
+    tabela.setColumnWidth(5, 150)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    media_atendimento = 0
+    media_minuto = 0
+    for c in nfs:
+        total += c[1]
+        media_atendimento = c[1]/c[2]
+        media_minuto = c[1]/c[3]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'R$ {c[1]:.2f}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]} min = {c[3]//60} horas e {c[3]%60} minutos'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {media_atendimento:.2f}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {media_minuto:.2f}'))
+        row += 1
+        estat_genero_futuro.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+    estat_genero_futuro.show()
+
+
+def carrega_estat_genero_intervalo_futuro(data_inicial, data_final):
+    tabela = estat_genero_futuro.TabelaVendasGenero
+    row = 0
+    nfs = banco.vendas_previstas_genero_intervalo(data_inicial, data_final)
+    tabela.setRowCount(len(nfs))
+    tabela.setColumnWidth(0, 120)
+    tabela.setColumnWidth(1, 150)
+    tabela.setColumnWidth(2, 150)
+    tabela.setColumnWidth(3, 300)
+    tabela.setColumnWidth(4, 200)
+    tabela.setColumnWidth(5, 150)
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    total = 0
+    media_atendimento = 0
+    media_minuto = 0
+    for c in nfs:
+        total += c[1]
+        media_atendimento = c[1]/c[2]
+        media_minuto = c[1]/c[3]
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{c[0]}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'R$ {c[1]:.2f}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]} min = {c[3]//60} horas e {c[3]%60} minutos'))
+        tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {media_atendimento:.2f}'))
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {media_minuto:.2f}'))
+        row += 1
+        estat_genero_futuro.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+    estat_genero_futuro.show()
+
+
+
+
+
+def verificar_intervalo_futuro_estat_genero():
+    data_inicial = data_estat_genero_futuro.DataInicial.text()
+    data_final = data_estat_genero_futuro.DataFinal.text()
+    data_inicial = funcoes.data_banco(data_inicial)
+    data_final = funcoes.data_banco(data_final)
+    ok = funcoes.inicial_maior_final(data_inicial, data_final)
+    if not ok:
+        QMessageBox.about(data_estat_genero_futuro, 'ERRO', 'Data inválida, a data inicial precisa ser menor ou igual a data final')
+    else:
+        estat_genero_futuro.lbl_total.setText('')
+        carrega_estat_genero_intervalo_futuro(data_inicial, data_final)
+        estat_genero_futuro.lbl_escolha.setText(f'Data inicial = {data_estat_genero_futuro.DataInicial.text()}, data final = {data_estat_genero_futuro.DataFinal.text()}')
+        data_estat_genero_futuro.close()
+
+
+
 if __name__ == '__main__':
 
     qt = QtWidgets.QApplication(sys.argv)
@@ -2808,8 +2918,8 @@ if __name__ == '__main__':
     usuario1 = Usuarios()
     menu = uic.loadUi('telas_duda/menu2.ui')
     menu_cadastros = uic.loadUi('telas_duda/menu_cadastros.ui')
-    menu_vendas = uic.loadUi('menu_vendas_faturamento.ui')
-    menu_estat = uic.loadUi('menu_estatisticas.ui')
+    menu_vendas = uic.loadUi('telas_duda/menu_vendas_faturamento.ui')
+    menu_estat = uic.loadUi('telas_duda/menu_estatisticas.ui')
     login = uic.loadUi('telas_duda/tela_login.ui')
     cad_usuario = uic.loadUi('telas_duda/tela_cadastro.ui')
     manut_usuarios = uic.loadUi('telas_duda/manutencao_usuarios.ui')
@@ -2844,16 +2954,24 @@ if __name__ == '__main__':
 
     #TELAS ESTATISTICAS
     estatisitcas = uic.loadUi('telas_duda/estatisticas.ui')
-    data_estat = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
+    data_estat = uic.loadUi('telas_duda/estatisticas_por_intervalo_de_data.ui')
 
     #TELAS AGENDA
-    agenda = uic.loadUi('agenda.ui')
-    ag = uic.loadUi('agendamento.ui')
+    agenda = uic.loadUi('telas_duda/agenda.ui')
+    ag = uic.loadUi('telas_duda/agendamento.ui')
     manut_ag = uic.loadUi('manut_agendamento.ui')
     manut_pendente = uic.loadUi('manut_agenda.ui')
 
     #TELAS ESTATISTICAS FUTURO AGENDA
-    estat_futuro = uic.loadUi('estatisticas_ag_futuro.ui')
+    estat_futuro = uic.loadUi('telas_duda/estatisticas_ag_futuro.ui')
+
+    #TELAS ESTATISTICAS GÊNERO REALIZADO
+    estat_genero = uic.loadUi('estatisticas_genero.ui')
+    data_estat_genero = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
+
+    #TELAS ESTATISTICAS GÊNERO FUTURO
+    estat_genero_futuro = uic.loadUi('estatisticas_genero_futuro.ui')
+    data_estat_genero_futuro = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
 
     ##BOTÕES MENU
     menu.Btn_Sair.clicked.connect(menu.close)
@@ -2871,6 +2989,8 @@ if __name__ == '__main__':
     menu_vendas.Btn_nova_venda.clicked.connect(carrega_combos_nf)
     menu_estat.Btn_Estatisticas_realizado.clicked.connect(carrega_tabelas_estatisticas)
     menu_estat.Btn_Estatisticas_futuro.clicked.connect(estat_futuro.show)
+    menu_estat.Btn_Estat_genero.clicked.connect(carrega_estat_genero)
+    menu_estat.Btn_Estat_genero_futuro.clicked.connect(carrega_estat_genero_futuro)
     ##
 
     #BOTÕES SERVIÇOS
@@ -3005,6 +3125,23 @@ if __name__ == '__main__':
     estat_futuro.BtnCarregar.clicked.connect(verificar_intervalo_futuro)
     ##############
 
+    #BOTÕES ESTATÍSTICAS GÊNERO REALIZADO
+    estat_genero.RbTodas.clicked.connect(carrega_estat_genero)
+    estat_genero.RbIntervaloDatas.clicked.connect(data_estat_genero.show)
+    
+    data_estat_genero.DataInicial.setDate(data_atual)
+    data_estat_genero.DataFinal.setDate(data_atual)
+    data_estat_genero.BtnConfirmar.clicked.connect(verificar_intervalo_estat_genero)
+    ##############
+
+    #BOTÕES ESTATÍSTICAS GÊNERO FUTURO
+    estat_genero_futuro.RbTodas.clicked.connect(carrega_estat_genero_futuro)
+    estat_genero_futuro.RbIntervaloDatas.clicked.connect(data_estat_genero_futuro.show)
+    
+    data_estat_genero_futuro.DataInicial.setDate(data_atual)
+    data_estat_genero_futuro.DataFinal.setDate(data_atual)
+    data_estat_genero_futuro.BtnConfirmar.clicked.connect(verificar_intervalo_futuro_estat_genero)
+    ##############
 
     #menu.showMaximized()
     login.show()
