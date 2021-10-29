@@ -37,7 +37,20 @@ def fazer_login():
             permi = banco.busca_permissoes(usuario)
             manut_usuarios.BtnOrdenar.setVisible(False)
             manut_usuarios.BtnOrdenarID.setVisible(False)
-            #menu_cadastros.Btn_cadastro_usuario.setEnabled(usuario_banco[0][6])
+            #menu_cadastros.Btn_cadastro_usuario.setEnabled(usuario''_banco[0][6])
+            '''#MANUT SERVIÇOS
+
+            manut_servico.BtnDesligar.setVisible(usuario1.root)
+            manut_servico.BtnReativar.setVisible(usuario1.root)
+
+            #MANUT CLIENTES
+
+            manut_cliente.BtnDesligar.setVisible(usuario1.root)
+            manut_cliente.BtnReativar.setVisible(usuario1.root)
+            manut_cliente.BtnFidelizar.setVisible(usuario1.root)
+            manut_cliente.BtnDesfidelizar.setVisible(usuario1.root)'''
+
+
             '''#VENDAS
 
             vendas.BtnCadFuncionario.setVisible(usuario_banco[0][6])
@@ -125,6 +138,7 @@ def criar_novo_usuario():
         cad_usuario.InputUsuario.setText('')
         cad_usuario.InputSenha.setText('')
         cad_usuario.InputConfirmar.setText('')
+        permissao()
         
         
 ################################
@@ -251,7 +265,7 @@ def setar_permissoes():
 
 
 def erro_sem_permissao():
-    QMessageBox.about(menu_cadastros, 'ERRO', f'Usuário {usuario1.nome} não tem poder para cadastrar novos usuários, essa permissão é exclusiva para ROOT')
+    QMessageBox.about(menu_cadastros, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem poder para cadastrar novos usuários, essa permissão é exclusiva para ROOT')
     
 
 
@@ -316,31 +330,36 @@ def pega_servico():
         manut_servico.show()
 
 def desligar_servico():
-    codigo = manut_servico.InputId.value()
-    nome = manut_servico.Nome.text()
-    men = QMessageBox.question(manut_servico, 'DESLIGAR SERVIÇO', f'ATENÇÃO, deseja realmente desligar o serviço {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.desligar_servico(codigo)
-        QMessageBox.about(manut_servico, 'SERVIÇO DESLIGADO', f'Serviço {nome} desligado com sucesso')
-        carrega_servicos()
-        manut_servico.close()
-        servico.show()
+    if usuario1.root:
+        codigo = manut_servico.InputId.value()
+        nome = manut_servico.Nome.text()
+        men = QMessageBox.question(manut_servico, 'DESLIGAR SERVIÇO', f'ATENÇÃO, deseja realmente desligar o serviço {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.desligar_servico(codigo)
+            QMessageBox.about(manut_servico, 'SERVIÇO DESLIGADO', f'Serviço {nome} desligado com sucesso')
+            carrega_servicos()
+            manut_servico.close()
+            servico.show()
+        else:
+            return
     else:
-        return
-
+        QMessageBox.about(manut_servico, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 def reativar_servico():
-    codigo = manut_servico.InputId.value()
-    nome = manut_servico.Nome.text()
-    men = QMessageBox.question(manut_servico, 'REATIVAR SERVIÇO', f'ATENÇÃO, deseja realmente reativar o serviço {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.reativar_servico(codigo)
-        QMessageBox.about(manut_servico, 'SERVIÇO REATIVADO', f'Serviço {nome} reativado com sucesso')
-        carrega_servicos()
-        manut_servico.close()
-        servico.show()
+    if usuario1.root:
+        codigo = manut_servico.InputId.value()
+        nome = manut_servico.Nome.text()
+        men = QMessageBox.question(manut_servico, 'REATIVAR SERVIÇO', f'ATENÇÃO, deseja realmente reativar o serviço {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.reativar_servico(codigo)
+            QMessageBox.about(manut_servico, 'SERVIÇO REATIVADO', f'Serviço {nome} reativado com sucesso')
+            carrega_servicos()
+            manut_servico.close()
+            servico.show()
+        else:
+            return
     else:
-        return
+        QMessageBox.about(manut_servico, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 def alterar_servico():
     codigo = manut_servico.InputId.value()
@@ -441,70 +460,82 @@ def pega_cliente():
         manut_cliente.show()
 
 def desligar_cliente():
-    id = manut_cliente.InputId.value()
-    nome = manut_cliente.Nome.text()
-    ativo = manut_cliente.CkAtivo.isChecked()
-    if not ativo:
-        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já está desligado')
-    else:
-        men = QMessageBox.question(manut_cliente, 'DESLIGAR CLIENTE', f'ATENÇÃO, deseja realmente desligar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-        if men == QMessageBox.Ok:
-            banco.desligar_cliente(id)
-            QMessageBox.about(manut_cliente, 'CLIENTE DESLIGADO', f'Cliente {nome} desligado com sucesso')
-            carrega_clientes()
-            manut_cliente.close()
+    if usuario1.root:
+        id = manut_cliente.InputId.value()
+        nome = manut_cliente.Nome.text()
+        ativo = manut_cliente.CkAtivo.isChecked()
+        if not ativo:
+            QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já está desligado')
         else:
-            return
+            men = QMessageBox.question(manut_cliente, 'DESLIGAR CLIENTE', f'ATENÇÃO, deseja realmente desligar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+            if men == QMessageBox.Ok:
+                banco.desligar_cliente(id)
+                QMessageBox.about(manut_cliente, 'CLIENTE DESLIGADO', f'Cliente {nome} desligado com sucesso')
+                carrega_clientes()
+                manut_cliente.close()
+            else:
+                return
+    else:
+        QMessageBox.about(manut_cliente, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
+
 
 def reativar_cliente():
-    id = manut_cliente.InputId.value()
-    nome = manut_cliente.Nome.text()
-    ativo = manut_cliente.CkAtivo.isChecked()
-    if ativo:
-        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já está ativo')
-    else:
-        men = QMessageBox.question(manut_cliente, 'REATIVAR CLIENTE', f'ATENÇÃO, deseja realmente reativar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-        if men == QMessageBox.Ok:
-            banco.reativar_cliente(id)
-            QMessageBox.about(manut_cliente, 'CLIENTE REATIVADO', f'Cliente {nome} reativado com sucesso')
-            carrega_clientes()
-            manut_cliente.close()
+    if usuario1.root:
+        id = manut_cliente.InputId.value()
+        nome = manut_cliente.Nome.text()
+        ativo = manut_cliente.CkAtivo.isChecked()
+        if ativo:
+            QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já está ativo')
         else:
-            return
+            men = QMessageBox.question(manut_cliente, 'REATIVAR CLIENTE', f'ATENÇÃO, deseja realmente reativar o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+            if men == QMessageBox.Ok:
+                banco.reativar_cliente(id)
+                QMessageBox.about(manut_cliente, 'CLIENTE REATIVADO', f'Cliente {nome} reativado com sucesso')
+                carrega_clientes()
+                manut_cliente.close()
+            else:
+                return
+    else:
+        QMessageBox.about(manut_cliente, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 
 def fidelizar_cliente():
-    id = manut_cliente.InputId.value()
-    nome = manut_cliente.Nome.text()
-    fidelizado = manut_cliente.CkFidelizado.isChecked()
-    if fidelizado:
-        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já é fidelizado')
-    else:
-        men = QMessageBox.question(manut_cliente, 'FIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente FIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-        if men == QMessageBox.Ok:
-            banco.fidelizar_cliente(id)
-            QMessageBox.about(manut_cliente, 'CLIENTE FIDELIZADO', f'O Cliente {nome} foi fidelizado com sucesso e a partir de agora pode receber os descontos de fidelidade')
-            carrega_clientes()
-            manut_cliente.close()
+    if usuario1.root:
+        id = manut_cliente.InputId.value()
+        nome = manut_cliente.Nome.text()
+        fidelizado = manut_cliente.CkFidelizado.isChecked()
+        if fidelizado:
+            QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} já é fidelizado')
         else:
-            return
+            men = QMessageBox.question(manut_cliente, 'FIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente FIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+            if men == QMessageBox.Ok:
+                banco.fidelizar_cliente(id)
+                QMessageBox.about(manut_cliente, 'CLIENTE FIDELIZADO', f'O Cliente {nome} foi fidelizado com sucesso e a partir de agora pode receber os descontos de fidelidade')
+                carrega_clientes()
+                manut_cliente.close()
+            else:
+                return
+    else:
+        QMessageBox.about(manut_cliente, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 def desfidelizar_cliente():
-    id = manut_cliente.InputId.value()
-    nome = manut_cliente.Nome.text()
-    fidelizado = manut_cliente.CkFidelizado.isChecked()
-    if not fidelizado:
-        QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} não é fidelizado')
-    else:
-        men = QMessageBox.question(manut_cliente, 'DESFIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente DESFIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-        if men == QMessageBox.Ok:
-            banco.desfidelizar_cliente(id)
-            QMessageBox.about(manut_cliente, 'CLIENTE DESFIDELIZADO', f'O Cliente {nome} foi desfidelizado e não contará mais com os descontos de fidelidade')
-            carrega_clientes()
-            manut_cliente.close()
+    if usuario1.root:
+        id = manut_cliente.InputId.value()
+        nome = manut_cliente.Nome.text()
+        fidelizado = manut_cliente.CkFidelizado.isChecked()
+        if not fidelizado:
+            QMessageBox.about(manut_cliente, 'ERRO', f'O Cliente {nome} não é fidelizado')
         else:
-            return
-
+            men = QMessageBox.question(manut_cliente, 'DESFIDELIZAR CLIENTE', f'ATENÇÃO, deseja realmente DESFIDELIZAR o cliente {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+            if men == QMessageBox.Ok:
+                banco.desfidelizar_cliente(id)
+                QMessageBox.about(manut_cliente, 'CLIENTE DESFIDELIZADO', f'O Cliente {nome} foi desfidelizado e não contará mais com os descontos de fidelidade')
+                carrega_clientes()
+                manut_cliente.close()
+            else:
+                return
+    else:
+        QMessageBox.about(manut_cliente, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 def alterar_cliente():
     id = manut_cliente.InputId.value()
@@ -590,28 +621,34 @@ def pega_profissional():
         manut_profissional.show()
 
 def desligar_profissional():
-    id = manut_profissional.InputId.value()
-    nome = manut_profissional.Inome.text()
-    men = QMessageBox.question(manut_profissional, 'DESLIGAR PROFISSIONAL', f'ATENÇÃO, deseja realmente desligar o profissional {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.desligar_funcionario(id)
-        QMessageBox.about(manut_profissional, 'PROFISSIONAL DESLIGADO', f'Profissional {nome} desligado com sucesso')
-        carrega_profissionais()
-        manut_profissional.close()
+    if usuario1.root:
+        id = manut_profissional.InputId.value()
+        nome = manut_profissional.Inome.text()
+        men = QMessageBox.question(manut_profissional, 'DESLIGAR PROFISSIONAL', f'ATENÇÃO, deseja realmente desligar o profissional {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.desligar_funcionario(id)
+            QMessageBox.about(manut_profissional, 'PROFISSIONAL DESLIGADO', f'Profissional {nome} desligado com sucesso')
+            carrega_profissionais()
+            manut_profissional.close()
+        else:
+            return
     else:
-        return
+        QMessageBox.about(manut_profissional, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 def reativar_profissional():
-    id = manut_profissional.InputId.value()
-    nome = manut_profissional.Inome.text()
-    men = QMessageBox.question(manut_profissional, 'REATIVAR PROFISSIONAL', f'ATENÇÃO, deseja realmente reativar o profissional {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.reativar_funcionario(id)
-        QMessageBox.about(manut_profissional, 'PROFISSIONAL REATIVADO', f'Profissional {nome} reativado com sucesso')
-        carrega_profissionais()
-        manut_profissional.close()
+    if usuario1.root:
+        id = manut_profissional.InputId.value()
+        nome = manut_profissional.Inome.text()
+        men = QMessageBox.question(manut_profissional, 'REATIVAR PROFISSIONAL', f'ATENÇÃO, deseja realmente reativar o profissional {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.reativar_funcionario(id)
+            QMessageBox.about(manut_profissional, 'PROFISSIONAL REATIVADO', f'Profissional {nome} reativado com sucesso')
+            carrega_profissionais()
+            manut_profissional.close()
+        else:
+            return
     else:
-        return
+        QMessageBox.about(manut_profissional, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 
 def alterar_profissional():
@@ -675,29 +712,35 @@ def pega_fpag():
         manut_fpag.show()
 
 def desligar_fpag():
-    codigo = manut_fpag.InputId.value()
-    nome = manut_fpag.Nome.text()
-    men = QMessageBox.question(manut_fpag, 'DESLIGAR FORMA DE PAGAMENTO', f'ATENÇÃO, deseja realmente desligar a forma de pagamento {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.desligar_fpag(codigo)
-        QMessageBox.about(manut_fpag, 'FORMA DE PAGAMENTO DESLIGADO', f'Forma de pagamento {nome} desligada com sucesso')
-        carrega_fpags()
-        manut_fpag.close()
+    if usuario1.root:
+        codigo = manut_fpag.InputId.value()
+        nome = manut_fpag.Nome.text()
+        men = QMessageBox.question(manut_fpag, 'DESLIGAR FORMA DE PAGAMENTO', f'ATENÇÃO, deseja realmente desligar a forma de pagamento {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.desligar_fpag(codigo)
+            QMessageBox.about(manut_fpag, 'FORMA DE PAGAMENTO DESLIGADO', f'Forma de pagamento {nome} desligada com sucesso')
+            carrega_fpags()
+            manut_fpag.close()
+        else:
+            return
     else:
-        return
+        QMessageBox.about(manut_fpag, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 
 def reativar_fpag():
-    codigo = manut_fpag.InputId.value()
-    nome = manut_fpag.Nome.text()
-    men = QMessageBox.question(manut_fpag, 'REATIVAR FORMA DE PAGAMENTO', f'ATENÇÃO, deseja realmente reativar a forma de pagamento {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        banco.reativar_fpag(codigo)
-        QMessageBox.about(manut_fpag, 'FORMA DE PAGAMENTO REATIVADO', f'Forma de pagamento {nome} reativada com sucesso')
-        carrega_fpags()
-        manut_fpag.close()
+    if usuario1.root:
+        codigo = manut_fpag.InputId.value()
+        nome = manut_fpag.Nome.text()
+        men = QMessageBox.question(manut_fpag, 'REATIVAR FORMA DE PAGAMENTO', f'ATENÇÃO, deseja realmente reativar a forma de pagamento {nome}?', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            banco.reativar_fpag(codigo)
+            QMessageBox.about(manut_fpag, 'FORMA DE PAGAMENTO REATIVADO', f'Forma de pagamento {nome} reativada com sucesso')
+            carrega_fpags()
+            manut_fpag.close()
+        else:
+            return
     else:
-        return
+        QMessageBox.about(manut_fpag, 'ACESSO NEGADO', 'Para efetuar essa operação é necessário permissões de ROOT')
 
 def alterar_fpag():
     codigo = manut_fpag.InputId.value()
@@ -723,6 +766,13 @@ def carrega_tabelas():
 
 
 #FUNÇÕES DE NOTAS FISCAIS
+
+def inicalizar_faturamento():
+    if usuario1.faturamento:
+        menu_vendas.show()
+    else:
+        QMessageBox.about(menu, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem permissão para acessar a área de faturamento, caso necessite essa permissão solicite ao ROOT')
+
 def busca_fiel():
     id = nf.comboClientes.currentData()
     if id != None:
@@ -1846,6 +1896,12 @@ def carrega_nf_canceladas_intervalo_notas():
 
 #FUNÇÕES ESTATÍSTICAS
 
+def inicalizar_estatisticas():
+    if usuario1.estatistica:
+        menu_estat.show()
+    else:
+        QMessageBox.about(menu, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem permissão para acessar a área de estatísticas, caso necessite essa permissão solicite ao ROOT')
+
 def carrega_total_dia():
     tabela = estatisitcas.TabelaVendasDia
     row = 0
@@ -2188,8 +2244,11 @@ def limpa_rodape_tabela_estatisticas():
 
 #FUNÇÕES DA AGENDA
 def inicializar_agenda():
-    escreve_data()
-    atualizar_pendentes()
+    if usuario1.agenda:
+        escreve_data()
+        atualizar_pendentes()
+    else:
+        QMessageBox.about(menu, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem permissão para acessar a área dos agendamentos, caso necessite acessar essa área solicite a permissão ao ROOT')
 
 def escreve_data():    
     if agenda.InputData.date() == data_atual:
@@ -2800,8 +2859,8 @@ if __name__ == '__main__':
     menu.Btn_Sair.clicked.connect(menu.close)
     menu.Btn_Mudar_usuario.clicked.connect(abrir_tela_login)
     menu.Btn_cadastro.clicked.connect(menu_cadastros.show)
-    menu.Btn_faturamento.clicked.connect(menu_vendas.show)
-    menu.Btn_estatisticas.clicked.connect(menu_estat.show)
+    menu.Btn_faturamento.clicked.connect(inicalizar_faturamento)
+    menu.Btn_estatisticas.clicked.connect(inicalizar_estatisticas)
     menu.Btn_agenda.clicked.connect(inicializar_agenda)
     menu_cadastros.Btn_cadastro_usuario.clicked.connect(abrir_cria_usuario)
     menu_cadastros.Btn_cadastro_servico.clicked.connect(servico.show)
