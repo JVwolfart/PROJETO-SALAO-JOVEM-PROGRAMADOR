@@ -970,3 +970,41 @@ def lista_negra_cancelamentos():
     sql = 'SELECT clientes.Nome, count(agenda.id_cliente), clientes.Fidelizado, agenda.status_agenda FROM agenda LEFT JOIN servicos on servicos.Codigo = agenda.id_servico LEFT JOIN clientes on clientes.Id_cliente = agenda.id_cliente WHERE status_agenda="Cancelado pelo cliente" OR status_agenda="Cliente não compareceu" GROUP BY clientes.Nome, agenda.status_agenda  ORDER BY clientes.Nome'
     cur.execute(sql)
     return cur.fetchall()
+
+
+#ESTATÍSTICAS POR GÊNERO DE CLIENTE
+
+def vendas_realizadas_genero():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT clientes.Sexo, sum(Preco_fat), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM Itens_nf LEFT JOIN clientes on Itens_nf.id_cliente = clientes.Id_cliente LEFT JOIN servicos on Itens_nf.Codigo_serv = servicos.Codigo WHERE Itens_nf.data_emissao GROUP BY clientes.Sexo ORDER BY sum(Preco_fat) DESC'
+    cur.execute(sql)
+    return cur.fetchall()
+
+def vendas_realizadas_genero_intervalo(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = """SELECT clientes.Sexo, sum(Preco_fat), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM Itens_nf LEFT JOIN clientes on Itens_nf.id_cliente = clientes.Id_cliente LEFT JOIN servicos on Itens_nf.Codigo_serv = servicos.Codigo WHERE Itens_nf.data_emissao BETWEEN ? AND ? GROUP BY clientes.Sexo ORDER BY sum(Preco_fat) DESC"""
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()
+
+
+#ESTATÍSTICAS FUTURAS POR GÊNERO DE CLIENTE
+
+def vendas_previstas_genero():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'SELECT clientes.Sexo, sum(servicos.Valor), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM agenda LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN servicos on agenda.id_servico = servicos.Codigo WHERE status_agenda="Agendado" GROUP BY clientes.Sexo ORDER BY sum(Valor) DESC'
+    cur.execute(sql)
+    return cur.fetchall()
+
+def vendas_previstas_genero_intervalo(data_inicial, data_final):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = """SELECT clientes.Sexo, sum(servicos.Valor), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM agenda LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN servicos on agenda.id_servico = servicos.Codigo WHERE status_agenda='Agendado' AND data_agenda BETWEEN ? AND ? GROUP BY clientes.Sexo ORDER BY sum(Valor) DESC"""
+    cur.execute(sql, (data_inicial, data_final))
+    return cur.fetchall()

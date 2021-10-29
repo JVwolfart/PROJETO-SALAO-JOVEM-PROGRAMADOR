@@ -1,0 +1,1 @@
+SELECT clientes.Sexo, sum(servicos.Valor), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM agenda LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN servicos on agenda.id_servico = servicos.Codigo WHERE status_agenda='Agendado' AND data_agenda BETWEEN '2021-10-01' AND '2999-12-31' GROUP BY clientes.Sexo ORDER BY sum(Valor) DESC

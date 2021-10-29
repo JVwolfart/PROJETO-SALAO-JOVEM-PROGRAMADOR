@@ -1,0 +1,1 @@
+SELECT clientes.Sexo, sum(Preco_fat), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM Itens_nf LEFT JOIN clientes on Itens_nf.id_cliente = clientes.Id_cliente LEFT JOIN servicos on Itens_nf.Codigo_serv = servicos.Codigo WHERE Itens_nf.data_emissao BETWEEN '2021-10-01' AND '2999-12-31' GROUP BY clientes.Sexo ORDER BY sum(Preco_fat) DESC
