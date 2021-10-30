@@ -3078,11 +3078,11 @@ if __name__ == '__main__':
 
     #TELAS ESTATISTICAS GÊNERO REALIZADO
     estat_genero = uic.loadUi('estatisticas_genero.ui')
-    data_estat_genero = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
+    data_estat_genero = uic.loadUi('telas_duda/estatisticas_por_intervalo_de_data.ui')
 
     #TELAS ESTATISTICAS GÊNERO FUTURO
     estat_genero_futuro = uic.loadUi('estatisticas_genero_futuro.ui')
-    data_estat_genero_futuro = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
+    data_estat_genero_futuro = uic.loadUi('telas_duda/estatisticas_por_intervalo_de_data.ui')
 
     #TELAS EMISSÃO DE NF PELA AGENDA
     nf_agenda = uic.loadUi('nf_agenda.ui')
