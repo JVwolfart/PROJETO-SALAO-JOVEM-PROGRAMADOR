@@ -1008,3 +1008,31 @@ def vendas_previstas_genero_intervalo(data_inicial, data_final):
     sql = """SELECT clientes.Sexo, sum(servicos.Valor), count(clientes.Sexo), sum(servicos.Tempo_medio) FROM agenda LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT JOIN servicos on agenda.id_servico = servicos.Codigo WHERE status_agenda='Agendado' AND data_agenda BETWEEN ? AND ? GROUP BY clientes.Sexo ORDER BY sum(Valor) DESC"""
     cur.execute(sql, (data_inicial, data_final))
     return cur.fetchall()
+
+
+    #### funções para emissão de NF pela agenda
+
+def busca_serv_efetuado_agenda():
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = "SELECT data_agenda, funcionarios.Nome as funcionario, clientes.nome as cliente, servicos.Nome as servico, clientes.Fidelizado, servicos.Valor, status_agenda, Id_agenda  FROM agenda  LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT join funcionarios on agenda.id_profi = funcionarios.Id_func LEFT JOIN servicos on agenda.id_servico = servicos.Codigo WHERE status_agenda = 'Serviço efetuado' ORDER by data_agenda"
+    cur.execute(sql)
+    return cur.fetchall()
+
+def busca_serv_agenda_id(id):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = "SELECT data_agenda, funcionarios.Id_func, funcionarios.Nome as funcionario, clientes.Id_cliente, clientes.nome as cliente, servicos.Codigo ,servicos.Nome as servico, clientes.Fidelizado, servicos.Valor, status_agenda, Id_agenda  FROM agenda  LEFT JOIN clientes on agenda.id_cliente = clientes.Id_cliente LEFT join funcionarios on agenda.id_profi = funcionarios.Id_func LEFT JOIN servicos on agenda.id_servico = servicos.Codigo WHERE agenda.Id_agenda = ?"
+    cur.execute(sql, (id, ))
+    return cur.fetchall()
+
+def alterar_status_ag_nf_emitida(id_ag, status):
+    cria_tabelas()
+    banco = sqlite3.connect('bdados.db')
+    cur = banco.cursor()
+    sql = 'UPDATE agenda SET status_agenda=? WHERE id_agenda=?'
+    cur.execute(sql, (status, id_ag))
+    banco.commit()
+    banco.close()
