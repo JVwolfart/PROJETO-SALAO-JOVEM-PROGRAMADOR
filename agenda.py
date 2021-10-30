@@ -316,6 +316,7 @@ def pega_ag():
         manut_ag.comboStatus.setCurrentText(status)
         servico_ag_combo_manut()
         manut_ag.show()
+    
 
 
 def pega_agenda():
@@ -326,20 +327,23 @@ def pega_agenda():
     cliente = agenda.TabelaAgendaProfi.item(linha, 3).text()
     tele = agenda.TabelaAgendaProfi.item(linha, 4).text()
     status = agenda.TabelaAgendaProfi.item(linha, 7).text()
-    if status == 'Serviço efetuado':
-        QMessageBox.about(agenda, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
-    elif status == 'Eliminado':
-        QMessageBox.about(agenda, 'ERRO', 'Serviço já foi eliminado, não pode mais ser alterado')
+    if status != 'Nota Fiscal Emitida':
+        if status == 'Serviço efetuado':
+            QMessageBox.about(agenda, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
+        elif status == 'Eliminado':
+            QMessageBox.about(agenda, 'ERRO', 'Serviço já foi eliminado, não pode mais ser alterado')
+        else:
+            manut_ag.InputIdAgenda.setText(id_agenda)
+            manut_ag.data_agendamento.setText(data)
+            hora = time.fromisoformat(hora)
+            manut_ag.hora.setTime(hora)
+            manut_ag.cliente.setText(cliente)
+            manut_ag.telefone.setText(tele)
+            manut_ag.comboStatus.setCurrentText(status)
+            servico_ag_combo_manut()
+            manut_ag.show()
     else:
-        manut_ag.InputIdAgenda.setText(id_agenda)
-        manut_ag.data_agendamento.setText(data)
-        hora = time.fromisoformat(hora)
-        manut_ag.hora.setTime(hora)
-        manut_ag.cliente.setText(cliente)
-        manut_ag.telefone.setText(tele)
-        manut_ag.comboStatus.setCurrentText(status)
-        servico_ag_combo_manut()
-        manut_ag.show()
+        QMessageBox.about(agenda, 'ERRO', 'Nota fiscal já foi emitida, não pode mais ser alterado')
 
 def alterar_agendamento():
     id_ag = int(manut_ag.InputIdAgenda.text())
@@ -373,25 +377,29 @@ def alterar_agendamento():
 def efetuar_agendamento():
     linha = agenda.TabelaAgenda.currentRow()
     id_ag = int(agenda.TabelaAgenda.item(linha, 8).text())
+    status_ag = agenda.TabelaAgenda.item(linha, 7).text()
     data_ag = agenda.TabelaAgenda.item(linha, 0).text()
-    men = QMessageBox.question(agenda, 'MARCAR SERVIÇO COMO EFETUADO', f'ATENÇÃO, deseja realmente marcar esse agendamento como Serviço efetuado? Após confirmado não poderá mais ser alterado', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        data_ag = funcoes.data_banco(data_ag)
-        global data_atual
-        dia_hoje = datetime.strftime(data_atual, '%Y-%m-%d')
-        ok = funcoes.valida_data_servico_efetuado(dia_hoje, data_ag)
-        if not ok:
-            QMessageBox.about(agenda, 'ERRO', 'Serviço não pode ser considerado efetuado pois seu agendamento é pra data futura')
+    if status_ag != 'Nota Fiscal Emitida':
+        men = QMessageBox.question(agenda, 'MARCAR SERVIÇO COMO EFETUADO', f'ATENÇÃO, deseja realmente marcar esse agendamento como Serviço efetuado? Após confirmado não poderá mais ser alterado', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            data_ag = funcoes.data_banco(data_ag)
+            global data_atual
+            dia_hoje = datetime.strftime(data_atual, '%Y-%m-%d')
+            ok = funcoes.valida_data_servico_efetuado(dia_hoje, data_ag)
+            if not ok:
+                QMessageBox.about(agenda, 'ERRO', 'Serviço não pode ser considerado efetuado pois seu agendamento é pra data futura')
+            else:
+                banco.efetuar_agendamento(id_ag)
+                QMessageBox.about(manut_ag, 'SERVIÇO EFETUADO', 'Alteração de status de serviço efetuada com sucesso')
+                manut_ag.close()
+                carrega_ag_dia_profi()
+                carrega_agenda_dia_geral()
+                carrega_agenda_dia_profi()
+                carrega_agenda_dia_pendentes()
         else:
-            banco.efetuar_agendamento(id_ag)
-            QMessageBox.about(manut_ag, 'SERVIÇO EFETUADO', 'Alteração de status de serviço efetuada com sucesso')
-            manut_ag.close()
-            carrega_ag_dia_profi()
-            carrega_agenda_dia_geral()
-            carrega_agenda_dia_profi()
-            carrega_agenda_dia_pendentes()
+            return
     else:
-        return
+        QMessageBox.about(agenda, 'ERRO', 'Nota fiscal já foi emitida, não pode mais ser alterado')
 
 
 def alterar_status_pendente():

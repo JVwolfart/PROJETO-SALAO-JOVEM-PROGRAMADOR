@@ -16,7 +16,7 @@ def teste():
 data_atual = date.today()
 hora = datetime.now().time()
 
-#FUNÇÕES DA AGENDA
+#FUNÇÕES DA EMISSÃO DE NF PELA AGENDA
 def inicializar_nf_agenda():
     carrega_tabela_serv_efetuado()    
     nf_agenda.show()

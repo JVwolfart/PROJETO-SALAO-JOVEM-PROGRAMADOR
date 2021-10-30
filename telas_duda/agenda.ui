@@ -803,9 +803,9 @@ color: black</string>
    <widget class="QPushButton" name="BtnAgendamento">
     <property name="geometry">
      <rect>
-      <x>1090</x>
-      <y>140</y>
-      <width>151</width>
+      <x>870</x>
+      <y>120</y>
+      <width>201</width>
       <height>51</height>
      </rect>
     </property>
@@ -852,8 +852,8 @@ QPushButton:pressed {
    <widget class="QDateEdit" name="InputData">
     <property name="geometry">
      <rect>
-      <x>640</x>
-      <y>150</y>
+      <x>380</x>
+      <y>130</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -898,9 +898,9 @@ color: black;
    <widget class="QPushButton" name="BtnHoje">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>140</y>
-      <width>171</width>
+      <x>630</x>
+      <y>120</y>
+      <width>211</width>
       <height>51</height>
      </rect>
     </property>

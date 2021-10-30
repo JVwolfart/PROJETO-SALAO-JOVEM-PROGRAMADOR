@@ -721,7 +721,6 @@ def busca_fiel():
     id = nf.comboClientes.currentData()
     if id != None:
         fidelidade = banco.busca_fidelidade_cliente(id)
-        #print(fidelidade)
         nf.vip.setVisible(fidelidade[0])
         nf.frame_vip.setVisible(fidelidade[0])
         nf.VipSlider.setValue(0)
@@ -731,7 +730,7 @@ def busca_fiel():
         nf.frame_vip.setVisible(0)
         
     
-    #print('buscar fieis', id)
+    
     
 def busca_preco():
     id = nf.comboServicos.currentData()
@@ -2188,11 +2187,8 @@ def limpa_rodape_tabela_estatisticas():
 
 #FUNÇÕES DA AGENDA
 def inicializar_agenda():
-    if usuario1.agenda:
-        escreve_data()
-        atualizar_pendentes()
-    else:
-        QMessageBox.about(menu, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem permissão para acessar a área dos agendamentos, caso necessite acessar essa área solicite a permissão ao ROOT')
+    escreve_data()
+    atualizar_pendentes()
 
 def escreve_data():    
     if agenda.InputData.date() == data_atual:
@@ -2316,6 +2312,7 @@ def grava_agendamento():
     carrega_agenda_dia_geral()
     carrega_agenda_dia_profi()
     carrega_ag_dia_profi()
+    
     
 def carrega_agenda_dia_geral():
     dia_escolhido = agenda.InputData.text()
@@ -2458,7 +2455,7 @@ def agendamento():
     if dia.date() == data_atual:
         hora = datetime.now().time()    
         if ag.hora.time()<= hora:
-            #print('hora menor')
+            print('hora menor')
             QMessageBox.about(ag, 'HORA INVÁLIDA', f'ATENÇÃO !! A HORA do agendamento precisa ser maior que a HORA atual')
         else:
             grava_agendamento()
@@ -2489,6 +2486,7 @@ def pega_ag():
         manut_ag.comboStatus.setCurrentText(status)
         servico_ag_combo_manut()
         manut_ag.show()
+    
 
 
 def pega_agenda():
@@ -2499,20 +2497,23 @@ def pega_agenda():
     cliente = agenda.TabelaAgendaProfi.item(linha, 3).text()
     tele = agenda.TabelaAgendaProfi.item(linha, 4).text()
     status = agenda.TabelaAgendaProfi.item(linha, 7).text()
-    if status == 'Serviço efetuado':
-        QMessageBox.about(agenda, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
-    elif status == 'Eliminado':
-        QMessageBox.about(agenda, 'ERRO', 'Serviço já foi eliminado, não pode mais ser alterado')
+    if status != 'Nota Fiscal Emitida':
+        if status == 'Serviço efetuado':
+            QMessageBox.about(agenda, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
+        elif status == 'Eliminado':
+            QMessageBox.about(agenda, 'ERRO', 'Serviço já foi eliminado, não pode mais ser alterado')
+        else:
+            manut_ag.InputIdAgenda.setText(id_agenda)
+            manut_ag.data_agendamento.setText(data)
+            hora = time.fromisoformat(hora)
+            manut_ag.hora.setTime(hora)
+            manut_ag.cliente.setText(cliente)
+            manut_ag.telefone.setText(tele)
+            manut_ag.comboStatus.setCurrentText(status)
+            servico_ag_combo_manut()
+            manut_ag.show()
     else:
-        manut_ag.InputIdAgenda.setText(id_agenda)
-        manut_ag.data_agendamento.setText(data)
-        hora = time.fromisoformat(hora)
-        manut_ag.hora.setTime(hora)
-        manut_ag.cliente.setText(cliente)
-        manut_ag.telefone.setText(tele)
-        manut_ag.comboStatus.setCurrentText(status)
-        servico_ag_combo_manut()
-        manut_ag.show()
+        QMessageBox.about(agenda, 'ERRO', 'Nota fiscal já foi emitida, não pode mais ser alterado')
 
 def alterar_agendamento():
     id_ag = int(manut_ag.InputIdAgenda.text())
@@ -2546,25 +2547,29 @@ def alterar_agendamento():
 def efetuar_agendamento():
     linha = agenda.TabelaAgenda.currentRow()
     id_ag = int(agenda.TabelaAgenda.item(linha, 8).text())
+    status_ag = agenda.TabelaAgenda.item(linha, 7).text()
     data_ag = agenda.TabelaAgenda.item(linha, 0).text()
-    men = QMessageBox.question(agenda, 'MARCAR SERVIÇO COMO EFETUADO', f'ATENÇÃO, deseja realmente marcar esse agendamento como Serviço efetuado? Após confirmado não poderá mais ser alterado', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
-    if men == QMessageBox.Ok:
-        data_ag = funcoes.data_banco(data_ag)
-        global data_atual
-        dia_hoje = datetime.strftime(data_atual, '%Y-%m-%d')
-        ok = funcoes.valida_data_servico_efetuado(dia_hoje, data_ag)
-        if not ok:
-            QMessageBox.about(agenda, 'ERRO', 'Serviço não pode ser considerado efetuado pois seu agendamento é pra data futura')
+    if status_ag != 'Nota Fiscal Emitida':
+        men = QMessageBox.question(agenda, 'MARCAR SERVIÇO COMO EFETUADO', f'ATENÇÃO, deseja realmente marcar esse agendamento como Serviço efetuado? Após confirmado não poderá mais ser alterado', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            data_ag = funcoes.data_banco(data_ag)
+            global data_atual
+            dia_hoje = datetime.strftime(data_atual, '%Y-%m-%d')
+            ok = funcoes.valida_data_servico_efetuado(dia_hoje, data_ag)
+            if not ok:
+                QMessageBox.about(agenda, 'ERRO', 'Serviço não pode ser considerado efetuado pois seu agendamento é pra data futura')
+            else:
+                banco.efetuar_agendamento(id_ag)
+                QMessageBox.about(manut_ag, 'SERVIÇO EFETUADO', 'Alteração de status de serviço efetuada com sucesso')
+                manut_ag.close()
+                carrega_ag_dia_profi()
+                carrega_agenda_dia_geral()
+                carrega_agenda_dia_profi()
+                carrega_agenda_dia_pendentes()
         else:
-            banco.efetuar_agendamento(id_ag)
-            QMessageBox.about(manut_ag, 'SERVIÇO EFETUADO', 'Alteração de status de serviço efetuada com sucesso')
-            manut_ag.close()
-            carrega_ag_dia_profi()
-            carrega_agenda_dia_geral()
-            carrega_agenda_dia_profi()
-            carrega_agenda_dia_pendentes()
+            return
     else:
-        return
+        QMessageBox.about(agenda, 'ERRO', 'Nota fiscal já foi emitida, não pode mais ser alterado')
 
 
 def alterar_status_pendente():
@@ -2596,7 +2601,6 @@ def alterar_status_pendente():
 def atualizar_pendentes():
     banco.setar_pendentes()
     carrega_agenda_dia_pendentes()
-
 
 #FUNÇÕES ESTATÍSTICAS FUTURO AGENDA
 
@@ -2913,6 +2917,111 @@ def verificar_intervalo_futuro_estat_genero():
 
 
 
+#FUNÇÕES DA EMISSÃO DE NF PELA AGENDA
+def inicializar_nf_agenda():
+    carrega_tabela_serv_efetuado()    
+    nf_agenda.show()
+    
+
+def carrega_tabela_serv_efetuado():
+    serv = banco.busca_serv_efetuado_agenda()
+    tabela = nf_agenda.TabelaAgenda_NF
+    row = 0
+    tabela.setRowCount(len(serv))
+    tabela.setColumnWidth(0, 100)
+    tabela.setColumnWidth(1, 250)
+    tabela.setColumnWidth(2, 250)
+    tabela.setColumnWidth(3, 250)
+    tabela.setColumnWidth(4, 100)
+    tabela.setColumnWidth(5, 100)
+    tabela.setColumnWidth(6, 150)
+    tabela.setColumnWidth(7, 30)
+    
+    tabela.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+    tabela.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+    for c in serv:
+        data = funcoes.banco_data(c[0])
+        tabela.setItem(row, 0, QtWidgets.QTableWidgetItem(f'{data}'))
+        tabela.setItem(row, 1, QtWidgets.QTableWidgetItem(f'{c[1]}'))
+        tabela.setItem(row, 2, QtWidgets.QTableWidgetItem(f'{c[2]}'))
+        tabela.setItem(row, 3, QtWidgets.QTableWidgetItem(f'{c[3]}'))
+        if c[4] == 1:
+            tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'SIM'))
+        else:
+            tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'NÃO'))
+
+        tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {c[5]:.2f}'))
+        tabela.setItem(row, 6, QtWidgets.QTableWidgetItem(f'{c[6]}'))
+        tabela.setItem(row, 7, QtWidgets.QTableWidgetItem(f'{c[7]}'))
+        
+        row += 1
+        
+def fpag_nf_combo_agenda():
+    nf_ag.comboFpag.clear()
+    fpags = banco.busca_todos_fpags_ativas()
+    for c in fpags:
+        nf_ag.comboFpag.addItem(f"{c[1]}", QVariant(c[0]))
+        
+        
+def pega_serv_efetuado():
+    fpag_nf_combo_agenda()
+    
+    linha = nf_agenda.TabelaAgenda_NF.currentRow()
+    id_agenda = int(nf_agenda.TabelaAgenda_NF.item(linha, 7).text())
+    nf_ag.Id_agenda.setValue(id_agenda)
+    serv = banco.busca_serv_agenda_id(id_agenda)
+    fidelizado = serv[0][7]
+    nf_ag.frame_vip.setVisible(fidelizado)
+    preco_tab = serv[0][8] 
+    nf_ag.InputPtab.setValue(preco_tab)
+    nf_ag.InputPfat.setValue(preco_tab)
+    id_cliente = serv[0][3]
+    nf_ag.Id_Cliente.setValue(id_cliente)
+    id_profi = serv[0][1]
+    nf_ag.Id_Profi.setValue(id_profi)
+    id_serv = serv[0][5]
+    nf_ag.codigo_servico.setValue(id_serv)
+    nf_ag.Inome.setText(serv[0][4])
+    nf_ag.IProfi.setText(serv[0][2])
+    nf_ag.IServ.setText(serv[0][6])
+    nf_ag.show()
+
+
+    
+
+    
+
+def emitir_nf():
+    cliente_nome = nf_ag.Inome.text()
+    id_agenda = nf_ag.Id_agenda.value()
+    id_cliente= nf_ag.Id_Cliente.value()
+    id_profi = nf_ag.Id_Profi.value()
+    id_serv = nf_ag.codigo_servico.value()
+    fpag = nf_ag.comboFpag.currentData()
+    fidelidade = nf_ag.frame_vip.isVisible()
+    valorFat = nf_ag.InputPfat.value()
+    valorTab = nf_ag.InputPtab.value()
+    desc = nf_ag.VipSlider.value()
+    banco.gravar_nf(id_cliente, valorFat,'Emitida',fidelidade)
+    numero_nf = banco.proxima_nf()
+    numero_nf = numero_nf[0]
+    banco.inserir_itens_nf(numero_nf,id_serv,id_profi,fpag,valorTab,valorFat,desc,fidelidade,id_cliente)
+    banco.alterar_status_ag_nf_emitida(id_agenda,"Nota Fiscal Emitida")
+    QMessageBox.about(nf_ag, 'Nota fiscal emitida', f'Nota Fiscal numero {numero_nf} emitida com sucesso para o cliente {cliente_nome} ')
+    nf_ag.VipSlider.setValue(0)
+    nf_ag.close()
+    carrega_tabela_serv_efetuado()
+    
+
+
+def calcular_desconto_nf_agenda():
+    desconto = nf_ag.VipSlider.value()
+    nf_ag.lbhs.setText(f'Desconto fidelidade ' + f'{desconto}%')
+    preco_fat = nf_ag.InputPtab.value()
+    preco_fat = preco_fat-(preco_fat*desconto)/100
+    nf_ag.InputPfat.setValue(preco_fat)
+
+
 if __name__ == '__main__':
 
     qt = QtWidgets.QApplication(sys.argv)
@@ -2975,6 +3084,12 @@ if __name__ == '__main__':
     estat_genero_futuro = uic.loadUi('estatisticas_genero_futuro.ui')
     data_estat_genero_futuro = uic.loadUi('estatisticas_por_intervalo_de_data.ui')
 
+    #TELAS EMISSÃO DE NF PELA AGENDA
+    nf_agenda = uic.loadUi('nf_agenda.ui')
+    nf_ag = uic.loadUi('emissao_nf_agenda.ui')
+    nf_ag.VipSlider.valueChanged.connect(calcular_desconto_nf_agenda)
+
+
     ##BOTÕES MENU
     menu.Btn_Sair.clicked.connect(menu.close)
     menu.Btn_Mudar_usuario.clicked.connect(abrir_tela_login)
@@ -2989,6 +3104,7 @@ if __name__ == '__main__':
     menu_cadastros.Btn_cadastro_fpag.clicked.connect(fpag.show)
     menu_vendas.Btn_Vendas.clicked.connect(carrega_tabelas_nf)
     menu_vendas.Btn_nova_venda.clicked.connect(carrega_combos_nf)
+    menu_vendas.Btn_nf_agenda.clicked.connect(inicializar_nf_agenda)
     menu_estat.Btn_Estatisticas_realizado.clicked.connect(carrega_tabelas_estatisticas)
     menu_estat.Btn_Estatisticas_futuro.clicked.connect(estat_futuro.show)
     menu_estat.Btn_Estat_genero.clicked.connect(carrega_estat_genero)
@@ -3144,6 +3260,10 @@ if __name__ == '__main__':
     data_estat_genero_futuro.DataFinal.setDate(data_atual)
     data_estat_genero_futuro.BtnConfirmar.clicked.connect(verificar_intervalo_futuro_estat_genero)
     ##############
+
+    #BOTÕES AGENDA
+    nf_agenda.TabelaAgenda_NF.doubleClicked.connect(pega_serv_efetuado)
+    nf_ag.BtnEmitir.clicked.connect(emitir_nf)
 
     #menu.showMaximized()
     login.show()

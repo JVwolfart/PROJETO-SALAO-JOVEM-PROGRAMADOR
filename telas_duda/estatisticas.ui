@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Vendas e faturamento</string>
+   <string>Estatísticas do negócio</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(215, 139, 185);</string>
