@@ -3062,7 +3062,7 @@ if __name__ == '__main__':
     vendas = uic.loadUi('telas_duda/vendas.ui')
     manut_nf = uic.loadUi('telas_duda/manut_nf.ui')
     nf_cliente = uic.loadUi('telas_duda/nf_por_cliente.ui')
-    nf_data = uic.loadUi('nf_por_data.ui')
+    nf_data = uic.loadUi('telas_duda/nf_por_data.ui')
     intervalo_datas = uic.loadUi('telas_duda/nf_por_intervalo_de_data.ui')
     intervalo_nf = uic.loadUi('telas_duda/nf_por_intervalo_de_notas.ui')
     
@@ -3072,7 +3072,7 @@ if __name__ == '__main__':
     data_estat = uic.loadUi('telas_duda/estatisticas_por_intervalo_de_data.ui')
 
     #TELAS AGENDA
-    agenda = uic.loadUi('telas_duda/agenda.ui')
+    agenda = uic.loadUi('telas_duda/agenda2.ui')
     ag = uic.loadUi('telas_duda/agendamento.ui')
     manut_ag = uic.loadUi('telas_duda/manut_agendamento.ui')
     manut_pendente = uic.loadUi('telas_duda/manut_agenda.ui')

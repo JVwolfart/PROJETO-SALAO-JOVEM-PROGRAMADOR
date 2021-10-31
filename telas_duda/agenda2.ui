@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1391</width>
-    <height>838</height>
+    <height>892</height>
    </rect>
   </property>
   <property name="font">
@@ -28,11 +28,38 @@
    <string notr="true">background-color: rgb(215, 139, 185);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_id_user">
+    <property name="geometry">
+     <rect>
+      <x>1080</x>
+      <y>30</y>
+      <width>41</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(62, 132, 238);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>200</y>
+      <y>260</y>
       <width>1371</width>
       <height>611</height>
      </rect>
@@ -54,14 +81,14 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>0</y>
+        <y>10</y>
         <width>1021</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>17</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -81,7 +108,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>50</y>
+        <y>70</y>
         <width>1351</width>
         <height>501</height>
        </rect>
@@ -108,7 +135,9 @@
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(138, 226, 52);
+color: rgb(32, 74, 135);</string>
       </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
@@ -143,7 +172,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -158,7 +187,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -173,7 +202,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -188,7 +217,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -203,7 +232,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -218,7 +247,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -233,7 +262,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -248,7 +277,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -378,7 +407,9 @@ color: black</string>
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(138, 226, 52);
+color: rgb(32, 74, 135);</string>
       </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
@@ -393,7 +424,7 @@ color: black</string>
        <bool>false</bool>
       </property>
       <property name="columnCount">
-       <number>10</number>
+       <number>9</number>
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
        <number>150</number>
@@ -413,7 +444,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -428,7 +459,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -443,7 +474,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -458,7 +489,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -473,7 +504,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -488,7 +519,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -503,7 +534,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -518,7 +549,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -531,17 +562,13 @@ color: black</string>
        <property name="text">
         <string>ID</string>
        </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
       </column>
-      <column/>
      </widget>
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>850</x>
-        <y>10</y>
+        <x>800</x>
+        <y>20</y>
         <width>361</width>
         <height>131</height>
        </rect>
@@ -595,7 +622,9 @@ color: black</string>
        <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(138, 226, 52);
+color: rgb(32, 74, 135);</string>
       </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
@@ -630,7 +659,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -645,7 +674,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -660,7 +689,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -675,7 +704,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -690,7 +719,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -705,7 +734,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -720,7 +749,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -735,7 +764,7 @@ color: black</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>8</pointsize>
+         <pointsize>10</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -761,7 +790,7 @@ color: black</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>17</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -779,9 +808,9 @@ color: black</string>
    <widget class="QPushButton" name="BtnAgendamento">
     <property name="geometry">
      <rect>
-      <x>870</x>
-      <y>120</y>
-      <width>201</width>
+      <x>680</x>
+      <y>80</y>
+      <width>231</width>
       <height>51</height>
      </rect>
     </property>
@@ -789,16 +818,9 @@ color: black</string>
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {     
-	background-color: rgb(0, 170, 0);
-	border-radius: 10px;
-}
-QPushButton:hover {   
-	background-color: rgb(0, 190, 0);
-}
-QPushButton:pressed {   
-	background-color: rgb(0, 200, 0);
-}</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(245, 121, 0);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Novo Agendamento</string>
@@ -807,10 +829,10 @@ QPushButton:pressed {
    <widget class="QLabel" name="lbl_dia">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>160</y>
-      <width>451</width>
-      <height>41</height>
+      <x>30</x>
+      <y>180</y>
+      <width>1121</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -818,7 +840,7 @@ QPushButton:pressed {
       <pointsize>17</pointsize>
       <weight>75</weight>
       <bold>true</bold>
-      <underline>false</underline>
+      <underline>true</underline>
      </font>
     </property>
     <property name="text">
@@ -828,10 +850,10 @@ QPushButton:pressed {
    <widget class="QDateEdit" name="InputData">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>130</y>
-      <width>211</width>
-      <height>31</height>
+      <x>70</x>
+      <y>80</y>
+      <width>251</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -874,9 +896,9 @@ color: black;
    <widget class="QPushButton" name="BtnHoje">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>120</y>
-      <width>211</width>
+      <x>350</x>
+      <y>80</y>
+      <width>231</width>
       <height>51</height>
      </rect>
     </property>
@@ -884,15 +906,9 @@ color: black;
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton{
-	color: rgb(255, 255, 255);
-	background-color: rgb(245, 121, 0);
-	border-radius: 10px;
-}
-QPushButton:hover{
-	background-color: rgb(255, 131, 0);
-}
-</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(145, 121, 0);
+border-radius: 10px;</string>
     </property>
     <property name="text">
      <string>Seleciona o dia de Hoje</string>
@@ -901,8 +917,8 @@ QPushButton:hover{
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>30</y>
+      <x>500</x>
+      <y>10</y>
       <width>541</width>
       <height>51</height>
      </rect>
@@ -922,6 +938,7 @@ QPushButton:hover{
     </property>
    </widget>
    <zorder>lbl_dia</zorder>
+   <zorder>lbl_id_user</zorder>
    <zorder>tabWidget</zorder>
    <zorder>BtnAgendamento</zorder>
    <zorder>InputData</zorder>

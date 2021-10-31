@@ -68,7 +68,7 @@
      <cursorShape>ArrowCursor</cursorShape>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -421,7 +421,7 @@ color: rgb(32, 74, 135);</string>
        <bool>false</bool>
       </property>
       <property name="columnCount">
-       <number>10</number>
+       <number>9</number>
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
        <number>150</number>
@@ -559,8 +559,10 @@ color: rgb(32, 74, 135);</string>
        <property name="text">
         <string>ID</string>
        </property>
+       <property name="textAlignment">
+        <set>AlignCenter</set>
+       </property>
       </column>
-      <column/>
      </widget>
     </widget>
     <widget class="QWidget" name="tabPendentes">
