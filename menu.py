@@ -3074,8 +3074,8 @@ if __name__ == '__main__':
     #TELAS AGENDA
     agenda = uic.loadUi('telas_duda/agenda.ui')
     ag = uic.loadUi('telas_duda/agendamento.ui')
-    manut_ag = uic.loadUi('manut_agendamento.ui')
-    manut_pendente = uic.loadUi('manut_agenda.ui')
+    manut_ag = uic.loadUi('telas_duda/manut_agendamento.ui')
+    manut_pendente = uic.loadUi('telas_duda/manut_agenda.ui')
 
     #TELAS ESTATISTICAS FUTURO AGENDA
     estat_futuro = uic.loadUi('telas_duda/estatisticas_ag_futuro.ui')
