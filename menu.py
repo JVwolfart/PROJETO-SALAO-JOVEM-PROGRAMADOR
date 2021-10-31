@@ -2472,6 +2472,7 @@ def pega_ag():
     cliente = ag.TabelaAgendaProfi.item(linha, 3).text()
     tele = ag.TabelaAgendaProfi.item(linha, 4).text()
     status = ag.TabelaAgendaProfi.item(linha, 7).text()
+    serv = ag.TabelaAgendaProfi.item(linha, 5).text()
     if status == 'Serviço efetuado':
         QMessageBox.about(ag, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
     elif status == 'Eliminado':
@@ -2485,6 +2486,7 @@ def pega_ag():
         manut_ag.telefone.setText(tele)
         manut_ag.comboStatus.setCurrentText(status)
         servico_ag_combo_manut()
+        manut_ag.comboServicos.setCurrentText(serv)
         manut_ag.show()
     
 
@@ -2497,6 +2499,7 @@ def pega_agenda():
     cliente = agenda.TabelaAgendaProfi.item(linha, 3).text()
     tele = agenda.TabelaAgendaProfi.item(linha, 4).text()
     status = agenda.TabelaAgendaProfi.item(linha, 7).text()
+    serv = agenda.TabelaAgendaProfi.item(linha, 5).text()
     if status != 'Nota Fiscal Emitida':
         if status == 'Serviço efetuado':
             QMessageBox.about(agenda, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
@@ -2511,6 +2514,7 @@ def pega_agenda():
             manut_ag.telefone.setText(tele)
             manut_ag.comboStatus.setCurrentText(status)
             servico_ag_combo_manut()
+            manut_ag.comboServicos.setCurrentText(serv)
             manut_ag.show()
     else:
         QMessageBox.about(agenda, 'ERRO', 'Nota fiscal já foi emitida, não pode mais ser alterado')
@@ -3077,16 +3081,16 @@ if __name__ == '__main__':
     estat_futuro = uic.loadUi('telas_duda/estatisticas_ag_futuro.ui')
 
     #TELAS ESTATISTICAS GÊNERO REALIZADO
-    estat_genero = uic.loadUi('estatisticas_genero.ui')
+    estat_genero = uic.loadUi('telas_duda/estatisticas_genero.ui')
     data_estat_genero = uic.loadUi('telas_duda/estatisticas_por_intervalo_de_data.ui')
 
     #TELAS ESTATISTICAS GÊNERO FUTURO
-    estat_genero_futuro = uic.loadUi('estatisticas_genero_futuro.ui')
+    estat_genero_futuro = uic.loadUi('telas_duda/estatisticas_genero_futuro.ui')
     data_estat_genero_futuro = uic.loadUi('telas_duda/estatisticas_por_intervalo_de_data.ui')
 
     #TELAS EMISSÃO DE NF PELA AGENDA
-    nf_agenda = uic.loadUi('nf_agenda.ui')
-    nf_ag = uic.loadUi('emissao_nf_agenda.ui')
+    nf_agenda = uic.loadUi('telas_duda/nf_agenda.ui')
+    nf_ag = uic.loadUi('telas_duda/emissao_nf_agenda.ui')
     nf_ag.VipSlider.valueChanged.connect(calcular_desconto_nf_agenda)
 
 

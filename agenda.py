@@ -302,6 +302,7 @@ def pega_ag():
     cliente = ag.TabelaAgendaProfi.item(linha, 3).text()
     tele = ag.TabelaAgendaProfi.item(linha, 4).text()
     status = ag.TabelaAgendaProfi.item(linha, 7).text()
+    serv = ag.TabelaAgendaProfi.item(linha, 5).text()
     if status == 'Serviço efetuado':
         QMessageBox.about(ag, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
     elif status == 'Eliminado':
@@ -315,6 +316,7 @@ def pega_ag():
         manut_ag.telefone.setText(tele)
         manut_ag.comboStatus.setCurrentText(status)
         servico_ag_combo_manut()
+        manut_ag.comboServicos.setCurrentText(serv)
         manut_ag.show()
     
 
@@ -327,6 +329,7 @@ def pega_agenda():
     cliente = agenda.TabelaAgendaProfi.item(linha, 3).text()
     tele = agenda.TabelaAgendaProfi.item(linha, 4).text()
     status = agenda.TabelaAgendaProfi.item(linha, 7).text()
+    serv = agenda.TabelaAgendaProfi.item(linha, 5).text()
     if status != 'Nota Fiscal Emitida':
         if status == 'Serviço efetuado':
             QMessageBox.about(agenda, 'ERRO', 'Serviço já foi efetuado, não pode ser alterado')
@@ -341,9 +344,11 @@ def pega_agenda():
             manut_ag.telefone.setText(tele)
             manut_ag.comboStatus.setCurrentText(status)
             servico_ag_combo_manut()
+            manut_ag.comboServicos.setCurrentText(serv)
             manut_ag.show()
     else:
         QMessageBox.about(agenda, 'ERRO', 'Nota fiscal já foi emitida, não pode mais ser alterado')
+
 
 def alterar_agendamento():
     id_ag = int(manut_ag.InputIdAgenda.text())
