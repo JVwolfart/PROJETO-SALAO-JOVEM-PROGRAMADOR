@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>FATURAMENTO - VENDAS</string>
+   <string>FATURAMENTO - VENDAS (Emissão de Nota Fiscal Avulsa)</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(216, 164, 194);</string>
@@ -808,9 +808,9 @@ border-color: rgb(0,0,0);
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>220</x>
       <y>20</y>
-      <width>511</width>
+      <width>641</width>
       <height>51</height>
      </rect>
     </property>
@@ -825,7 +825,7 @@ border-color: rgb(0,0,0);
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Emissão de nota fiscal:</string>
+     <string>Emissão de nota fiscal Avulsa (Venda Direta):</string>
     </property>
    </widget>
   </widget>

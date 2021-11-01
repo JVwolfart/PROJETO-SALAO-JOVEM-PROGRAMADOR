@@ -2995,7 +2995,7 @@ def pega_serv_efetuado():
 
     
 
-def emitir_nf():
+def emitir_nf_ag():
     cliente_nome = nf_ag.Inome.text()
     id_agenda = nf_ag.Id_agenda.value()
     id_cliente= nf_ag.Id_Cliente.value()
@@ -3267,7 +3267,7 @@ if __name__ == '__main__':
 
     #BOTÕES AGENDA
     nf_agenda.TabelaAgenda_NF.doubleClicked.connect(pega_serv_efetuado)
-    nf_ag.BtnEmitir.clicked.connect(emitir_nf)
+    nf_ag.BtnEmitir.clicked.connect(emitir_nf_ag)
 
     #menu.showMaximized()
     login.show()
