@@ -3090,7 +3090,7 @@ def buscar_pendencias():
             else:
                 pendencias.Mensagem.addItem(f'Existem {agendamentos_efetuados} agendamentos com serviço efetuado aguardando emissão de nota fiscal, verifique')
         else:
-            pendencias.Mensagem.addItem('Não encontrado pendências de notas fiscais ou de agendamentos no faturamento')
+            pendencias.Mensagem.addItem('Não foi encontrado nenhuma pendência de nota fiscal ou de agendamento aguardando faturamento')
 
 
     if usuario1.agenda:
@@ -3100,7 +3100,7 @@ def buscar_pendencias():
             else:
                 pendencias.Mensagem.addItem(f'Existem {agendamentos_pendentes} agendamentos pendentes aguardando verificação, por favor verifique')
         else:
-            pendencias.Mensagem.addItem('Não encontrado pendências nos agendamentos')
+            pendencias.Mensagem.addItem('Não foi encontrado nenhuma pendências nos agendamentos')
 
 
 if __name__ == '__main__':
