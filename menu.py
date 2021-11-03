@@ -42,6 +42,21 @@ def fazer_login():
             QMessageBox.about(menu, 'BOAS VINDAS', f'Bem vindo usuário {usuario1.nome}, Além das funções Básicas de Cadastros, você possui as seguintes permissões: {permi}')
             banco.cria_tabelas()
             carrega_tabelas()
+            if usuario1.faturamento or usuario1.agenda:
+                buscar_pendencias()
+                pendencias.show()
+
+
+def logout():
+    if verificar_pendencias_agendamento() or verificar_pendencias_faturamento():
+        men = QMessageBox.question(menu, 'PENDÊNCIAS DETECTADAS', f'ATENÇÃO, foram detectadas algumas pendências deseja verificar essas pendências para resolver? clique em cancel para sair sem verificar as pendências', QMessageBox.Ok|QMessageBox.Cancel, QMessageBox.Ok)
+        if men == QMessageBox.Ok:
+            buscar_pendencias()
+            pendencias.show()
+        else:
+            menu.close()
+    else:
+        menu.close()
 
 def abrir_cria_usuario():
     if usuario1.root:
@@ -3026,6 +3041,68 @@ def calcular_desconto_nf_agenda():
     nf_ag.InputPfat.setValue(preco_fat)
 
 
+#FUNÇÕES DE VERIFICAÇÃO DE PENDÊNCIAS
+
+def verificar_pendencias_faturamento():
+    nf_pendentes = banco.busca_todas_notas_status('Pendente')
+    ag_efetuados = banco.busca_toda_agenda_dia_pendentes('Serviço efetuado')
+    notas_pendentes = len(nf_pendentes)
+    agendamentos_efetuados = len(ag_efetuados)
+    if usuario1.faturamento:
+        if notas_pendentes != 0 or agendamentos_efetuados != 0:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+def verificar_pendencias_agendamento():
+    ag_pendentes = banco.busca_toda_agenda_dia_pendentes('Pendente')
+    agendamentos_pendentes = len(ag_pendentes)
+    if usuario1.agenda:
+        if agendamentos_pendentes != 0:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def buscar_pendencias():
+    pendencias.Mensagem.clear()
+    pendencias.Mensagem.addItem('Verificação de pendências...')
+    nf_pendentes = banco.busca_todas_notas_status('Pendente')
+    ag_pendentes = banco.busca_toda_agenda_dia_pendentes('Pendente')
+    ag_efetuados = banco.busca_toda_agenda_dia_pendentes('Serviço efetuado')
+    notas_pendentes = len(nf_pendentes)
+    agendamentos_pendentes = len(ag_pendentes)
+    agendamentos_efetuados = len(ag_efetuados)
+    if usuario1.faturamento:
+        if notas_pendentes != 0:
+            if notas_pendentes == 1:
+                pendencias.Mensagem.addItem(f'Existe {notas_pendentes} nota pendente, verifique')
+            else:
+                pendencias.Mensagem.addItem(f'Existem {notas_pendentes} notas pendentes, verifique')
+        
+        if agendamentos_efetuados != 0:
+            if agendamentos_efetuados == 1:
+                pendencias.Mensagem.addItem(f'Existe {agendamentos_efetuados} agendamento com serviço efetuado aguardando emissão de nota fiscal, verifique')
+            else:
+                pendencias.Mensagem.addItem(f'Existem {agendamentos_efetuados} agendamentos com serviço efetuado aguardando emissão de nota fiscal, verifique')
+        else:
+            pendencias.Mensagem.addItem('Não encontrado pendências de notas fiscais ou de agendamentos no faturamento')
+
+
+    if usuario1.agenda:
+        if agendamentos_pendentes != 0:
+            if agendamentos_pendentes == 1:
+                pendencias.Mensagem.addItem(f'Existe {agendamentos_pendentes} agendamento pendente aguardando verificação, por favor verifique')
+            else:
+                pendencias.Mensagem.addItem(f'Existem {agendamentos_pendentes} agendamentos pendentes aguardando verificação, por favor verifique')
+        else:
+            pendencias.Mensagem.addItem('Não encontrado pendências nos agendamentos')
+
+
 if __name__ == '__main__':
 
     qt = QtWidgets.QApplication(sys.argv)
@@ -3094,8 +3171,12 @@ if __name__ == '__main__':
     nf_ag.VipSlider.valueChanged.connect(calcular_desconto_nf_agenda)
 
 
+    #TELAS VERIFICAÇÃO DE PENDÊNCIAS
+    pendencias = uic.loadUi('telas_duda/pendencias.ui')
+
+
     ##BOTÕES MENU
-    menu.Btn_Sair.clicked.connect(menu.close)
+    menu.Btn_Sair.clicked.connect(logout)
     menu.Btn_Mudar_usuario.clicked.connect(abrir_tela_login)
     menu.Btn_cadastro.clicked.connect(menu_cadastros.show)
     menu.Btn_faturamento.clicked.connect(inicalizar_faturamento)
