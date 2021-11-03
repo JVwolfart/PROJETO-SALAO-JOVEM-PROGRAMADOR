@@ -12,9 +12,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1290</width>
-    <height>825</height>
+    <width>1285</width>
+    <height>807</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1285</width>
+    <height>807</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1295</width>
+    <height>817</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -64,6 +76,12 @@
       <height>771</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>1251</width>
+      <height>771</height>
+     </size>
+    </property>
     <property name="cursor">
      <cursorShape>ArrowCursor</cursorShape>
     </property>
@@ -71,7 +89,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
