@@ -1036,3 +1036,10 @@ def alterar_status_ag_nf_emitida(id_ag, status):
     cur.execute(sql, (status, id_ag))
     banco.commit()
     banco.close()
+
+
+#FUNÇÕES DE VERIFICAÇÃO DE PENDÊNCIAS
+
+
+
+
