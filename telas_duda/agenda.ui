@@ -12,9 +12,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1391</width>
-    <height>838</height>
+    <width>1394</width>
+    <height>833</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1394</width>
+    <height>833</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1394</width>
+    <height>833</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -44,7 +56,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -779,9 +791,9 @@ color: black</string>
    <widget class="QPushButton" name="BtnAgendamento">
     <property name="geometry">
      <rect>
-      <x>870</x>
-      <y>120</y>
-      <width>201</width>
+      <x>1080</x>
+      <y>110</y>
+      <width>151</width>
       <height>51</height>
      </rect>
     </property>
@@ -808,8 +820,8 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>160</y>
-      <width>451</width>
+      <y>120</y>
+      <width>531</width>
       <height>41</height>
      </rect>
     </property>
@@ -828,8 +840,8 @@ QPushButton:pressed {
    <widget class="QDateEdit" name="InputData">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>130</y>
+      <x>640</x>
+      <y>120</y>
       <width>211</width>
       <height>31</height>
      </rect>
@@ -874,9 +886,9 @@ color: black;
    <widget class="QPushButton" name="BtnHoje">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>120</y>
-      <width>211</width>
+      <x>890</x>
+      <y>110</y>
+      <width>161</width>
       <height>51</height>
      </rect>
     </property>

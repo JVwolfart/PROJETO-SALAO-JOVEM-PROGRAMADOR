@@ -12,9 +12,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>944</width>
-    <height>444</height>
+    <width>917</width>
+    <height>387</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>917</width>
+    <height>387</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>927</width>
+    <height>397</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -36,7 +48,7 @@
      <rect>
       <x>450</x>
       <y>310</y>
-      <width>231</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -62,9 +74,9 @@ QPushButton:hover {
    <widget class="QPushButton" name="BtnAlterar">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>310</y>
-      <width>231</width>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
@@ -92,7 +104,7 @@ QPushButton:hover {
      <rect>
       <x>250</x>
       <y>310</y>
-      <width>181</width>
+      <width>141</width>
       <height>41</height>
      </rect>
     </property>
@@ -155,7 +167,7 @@ border-color: rgb(0,0,0);
      <rect>
       <x>690</x>
       <y>310</y>
-      <width>231</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -250,7 +262,7 @@ border-color: rgb(0,0,0);
      <rect>
       <x>30</x>
       <y>150</y>
-      <width>861</width>
+      <width>851</width>
       <height>41</height>
      </rect>
     </property>

@@ -12,9 +12,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1120</width>
-    <height>799</height>
+    <width>1131</width>
+    <height>794</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1131</width>
+    <height>794</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1141</width>
+    <height>800</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -248,9 +260,9 @@ color: black</string>
    <widget class="QPushButton" name="BtnInserir">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>820</x>
       <y>280</y>
-      <width>231</width>
+      <width>211</width>
       <height>51</height>
      </rect>
     </property>
@@ -601,7 +613,7 @@ color: black</string>
    <widget class="QPushButton" name="BtnCalcularNf">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>480</x>
       <y>710</y>
       <width>231</width>
       <height>51</height>
@@ -671,7 +683,7 @@ color: black</string>
    <widget class="QPushButton" name="BtnCancelarNf">
     <property name="geometry">
      <rect>
-      <x>700</x>
+      <x>830</x>
       <y>710</y>
       <width>231</width>
       <height>51</height>

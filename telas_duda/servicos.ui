@@ -13,8 +13,20 @@
     <x>0</x>
     <y>0</y>
     <width>1029</width>
-    <height>721</height>
+    <height>762</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1029</width>
+    <height>762</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1039</width>
+    <height>772</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -59,9 +71,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>50</y>
       <width>1001</width>
-      <height>691</height>
+      <height>701</height>
      </rect>
     </property>
     <property name="cursor">
@@ -99,9 +111,9 @@ border-color: rgb(0,0,0);
      <widget class="QPushButton" name="BtnInserir">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>270</x>
         <y>300</y>
-        <width>471</width>
+        <width>351</width>
         <height>41</height>
        </rect>
       </property>
@@ -197,10 +209,10 @@ border-color: rgb(0,0,0);
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>620</x>
-        <y>520</y>
-        <width>361</width>
-        <height>131</height>
+        <x>540</x>
+        <y>460</y>
+        <width>421</width>
+        <height>161</height>
        </rect>
       </property>
       <property name="text">
@@ -249,7 +261,7 @@ border-color: rgb(0,0,0);
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <pointsize>15</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -338,7 +350,7 @@ border-color: rgb(0,0,0);
        </property>
        <property name="font">
         <font>
-         <pointsize>14</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
