@@ -27,6 +27,9 @@
   <property name="windowTitle">
    <string>Verificação de pendências nos lançamentos</string>
   </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(216, 164, 194);</string>
   </property>
