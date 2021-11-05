@@ -80,7 +80,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabNf">
      <attribute name="title">
@@ -167,10 +167,36 @@ color: black</string>
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QLabel" name="vip">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>60</y>
+        <width>151</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap>../IMAGENS/vip.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>label_4</zorder>
      <zorder>BtnGerarNf</zorder>
      <zorder>comboClientes</zorder>
      <zorder>label_2</zorder>
+     <zorder>vip</zorder>
     </widget>
     <widget class="QWidget" name="tabItens">
      <attribute name="title">
