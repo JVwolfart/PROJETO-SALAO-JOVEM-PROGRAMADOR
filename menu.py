@@ -41,6 +41,7 @@ def fazer_login():
             menu.showMaximized()
             QMessageBox.about(menu, 'BOAS VINDAS', f'Bem vindo usuário {usuario1.nome}, Além das funções Básicas de Cadastros, você possui as seguintes permissões: {permi}')
             banco.cria_tabelas()
+            banco.setar_pendentes()
             carrega_tabelas()
             if usuario1.faturamento or usuario1.agenda:
                 buscar_pendencias()
