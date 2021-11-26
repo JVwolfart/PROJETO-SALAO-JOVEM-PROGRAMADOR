@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>819</width>
-    <height>618</height>
+    <width>809</width>
+    <height>608</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -128,7 +128,7 @@ QPushButton:hover {
      <rect>
       <x>150</x>
       <y>90</y>
-      <width>521</width>
+      <width>551</width>
       <height>41</height>
      </rect>
     </property>
@@ -138,7 +138,7 @@ QPushButton:hover {
      </font>
     </property>
     <property name="text">
-     <string>Selecione o novo Status do agendamento</string>
+     <string>Selecione o novo Status do agendamento:</string>
     </property>
    </widget>
    <widget class="QRadioButton" name="RbEfetuado">
