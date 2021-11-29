@@ -43,8 +43,8 @@
    <widget class="QPushButton" name="BtnVoltar">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>20</y>
+      <x>820</x>
+      <y>80</y>
       <width>101</width>
       <height>51</height>
      </rect>
@@ -198,15 +198,15 @@ QPushButton:hover {
    <widget class="QLabel" name="lbl_status_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>801</width>
+      <x>180</x>
+      <y>90</y>
+      <width>411</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>8</pointsize>
       <weight>75</weight>
       <bold>true</bold>
       <underline>false</underline>
@@ -222,7 +222,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="BtnOrdenar">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>730</x>
       <y>20</y>
       <width>191</width>
       <height>51</height>
@@ -250,7 +250,7 @@ QPushButton:hover {
    <widget class="QPushButton" name="BtnOrdenarID">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>540</x>
       <y>20</y>
       <width>181</width>
       <height>51</height>
@@ -271,6 +271,29 @@ QPushButton:hover {
     </property>
     <property name="text">
      <string>Exibir em ordem de ID</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>361</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Manutenção de usuários:</string>
     </property>
    </widget>
   </widget>
