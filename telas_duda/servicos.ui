@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1029</width>
-    <height>762</height>
+    <height>772</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -71,9 +71,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>30</y>
       <width>1001</width>
-      <height>701</height>
+      <height>721</height>
      </rect>
     </property>
     <property name="cursor">
@@ -83,7 +83,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabServicos">
      <attribute name="title">
@@ -111,9 +111,9 @@ border-color: rgb(0,0,0);
      <widget class="QPushButton" name="BtnInserir">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>300</y>
-        <width>351</width>
+        <x>280</x>
+        <y>290</y>
+        <width>281</width>
         <height>41</height>
        </rect>
       </property>
@@ -209,10 +209,10 @@ border-color: rgb(0,0,0);
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>460</y>
-        <width>421</width>
-        <height>161</height>
+        <x>420</x>
+        <y>410</y>
+        <width>541</width>
+        <height>211</height>
        </rect>
       </property>
       <property name="text">
@@ -253,15 +253,15 @@ border-color: rgb(0,0,0);
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>20</y>
+        <x>20</x>
+        <y>80</y>
         <width>921</width>
         <height>51</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>9</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -281,7 +281,7 @@ border-color: rgb(0,0,0);
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>90</y>
+        <y>130</y>
         <width>961</width>
         <height>551</height>
        </rect>
@@ -401,6 +401,29 @@ border-color: rgb(0,0,0);
         <set>AlignCenter</set>
        </property>
       </column>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>20</y>
+        <width>531</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Manutenção de serviços:</string>
+      </property>
      </widget>
     </widget>
    </widget>

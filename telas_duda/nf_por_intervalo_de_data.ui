@@ -12,9 +12,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>775</width>
-    <height>596</height>
+    <width>784</width>
+    <height>598</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>784</width>
+    <height>598</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>784</width>
+    <height>598</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -35,9 +47,9 @@
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>220</y>
-      <width>171</width>
-      <height>41</height>
+      <y>210</y>
+      <width>141</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="cursor">
@@ -225,15 +237,15 @@ color: black;
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>90</x>
       <y>70</y>
-      <width>721</width>
+      <width>611</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>13</pointsize>
+      <pointsize>11</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -242,7 +254,7 @@ color: black;
      <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Informe o intervalo de datas de emissão da nota para consulta</string>
+     <string>Informe o intervalo de datas de emissão da nota para consulta:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">

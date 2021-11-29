@@ -46,7 +46,7 @@
    <widget class="QPushButton" name="BtnDesligar">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>480</x>
       <y>310</y>
       <width>161</width>
       <height>41</height>
@@ -165,7 +165,7 @@ border-color: rgb(0,0,0);
    <widget class="QPushButton" name="BtnReativar">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>720</x>
       <y>310</y>
       <width>161</width>
       <height>41</height>
@@ -193,7 +193,7 @@ QPushButton:hover {
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>480</x>
       <y>210</y>
       <width>471</width>
       <height>22</height>
@@ -238,9 +238,9 @@ border-color: rgb(0,0,0);
    <widget class="QSpinBox" name="Tempo">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>480</x>
       <y>240</y>
-      <width>471</width>
+      <width>401</width>
       <height>41</height>
      </rect>
     </property>
@@ -282,7 +282,7 @@ border-color: rgb(0,0,0);
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>260</x>
       <y>20</y>
       <width>461</width>
       <height>51</height>
