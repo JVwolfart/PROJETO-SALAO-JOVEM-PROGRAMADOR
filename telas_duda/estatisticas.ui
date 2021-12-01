@@ -12,9 +12,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1216</width>
-    <height>893</height>
+    <width>1198</width>
+    <height>899</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1198</width>
+    <height>899</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1198</width>
+    <height>899</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -58,9 +70,9 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>190</y>
-      <width>1201</width>
+      <width>1161</width>
       <height>691</height>
      </rect>
     </property>
@@ -190,7 +202,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -205,7 +217,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -220,7 +232,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -235,7 +247,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -250,7 +262,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -271,7 +283,7 @@ border-radius: 20px;</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -347,7 +359,7 @@ border-radius: 20px;</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -427,7 +439,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -442,7 +454,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -457,7 +469,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -472,7 +484,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -487,7 +499,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -502,7 +514,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -517,7 +529,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -532,7 +544,7 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -660,7 +672,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -675,7 +687,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -690,7 +702,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -705,7 +717,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -720,7 +732,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -735,7 +747,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -750,7 +762,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -771,7 +783,7 @@ border-radius: 20px;</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -902,7 +914,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -917,7 +929,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -932,7 +944,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -947,7 +959,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -962,7 +974,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -977,7 +989,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -992,7 +1004,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1013,7 +1025,7 @@ border-radius: 20px;</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -1144,7 +1156,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1159,7 +1171,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1174,7 +1186,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1189,7 +1201,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1204,7 +1216,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1219,7 +1231,7 @@ border-radius: 20px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1240,7 +1252,7 @@ border-radius: 20px;</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <pointsize>10</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -1258,8 +1270,8 @@ border-radius: 20px;</string>
    <widget class="QRadioButton" name="RbTodas">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>90</y>
+      <x>840</x>
+      <y>130</y>
       <width>151</width>
       <height>28</height>
      </rect>
@@ -1276,7 +1288,7 @@ border-radius: 20px;</string>
      <rect>
       <x>20</x>
       <y>120</y>
-      <width>1121</width>
+      <width>791</width>
       <height>51</height>
      </rect>
     </property>
@@ -1295,9 +1307,9 @@ border-radius: 20px;</string>
    <widget class="QRadioButton" name="RbIntervaloDatas">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>90</y>
-      <width>221</width>
+      <x>1010</x>
+      <y>130</y>
+      <width>171</width>
       <height>28</height>
      </rect>
     </property>
@@ -1308,8 +1320,8 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="lbl_status_2">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>10</y>
+      <x>190</x>
+      <y>30</y>
       <width>801</width>
       <height>41</height>
      </rect>

@@ -70,9 +70,9 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>40</x>
       <y>80</y>
-      <width>201</width>
+      <width>141</width>
       <height>31</height>
      </rect>
     </property>
@@ -133,7 +133,7 @@ border-radius: 20px;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>420</x>
       <y>80</y>
       <width>111</width>
       <height>41</height>
@@ -155,8 +155,8 @@ color: black</string>
    <widget class="QFrame" name="frame_vip">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>259</y>
+      <x>510</x>
+      <y>260</y>
       <width>311</width>
       <height>91</height>
      </rect>
@@ -260,9 +260,9 @@ color: black</string>
    <widget class="QPushButton" name="BtnInserir">
     <property name="geometry">
      <rect>
-      <x>820</x>
+      <x>870</x>
       <y>280</y>
-      <width>211</width>
+      <width>161</width>
       <height>51</height>
      </rect>
     </property>
@@ -291,9 +291,9 @@ QPushButton:hover {
     </property>
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>580</x>
       <y>80</y>
-      <width>481</width>
+      <width>531</width>
       <height>41</height>
      </rect>
     </property>
@@ -355,9 +355,9 @@ color: rgb(203, 137, 176);</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>30</x>
       <y>290</y>
-      <width>171</width>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
@@ -387,7 +387,7 @@ color: rgb(203, 137, 176);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>150</y>
       <width>191</width>
       <height>22</height>
@@ -400,9 +400,9 @@ color: rgb(203, 137, 176);</string>
    <widget class="QComboBox" name="comboServicos">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>30</x>
       <y>180</y>
-      <width>331</width>
+      <width>311</width>
       <height>41</height>
      </rect>
     </property>
@@ -416,7 +416,7 @@ color: black</string>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>30</x>
       <y>260</y>
       <width>191</width>
       <height>22</height>
@@ -485,7 +485,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -500,7 +500,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -515,7 +515,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -530,7 +530,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -545,7 +545,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -560,7 +560,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -575,7 +575,7 @@ color: black</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -591,7 +591,7 @@ color: black</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>190</x>
       <y>80</y>
       <width>131</width>
       <height>41</height>
@@ -670,9 +670,9 @@ color: black</string>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>350</x>
       <y>80</y>
-      <width>101</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
@@ -685,7 +685,7 @@ color: black</string>
      <rect>
       <x>830</x>
       <y>710</y>
-      <width>231</width>
+      <width>191</width>
       <height>51</height>
      </rect>
     </property>
@@ -737,9 +737,9 @@ border-color: rgb(0,0,0);
    <widget class="QPushButton" name="BtnSair">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>190</x>
       <y>710</y>
-      <width>231</width>
+      <width>171</width>
       <height>51</height>
      </rect>
     </property>
@@ -773,7 +773,7 @@ QPushButton:hover {
     </property>
     <property name="font">
      <font>
-      <pointsize>21</pointsize>
+      <pointsize>22</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>

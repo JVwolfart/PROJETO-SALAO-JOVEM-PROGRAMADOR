@@ -121,7 +121,7 @@ background-color: rgb(255, 231, 249);</string>
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>100</x>
       <y>60</y>
       <width>611</width>
       <height>51</height>
@@ -136,7 +136,7 @@ background-color: rgb(255, 231, 249);</string>
      </font>
     </property>
     <property name="text">
-     <string>Total faturado por gênero de cliente</string>
+     <string>Total faturado por gênero de cliente:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -343,10 +343,10 @@ border-radius: 20px;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>790</x>
-      <y>20</y>
-      <width>371</width>
-      <height>131</height>
+      <x>770</x>
+      <y>0</y>
+      <width>391</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="text">

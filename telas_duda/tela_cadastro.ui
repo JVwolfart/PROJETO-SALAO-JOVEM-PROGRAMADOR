@@ -10,8 +10,14 @@
     <x>0</x>
     <y>0</y>
     <width>665</width>
-    <height>765</height>
+    <height>796</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>665</width>
+    <height>796</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Tela de cadastro</string>

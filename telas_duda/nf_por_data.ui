@@ -48,9 +48,9 @@ background-color: rgb(216, 164, 194);</string>
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>160</y>
+      <y>150</y>
       <width>131</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">

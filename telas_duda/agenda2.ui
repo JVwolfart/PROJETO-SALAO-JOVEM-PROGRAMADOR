@@ -100,7 +100,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>11</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -796,7 +796,7 @@ color: black</string>
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>11</pointsize>
         <weight>75</weight>
         <bold>true</bold>
         <underline>true</underline>
@@ -816,7 +816,7 @@ color: black</string>
      <rect>
       <x>1050</x>
       <y>120</y>
-      <width>231</width>
+      <width>191</width>
       <height>51</height>
      </rect>
     </property>
@@ -841,9 +841,9 @@ QPushButton:hover{
    <widget class="QLabel" name="lbl_dia">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>30</x>
       <y>120</y>
-      <width>421</width>
+      <width>481</width>
       <height>51</height>
      </rect>
     </property>
@@ -908,7 +908,7 @@ color: black;
    <widget class="QPushButton" name="BtnHoje">
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>820</x>
       <y>120</y>
       <width>171</width>
       <height>51</height>

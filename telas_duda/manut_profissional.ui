@@ -198,7 +198,7 @@ QPushButton:hover {
      <rect>
       <x>400</x>
       <y>340</y>
-      <width>481</width>
+      <width>491</width>
       <height>41</height>
      </rect>
     </property>
@@ -218,7 +218,7 @@ border-color: rgb(0,0,0);
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>300</y>
       <width>161</width>
       <height>22</height>
@@ -236,7 +236,7 @@ border-color: rgb(0,0,0);
      <rect>
       <x>20</x>
       <y>220</y>
-      <width>861</width>
+      <width>871</width>
       <height>41</height>
      </rect>
     </property>
@@ -338,9 +338,9 @@ border-color: rgb(0,0,0);
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>580</x>
       <y>20</y>
-      <width>301</width>
+      <width>361</width>
       <height>161</height>
      </rect>
     </property>

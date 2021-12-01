@@ -112,8 +112,7 @@ background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(138, 226, 52);
-color: rgb(32, 74, 135);</string>
+color: rgb(0, 0, 0);</string>
     </property>
     <property name="editTriggers">
      <set>QAbstractItemView::NoEditTriggers</set>
@@ -148,7 +147,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -163,7 +162,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -178,7 +177,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -193,7 +192,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -208,7 +207,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -223,7 +222,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -238,7 +237,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -253,7 +252,7 @@ color: rgb(32, 74, 135);</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>8</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -266,17 +265,17 @@ color: rgb(32, 74, 135);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>70</y>
-      <width>1021</width>
+      <x>140</x>
+      <y>40</y>
+      <width>721</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>17</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
       <underline>true</underline>
      </font>
     </property>
