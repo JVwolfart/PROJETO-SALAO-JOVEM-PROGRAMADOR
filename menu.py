@@ -2203,8 +2203,11 @@ def limpa_rodape_tabela_estatisticas():
 
 #FUNÇÕES DA AGENDA
 def inicializar_agenda():
-    escreve_data()
-    atualizar_pendentes()
+    if usuario1.agenda:
+        escreve_data()
+        atualizar_pendentes()
+    else:
+        QMessageBox.about(menu, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem permissão para acessar a agenda, caso necessite essa permissão solicite ao ROOT')
 
 def escreve_data():    
     if agenda.InputData.date() == data_atual:

@@ -13,19 +13,19 @@
     <x>0</x>
     <y>0</y>
     <width>1220</width>
-    <height>872</height>
+    <height>950</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>1220</width>
-    <height>872</height>
+    <height>950</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>1220</width>
-    <height>872</height>
+    <height>950</height>
    </size>
   </property>
   <property name="font">
@@ -83,7 +83,7 @@
      <string notr="true">background-color: rgb(255, 231, 249);</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabVendas">
      <attribute name="title">
@@ -1181,15 +1181,15 @@ color: black;
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>120</y>
-      <width>581</width>
+      <x>120</x>
+      <y>100</y>
+      <width>1061</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>8</pointsize>
+      <pointsize>15</pointsize>
       <weight>75</weight>
       <bold>true</bold>
       <underline>true</underline>
