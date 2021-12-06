@@ -2474,7 +2474,6 @@ def agendamento():
     if dia.date() == data_atual:
         hora = datetime.now().time()    
         if ag.hora.time()<= hora:
-            print('hora menor')
             QMessageBox.about(ag, 'HORA INVÁLIDA', f'ATENÇÃO !! A HORA do agendamento precisa ser maior que a HORA atual')
         else:
             grava_agendamento()
