@@ -2203,8 +2203,11 @@ def limpa_rodape_tabela_estatisticas():
 
 #FUNÇÕES DA AGENDA
 def inicializar_agenda():
-    escreve_data()
-    atualizar_pendentes()
+    if usuario1.agenda:
+        escreve_data()
+        atualizar_pendentes()
+    else:
+        QMessageBox.about(menu, 'ACESSO NEGADO', f'Usuário {usuario1.nome} não tem permissão para acessar a agenda, caso necessite essa permissão solicite ao ROOT')
 
 def escreve_data():    
     if agenda.InputData.date() == data_atual:
@@ -2471,7 +2474,6 @@ def agendamento():
     if dia.date() == data_atual:
         hora = datetime.now().time()    
         if ag.hora.time()<= hora:
-            print('hora menor')
             QMessageBox.about(ag, 'HORA INVÁLIDA', f'ATENÇÃO !! A HORA do agendamento precisa ser maior que a HORA atual')
         else:
             grava_agendamento()
@@ -2883,7 +2885,7 @@ def carrega_estat_genero_futuro():
         tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {media_atendimento:.2f}'))
         tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {media_minuto:.2f}'))
         row += 1
-        estat_genero_futuro.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+        estat_genero_futuro.lbl_total.setText(f'Total do valor previsto de faturamento bruto: R$ {total:.2f}')
     estat_genero_futuro.show()
 
 
@@ -2914,7 +2916,7 @@ def carrega_estat_genero_intervalo_futuro(data_inicial, data_final):
         tabela.setItem(row, 4, QtWidgets.QTableWidgetItem(f'R$ {media_atendimento:.2f}'))
         tabela.setItem(row, 5, QtWidgets.QTableWidgetItem(f'R$ {media_minuto:.2f}'))
         row += 1
-        estat_genero_futuro.lbl_total.setText(f'Total do valor faturado líquido: R$ {total:.2f}')
+        estat_genero_futuro.lbl_total.setText(f'Total do valor previsto de faturamento bruto: R$ {total:.2f}')
     estat_genero_futuro.show()
 
 
