@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/agenda.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/agenda.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -259,7 +259,7 @@ class Ui_MainWindow(object):
         self.label_6 = QtWidgets.QLabel(self.tabEmitidas)
         self.label_6.setGeometry(QtCore.QRect(850, 10, 361, 131))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_6.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.tabWidget.addTab(self.tabEmitidas, "")

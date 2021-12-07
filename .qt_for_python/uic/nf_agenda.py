@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/nf_agenda.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/nf_agenda.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -148,7 +148,7 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(950, 0, 291, 121))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.lbl_dia.raise_()

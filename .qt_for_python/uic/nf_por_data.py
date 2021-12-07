@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/nf_por_data.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/nf_por_data.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -74,7 +74,7 @@ class Ui_MainWindow(object):
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(20, 100, 751, 391))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/marca d\'agua.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/marca d\'agua.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.label_3.raise_()

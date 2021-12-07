@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/agendamento.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/agendamento.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -113,7 +113,7 @@ class Ui_MainWindow(object):
         self.label_12 = QtWidgets.QLabel(self.tabVendas)
         self.label_12.setGeometry(QtCore.QRect(540, 460, 611, 281))
         self.label_12.setText("")
-        self.label_12.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_12.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label_12.setScaledContents(True)
         self.label_12.setObjectName("label_12")
         self.label_13 = QtWidgets.QLabel(self.tabVendas)

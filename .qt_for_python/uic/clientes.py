@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/clientes.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/clientes.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -94,13 +94,13 @@ class Ui_MainWindow(object):
         self.CbSexo.setObjectName("CbSexo")
         self.CbSexo.addItem("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/genero feminino.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/genero feminino.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.CbSexo.addItem(icon, "")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/genero masculino.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/genero masculino.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.CbSexo.addItem(icon1, "")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/genero outros.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/genero outros.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.CbSexo.addItem(icon2, "")
         self.label_2 = QtWidgets.QLabel(self.tabClientes)
         self.label_2.setGeometry(QtCore.QRect(390, 180, 171, 22))
@@ -108,7 +108,7 @@ class Ui_MainWindow(object):
         self.label_3 = QtWidgets.QLabel(self.tabClientes)
         self.label_3.setGeometry(QtCore.QRect(420, 390, 531, 241))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.label_5 = QtWidgets.QLabel(self.tabClientes)

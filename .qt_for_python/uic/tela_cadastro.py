@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/tela_cadastro.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/tela_cadastro.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -110,25 +110,25 @@ class Ui_MainWindow(object):
         self.IconeSenha_2 = QtWidgets.QLabel(self.centralwidget)
         self.IconeSenha_2.setGeometry(QtCore.QRect(160, 510, 51, 51))
         self.IconeSenha_2.setText("")
-        self.IconeSenha_2.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/pngwing.com.png"))
+        self.IconeSenha_2.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/pngwing.com.png"))
         self.IconeSenha_2.setScaledContents(True)
         self.IconeSenha_2.setObjectName("IconeSenha_2")
         self.IconeSenha_3 = QtWidgets.QLabel(self.centralwidget)
         self.IconeSenha_3.setGeometry(QtCore.QRect(160, 440, 51, 51))
         self.IconeSenha_3.setText("")
-        self.IconeSenha_3.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/pngwing.com.png"))
+        self.IconeSenha_3.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/pngwing.com.png"))
         self.IconeSenha_3.setScaledContents(True)
         self.IconeSenha_3.setObjectName("IconeSenha_3")
         self.IconeUsuario_2 = QtWidgets.QLabel(self.centralwidget)
         self.IconeUsuario_2.setGeometry(QtCore.QRect(160, 360, 61, 51))
         self.IconeUsuario_2.setText("")
-        self.IconeUsuario_2.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/User_icon_BLACK-01.png"))
+        self.IconeUsuario_2.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/User_icon_BLACK-01.png"))
         self.IconeUsuario_2.setScaledContents(True)
         self.IconeUsuario_2.setObjectName("IconeUsuario_2")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(70, 20, 531, 201))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)

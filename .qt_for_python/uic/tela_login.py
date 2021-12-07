@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/tela_login.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/tela_login.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(120, 0, 541, 221))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.InputUsuario = QtWidgets.QLineEdit(self.frame)
@@ -79,13 +79,13 @@ class Ui_MainWindow(object):
         self.IconeUsuario = QtWidgets.QLabel(self.frame)
         self.IconeUsuario.setGeometry(QtCore.QRect(130, 230, 61, 51))
         self.IconeUsuario.setText("")
-        self.IconeUsuario.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/User_icon_BLACK-01.png"))
+        self.IconeUsuario.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/User_icon_BLACK-01.png"))
         self.IconeUsuario.setScaledContents(True)
         self.IconeUsuario.setObjectName("IconeUsuario")
         self.IconeSenha = QtWidgets.QLabel(self.frame)
         self.IconeSenha.setGeometry(QtCore.QRect(130, 310, 51, 51))
         self.IconeSenha.setText("")
-        self.IconeSenha.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/pngwing.com.png"))
+        self.IconeSenha.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/pngwing.com.png"))
         self.IconeSenha.setScaledContents(True)
         self.IconeSenha.setObjectName("IconeSenha")
         self.verticalLayout.addWidget(self.frame)

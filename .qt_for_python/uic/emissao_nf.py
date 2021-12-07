@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/emissao_nf.ui'
+# Form implementation generated from reading ui file '/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/emissao_nf.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.tabNf)
         self.label_4.setGeometry(QtCore.QRect(290, 280, 751, 371))
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.vip = QtWidgets.QLabel(self.tabNf)
@@ -84,7 +84,7 @@ class Ui_MainWindow(object):
         self.vip.setGeometry(QtCore.QRect(700, 60, 191, 131))
         self.vip.setText("")
         self.vip.setTextFormat(QtCore.Qt.AutoText)
-        self.vip.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/logo-cliente-vip_Prancheta-1-cópia-3-768x384.png"))
+        self.vip.setPixmap(QtGui.QPixmap("/home/joaovitorwolfart/Dropbox/JP/PROJETO SALÃO/telas_duda/../IMAGENS/logo-cliente-vip_Prancheta-1-cópia-3-768x384.png"))
         self.vip.setScaledContents(True)
         self.vip.setObjectName("vip")
         self.label_4.raise_()
