@@ -1,0 +1,467 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file '/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/agendamento.ui'
+#
+# Created by: PyQt5 UI code generator 5.14.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.setWindowModality(QtCore.Qt.ApplicationModal)
+        MainWindow.setEnabled(True)
+        MainWindow.resize(1295, 817)
+        MainWindow.setMinimumSize(QtCore.QSize(1285, 807))
+        MainWindow.setMaximumSize(QtCore.QSize(1295, 817))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        MainWindow.setFont(font)
+        MainWindow.setStyleSheet("background-color: rgb(215, 139, 185);")
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.lbl_id_user = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_id_user.setGeometry(QtCore.QRect(1080, 30, 41, 51))
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        self.lbl_id_user.setFont(font)
+        self.lbl_id_user.setStyleSheet("color: rgb(62, 132, 238);")
+        self.lbl_id_user.setText("")
+        self.lbl_id_user.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_id_user.setObjectName("lbl_id_user")
+        self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidget.setGeometry(QtCore.QRect(20, 20, 1251, 771))
+        self.tabWidget.setMinimumSize(QtCore.QSize(1251, 771))
+        self.tabWidget.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.tabWidget.setStyleSheet("background-color: rgb(255, 231, 249);")
+        self.tabWidget.setObjectName("tabWidget")
+        self.tabVendas = QtWidgets.QWidget()
+        self.tabVendas.setObjectName("tabVendas")
+        self.InputData = QtWidgets.QDateEdit(self.tabVendas)
+        self.InputData.setGeometry(QtCore.QRect(200, 190, 251, 51))
+        font = QtGui.QFont()
+        font.setFamily("Ubuntu")
+        font.setPointSize(21)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.InputData.setFont(font)
+        self.InputData.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"font: 21pt \"Ubuntu\";\n"
+"color: black;\n"
+"")
+        self.InputData.setAlignment(QtCore.Qt.AlignCenter)
+        self.InputData.setDateTime(QtCore.QDateTime(QtCore.QDate(2021, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.InputData.setCalendarPopup(True)
+        self.InputData.setTimeSpec(QtCore.Qt.LocalTime)
+        self.InputData.setObjectName("InputData")
+        self.label = QtWidgets.QLabel(self.tabVendas)
+        self.label.setGeometry(QtCore.QRect(30, 200, 131, 17))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(self.tabVendas)
+        self.label_2.setGeometry(QtCore.QRect(30, 300, 161, 17))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.comboProfi = QtWidgets.QComboBox(self.tabVendas)
+        self.comboProfi.setGeometry(QtCore.QRect(200, 290, 381, 41))
+        self.comboProfi.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"color: black")
+        self.comboProfi.setObjectName("comboProfi")
+        self.label_7 = QtWidgets.QLabel(self.tabVendas)
+        self.label_7.setGeometry(QtCore.QRect(30, 420, 161, 20))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.comboClientes = QtWidgets.QComboBox(self.tabVendas)
+        self.comboClientes.setGeometry(QtCore.QRect(200, 410, 381, 41))
+        self.comboClientes.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"color: black")
+        self.comboClientes.setObjectName("comboClientes")
+        self.BtnConsultaAgenda = QtWidgets.QPushButton(self.tabVendas)
+        self.BtnConsultaAgenda.setGeometry(QtCore.QRect(610, 350, 161, 51))
+        self.BtnConsultaAgenda.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.BtnConsultaAgenda.setStyleSheet("QPushButton {     \n"
+"    background-color: rgb(0, 170, 0);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {   \n"
+"    background-color: rgb(0, 190, 0);\n"
+"}\n"
+"QPushButton:pressed {   \n"
+"    background-color: rgb(0, 200, 0);\n"
+"}")
+        self.BtnConsultaAgenda.setObjectName("BtnConsultaAgenda")
+        self.label_12 = QtWidgets.QLabel(self.tabVendas)
+        self.label_12.setGeometry(QtCore.QRect(540, 460, 611, 281))
+        self.label_12.setText("")
+        self.label_12.setPixmap(QtGui.QPixmap("/home/jrwolfart/projetos python jv/PROJETO-SAL-O-JOVEM-PROGRAMADOR/telas_duda/../IMAGENS/PicsArt_10-18-10.18.32.png"))
+        self.label_12.setScaledContents(True)
+        self.label_12.setObjectName("label_12")
+        self.label_13 = QtWidgets.QLabel(self.tabVendas)
+        self.label_13.setGeometry(QtCore.QRect(410, 60, 401, 51))
+        font = QtGui.QFont()
+        font.setPointSize(21)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_13.setFont(font)
+        self.label_13.setStyleSheet("color: rgb(0, 0, 0);")
+        self.label_13.setObjectName("label_13")
+        self.label_12.raise_()
+        self.InputData.raise_()
+        self.label.raise_()
+        self.label_2.raise_()
+        self.comboProfi.raise_()
+        self.label_7.raise_()
+        self.comboClientes.raise_()
+        self.BtnConsultaAgenda.raise_()
+        self.label_13.raise_()
+        self.tabWidget.addTab(self.tabVendas, "")
+        self.tabEmitidas = QtWidgets.QWidget()
+        self.tabEmitidas.setObjectName("tabEmitidas")
+        self.label_3 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_3.setGeometry(QtCore.QRect(20, 10, 221, 17))
+        self.label_3.setObjectName("label_3")
+        self.data_agendamento = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.data_agendamento.setEnabled(False)
+        self.data_agendamento.setGeometry(QtCore.QRect(20, 40, 241, 41))
+        self.data_agendamento.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.data_agendamento.setReadOnly(False)
+        self.data_agendamento.setObjectName("data_agendamento")
+        self.label_4 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_4.setGeometry(QtCore.QRect(300, 10, 281, 20))
+        self.label_4.setObjectName("label_4")
+        self.profissional = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.profissional.setEnabled(False)
+        self.profissional.setGeometry(QtCore.QRect(410, 40, 301, 41))
+        self.profissional.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.profissional.setText("")
+        self.profissional.setReadOnly(False)
+        self.profissional.setObjectName("profissional")
+        self.label_5 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_5.setGeometry(QtCore.QRect(730, 10, 131, 17))
+        self.label_5.setObjectName("label_5")
+        self.especialidade = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.especialidade.setEnabled(False)
+        self.especialidade.setGeometry(QtCore.QRect(730, 40, 281, 41))
+        self.especialidade.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.especialidade.setReadOnly(False)
+        self.especialidade.setObjectName("especialidade")
+        self.id_profi = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.id_profi.setEnabled(False)
+        self.id_profi.setGeometry(QtCore.QRect(300, 40, 101, 41))
+        self.id_profi.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.id_profi.setText("")
+        self.id_profi.setReadOnly(False)
+        self.id_profi.setObjectName("id_profi")
+        self.comboServicos = QtWidgets.QComboBox(self.tabEmitidas)
+        self.comboServicos.setGeometry(QtCore.QRect(180, 200, 301, 41))
+        self.comboServicos.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"color: black")
+        self.comboServicos.setObjectName("comboServicos")
+        self.label_6 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_6.setGeometry(QtCore.QRect(180, 170, 271, 22))
+        self.label_6.setObjectName("label_6")
+        self.hora = QtWidgets.QTimeEdit(self.tabEmitidas)
+        self.hora.setGeometry(QtCore.QRect(20, 200, 121, 41))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.hora.setFont(font)
+        self.hora.setMouseTracking(True)
+        self.hora.setTabletTracking(True)
+        self.hora.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"color: black")
+        self.hora.setProperty("showGroupSeparator", False)
+        self.hora.setDateTime(QtCore.QDateTime(QtCore.QDate(2000, 1, 1), QtCore.QTime(8, 0, 0)))
+        self.hora.setCalendarPopup(True)
+        self.hora.setCurrentSectionIndex(0)
+        self.hora.setTimeSpec(QtCore.Qt.LocalTime)
+        self.hora.setObjectName("hora")
+        self.label_8 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_8.setGeometry(QtCore.QRect(20, 170, 111, 22))
+        self.label_8.setObjectName("label_8")
+        self.BtnAgendar = QtWidgets.QPushButton(self.tabEmitidas)
+        self.BtnAgendar.setGeometry(QtCore.QRect(1020, 100, 141, 51))
+        self.BtnAgendar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.BtnAgendar.setStyleSheet("QPushButton {     \n"
+"    background-color: rgb(0, 170, 0);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {   \n"
+"    background-color: rgb(0, 190, 0);\n"
+"}\n"
+"QPushButton:pressed {   \n"
+"    background-color: rgb(0, 200, 0);\n"
+"}")
+        self.BtnAgendar.setObjectName("BtnAgendar")
+        self.label_9 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_9.setGeometry(QtCore.QRect(20, 90, 201, 20))
+        self.label_9.setObjectName("label_9")
+        self.id_cliente = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.id_cliente.setEnabled(False)
+        self.id_cliente.setGeometry(QtCore.QRect(20, 110, 101, 41))
+        self.id_cliente.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.id_cliente.setText("")
+        self.id_cliente.setReadOnly(False)
+        self.id_cliente.setObjectName("id_cliente")
+        self.cliente = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.cliente.setEnabled(False)
+        self.cliente.setGeometry(QtCore.QRect(140, 110, 301, 41))
+        self.cliente.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.cliente.setText("")
+        self.cliente.setReadOnly(False)
+        self.cliente.setObjectName("cliente")
+        self.telefone = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.telefone.setEnabled(False)
+        self.telefone.setGeometry(QtCore.QRect(470, 110, 301, 41))
+        self.telefone.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.telefone.setText("")
+        self.telefone.setReadOnly(False)
+        self.telefone.setObjectName("telefone")
+        self.label_10 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_10.setGeometry(QtCore.QRect(480, 90, 201, 20))
+        self.label_10.setObjectName("label_10")
+        self.BtnSair = QtWidgets.QPushButton(self.tabEmitidas)
+        self.BtnSair.setGeometry(QtCore.QRect(1020, 180, 141, 51))
+        self.BtnSair.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.BtnSair.setStyleSheet("QPushButton{\n"
+"    color: rgb(255, 255, 255);\n"
+"    border-radius: 10px;\n"
+"    background-color: rgb(204, 0, 0);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    background-color: rgb(218, 0, 0);\n"
+"}")
+        self.BtnSair.setObjectName("BtnSair")
+        self.TabelaAgendaProfi = QtWidgets.QTableWidget(self.tabEmitidas)
+        self.TabelaAgendaProfi.setEnabled(True)
+        self.TabelaAgendaProfi.setGeometry(QtCore.QRect(20, 340, 1211, 381))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.TabelaAgendaProfi.sizePolicy().hasHeightForWidth())
+        self.TabelaAgendaProfi.setSizePolicy(sizePolicy)
+        self.TabelaAgendaProfi.setMinimumSize(QtCore.QSize(465, 0))
+        font = QtGui.QFont()
+        font.setFamily("Ubuntu")
+        font.setPointSize(10)
+        self.TabelaAgendaProfi.setFont(font)
+        self.TabelaAgendaProfi.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.TabelaAgendaProfi.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.TabelaAgendaProfi.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.TabelaAgendaProfi.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.TabelaAgendaProfi.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
+        self.TabelaAgendaProfi.setColumnCount(10)
+        self.TabelaAgendaProfi.setObjectName("TabelaAgendaProfi")
+        self.TabelaAgendaProfi.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(6, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(7, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.TabelaAgendaProfi.setHorizontalHeaderItem(8, item)
+        self.TabelaAgendaProfi.horizontalHeader().setDefaultSectionSize(150)
+        self.TabelaAgendaProfi.horizontalHeader().setSortIndicatorShown(False)
+        self.TabelaAgendaProfi.horizontalHeader().setStretchLastSection(True)
+        self.TabelaAgendaProfi.verticalHeader().setSortIndicatorShown(False)
+        self.label_11 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_11.setGeometry(QtCore.QRect(510, 160, 411, 41))
+        self.label_11.setObjectName("label_11")
+        self.InputTempo = QtWidgets.QLineEdit(self.tabEmitidas)
+        self.InputTempo.setEnabled(False)
+        self.InputTempo.setGeometry(QtCore.QRect(510, 200, 101, 41))
+        self.InputTempo.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"color: rgb(32, 74, 135);\n"
+"border-radius: 10px;\n"
+"border-color: rgb(0,0,0);\n"
+"")
+        self.InputTempo.setText("")
+        self.InputTempo.setReadOnly(False)
+        self.InputTempo.setObjectName("InputTempo")
+        self.label_14 = QtWidgets.QLabel(self.tabEmitidas)
+        self.label_14.setGeometry(QtCore.QRect(510, 270, 151, 51))
+        font = QtGui.QFont()
+        font.setPointSize(21)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_14.setFont(font)
+        self.label_14.setStyleSheet("color: rgb(0, 0, 0);")
+        self.label_14.setObjectName("label_14")
+        self.tabWidget.addTab(self.tabEmitidas, "")
+        self.lbl_dia = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_dia.setGeometry(QtCore.QRect(40, 90, 1121, 51))
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        self.lbl_dia.setFont(font)
+        self.lbl_dia.setText("")
+        self.lbl_dia.setObjectName("lbl_dia")
+        self.lbl_dia.raise_()
+        self.lbl_id_user.raise_()
+        self.tabWidget.raise_()
+        MainWindow.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(MainWindow)
+        self.tabWidget.setCurrentIndex(1)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "NOVO AGENDAMENTO"))
+        self.label.setText(_translate("MainWindow", "Selecione a Data"))
+        self.label_2.setText(_translate("MainWindow", "Selecione o Profissional"))
+        self.label_7.setText(_translate("MainWindow", "Informe o Cliente"))
+        self.BtnConsultaAgenda.setText(_translate("MainWindow", "Consultar a Agenda"))
+        self.label_13.setText(_translate("MainWindow", "Agendar Horário:"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabVendas), _translate("MainWindow", "Novo Agendamento"))
+        self.label_3.setText(_translate("MainWindow", "Data do agendamento:"))
+        self.data_agendamento.setPlaceholderText(_translate("MainWindow", "Data do agendamento"))
+        self.label_4.setText(_translate("MainWindow", "ID e Nome do Profissional:"))
+        self.profissional.setPlaceholderText(_translate("MainWindow", "Nome do Profissional"))
+        self.label_5.setText(_translate("MainWindow", "Especialidade:"))
+        self.especialidade.setPlaceholderText(_translate("MainWindow", "Especialidade do Profissional"))
+        self.id_profi.setPlaceholderText(_translate("MainWindow", "ID"))
+        self.label_6.setText(_translate("MainWindow", "Selecione o serviço Desejado"))
+        self.label_8.setText(_translate("MainWindow", "Informe a Hora:"))
+        self.BtnAgendar.setText(_translate("MainWindow", "Agendar"))
+        self.label_9.setText(_translate("MainWindow", "ID e Nome do Cliente:"))
+        self.id_cliente.setPlaceholderText(_translate("MainWindow", "ID_cliente"))
+        self.cliente.setPlaceholderText(_translate("MainWindow", "Nome do Cliente"))
+        self.telefone.setPlaceholderText(_translate("MainWindow", "Telefone do Cliente"))
+        self.label_10.setText(_translate("MainWindow", "Telefone do Cliente:"))
+        self.BtnSair.setText(_translate("MainWindow", "Sair"))
+        self.TabelaAgendaProfi.setSortingEnabled(False)
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Data"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Hora"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Tempo Minutos"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Cliente"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Telefone do Cliente"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Serviço agendado"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(6)
+        item.setText(_translate("MainWindow", "Fidelizado"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(7)
+        item.setText(_translate("MainWindow", "Situação"))
+        item = self.TabelaAgendaProfi.horizontalHeaderItem(8)
+        item.setText(_translate("MainWindow", "ID"))
+        self.label_11.setText(_translate("MainWindow", "Tempo médio estimado em minutos do serviço: "))
+        self.InputTempo.setPlaceholderText(_translate("MainWindow", "Minutos"))
+        self.label_14.setText(_translate("MainWindow", "Agenda:"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabEmitidas), _translate("MainWindow", "Agenda do Profissional"))
