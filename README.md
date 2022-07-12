@@ -5,6 +5,7 @@ Esse foi meu projeto final do Jovem Programador módulo 2
 Esse projeto na verdade é uma evolução natural do projeto da padaria, pois me baseei bastante no projeto da padaria para desenvolver este projeto com inúmeras melhorias e também para que ele ficasse com um nível mais avançado do que o anterior (projeto da padaria).
 
 Principais evoluções em relação ao projeto da padaria:
+- Avisos de pendências emitidas pelo sistema automaticamente
 - Melhoramento da seção de estatísticas
 - Inclusão de uma seção de agendamento, além de registro de venda pelo agendamento
 - Sistema de fidelização de clientes
@@ -20,6 +21,7 @@ O projeto consiste basicamente em:
 - Registro de vendas (simula emissão de uma nota fiscal)
 - Estatísticas dos dados
 - Agenda de atendimentos
+- Emissão de notas automaticamente a partir do agendamento
 
 É utilizado o banco de dados Sqlite3.
 
